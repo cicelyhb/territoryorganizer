@@ -1,0 +1,1021 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 15, 2016, 11:33:12 AM
+    Author     : Cicely
+*/
+
+ 
+input[type=button] {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+.donate{
+      background-color: #0B1F81;
+      border: 1px solid whitesmoke;
+/*      border-radius: 6px;      */
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;        
+}
+
+.donate:hover{
+      border: 3px solid whitesmoke;        
+}
+
+@media only screen and (max-width: 763px) {
+.donate{
+      background-color: #0B1F81;
+      border: 1px solid whitesmoke;
+/*      border-radius: 6px;      */
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;        
+}
+
+.donate:hover{
+      border: 3px solid whitesmoke;        
+}    
+}
+
+input[type=text] {
+      background-color: white ;
+/*      border: none;*/
+      color: #072f72;
+    } 
+    
+input[type=newterrtext] {
+      background-color: white ;
+      border:#072f72;
+      color: #072f72;
+    }     
+    
+p { 
+    word-break: break-all;
+    white-space: normal;
+    word-wrap: break-word;
+ }
+ 
+ p.menu { 
+    word-break: break-all;
+    white-space: normal;
+    word-wrap: break-word;
+    color: white;
+ }
+ 
+h1{
+  text-align: center;
+}
+
+h5 { 
+    
+    color: blue;
+ }   
+
+
+ .expand {
+    border: none;
+    background-color: white;
+    color: #072f72;
+    font-size: 12px;
+    
+}
+
+.expand:hover, .expand:focus {
+    border: none;
+    background-color: white;
+    color: #280772;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: underline;
+ 
+}
+
+
+.header img {
+  float: left;
+  width: 20px;
+  height: 20px;
+ /* background: #555;*/
+}
+
+
+.header h3 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+/*    border-bottom: 1px dotted black;*/
+}
+
+.tooltip2 {
+    position: relative;
+    display: inline-block;
+/*    border-bottom: 1px dotted black;*/
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+/*    background-color: black;*/
+    background-color:#FFFFC1;
+/*    color: #fff;*/
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 80px;
+/*    background-color: black;*/
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip2:hover .tooltiptext2 {
+    visibility: visible;
+}
+
+.toolbartip {
+    position: relative;
+    display: inline-block;    
+/*    border-bottom: 1px dotted black;*/
+}
+
+.toolbartip .toolbartiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: beige;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    border: black;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+/*    position: absolute;*/
+    position: fixed;
+    bottom: 775px;
+/*    right: 0;*/
+    z-index: 1;
+}
+
+.toolbartip:hover .toolbartiptext {
+    visibility: visible;
+}
+
+
+img {
+cursor: pointer;
+}
+
+.top {
+    width: 100%;
+/*    max-height: 100px;*/
+    height: 75px;
+    padding-top: 10px;
+    background: #0B1F81;/*#338AFF;*/
+}
+
+@media only screen and (max-width: 763px) {
+.top {
+    width: 100%;
+    height: 75px;
+    /*height: 92px;*/
+    padding-top: 10px;
+    background: #0B1F81;/*#338AFF;*/
+}    
+    
+}
+.bottom {
+  /*  float:left;*/
+    width: 75%;
+    max-height:50px;
+    /*height: 8px;*/
+    background:white;
+    color:#0B1F81;
+    padding-bottom:0px;
+} 
+
+.staticleft {
+    /*padding: 16px;*/
+    width: 10%; /*15%;
+    /*height: 75%;*/
+    max-height:850px;
+    float:left;
+    overflow-x:auto;
+    padding-top: 16px;
+   /* overflow-y: hidden;*/
+   /* resize: horizontal;*/
+    background: white; /*#85929E;*/
+}
+
+.left {
+    /*padding: 16px;*/
+    width: 0;
+    /*height: 75%;*/
+    max-height:850px;
+    float:left;
+    overflow-x:auto;
+   /* overflow-y: hidden;*/
+   /* resize: horizontal;*/
+    background: white; /*#85929E;*/
+}
+.left a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.left a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.left .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.toolbox {
+    width: 15%; /*10%;*/
+    max-height:900px;
+    /*height: 100%;*/
+    /*height: 750px;*/
+   /* margin-left: 90%;*/
+    float:right;
+    overflow-x: hidden;  
+    padding: 16px;
+    /*resize: horizontal;*/
+    background: white; /*#85929E;*/
+}
+
+.toolbox a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+ .toolbox a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.toolbox .closebtn {
+    position: absolute;
+/*    top: 0;*/
+    right: 10px;
+    font-size: 36px;
+
+}
+
+
+.right {
+    width: 15%;
+    max-height:900px;
+    /*height: 100%;*/
+    /*height: 750px;*/
+    float:right;
+    overflow-x: scroll;   
+    resize: horizontal;
+    background: white; /*#85929E;*/
+}
+.staticmenu {
+/*    float:left;
+    max-height: 800px;*/
+/*    margin-top: 5px;*/
+    width:70%;
+    margin-left: 12%; /*15%;*/
+    padding-top: 16px;
+ }
+ 
+.staticmain {
+/*    float:left;
+    max-height: 800px;*/
+    margin-top: 10px;
+    width:70%;
+    margin-left: 12%; /*15%;*/
+/*    padding: 16px;*/
+ }
+
+@media only screen and (max-width: 1024px) {
+.staticmenu {
+/*    float:left;
+    max-height: 800px;*/
+/*    margin-top: 5px;*/
+    width:67%;
+    margin-left: 10%; /*15%;*/
+    padding-top: 16px;
+ }
+ 
+.staticmain {
+/*    float:left;
+    max-height: 800px;*/
+    margin-top: 10px;
+    width:67%;
+    margin-left: 10%; /*15%;*/
+/*    padding: 16px;*/
+ }     
+ }
+ 
+ 
+.main {
+/*    float:left;
+    max-height: 800px;
+    width:65%;*/
+    transition: margin-left .5s;
+    padding: 16px;
+ }
+  
+
+.menutable{
+   width: 100%;
+/*   border-spacing: 2px 0px;*/
+   
+}
+
+.closebuttontable{
+   width: 100%;
+/*   border-spacing: 2px 0px;*/
+   
+}
+
+.closebuttonleft{
+    
+   width:10%; 
+   font-size: 36px;
+   
+}
+
+.closebuttoncenter{
+    
+   width:70%; 
+   font-size: 36px;
+   
+}
+
+.closebuttonright{
+    
+   width:10%; 
+   font-size: 36px;
+   
+}
+
+.formtable{
+      width: 78%; 
+}
+.formleft{
+      width: 39%;   
+}
+
+.formright{
+      width: 39%;   
+}
+
+
+.table{
+   /* width: 350px;*/
+   max-width: 350px;
+   max-height:750px;
+    /*height: 200px;*/
+    /*height:75%;*/
+    border-collapse: collapse;
+}
+/*.table .closebtn{
+    position: absolute;
+    top: 100;
+    right: 25px;
+    font-size: 10px;
+    margin-left: 50px;
+}
+.table-wrap{
+    max-height: 200px;
+    width:25%;
+    overflow-y:auto;
+    overflow-x: scroll;
+}
+.table-dalam{
+    height:300px;
+    width:500px;
+    border-collapse:collapse;
+}
+.td-nya{
+    border-left:1px solid white;
+    border-right:1px solid grey;
+    border-bottom:1px solid
+}      */
+
+a.button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+a.button:hover {
+    background-color: #93c595;
+}
+
+
+    
+@media only screen and (max-width: 763px) {
+a.button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 8px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }    
+}
+    
+a.menu {
+      background-color: #0B1F81;
+      border: #f9f9f9;
+      color: white;
+      font-size: 18px;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    } 
+    
+a.menutitle {
+      background-color: #0B1F81;
+      border: #f9f9f9;
+      color: white;
+      font-size: 22px;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }     
+    
+a.menu:hover, a.menu:focus {
+    background-color: #3e8e41;
+}  
+
+a.menutitle:hover, a.menutitle:focus {
+    background-color: #3e8e41;
+}  
+
+.toolbutton {
+    background-color: white;
+    color: white;
+    padding: 16px;
+    font-size: 18px;
+    border: #f9f9f9;
+    cursor: pointer;
+}
+
+.toolbutton:hover, .toolbutton:focus {
+    background-color: #3e8e41;
+}
+    
+.dropbtn {
+    background-color: #0B1F81;
+    color: white;
+    padding: 16px;
+    font-size: 18px;
+    border: #f9f9f9;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}    
+
+.legend {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid black;
+}
+.legend h3 {
+  margin-top: 40px;
+  text-decoration: underline;
+}
+.legend img {
+  vertical-align: middle;
+}
+
+.legend a {
+/*    padding: 8px 8px 8px 8px;*/
+    text-decoration: none;
+/*    font-size: 14px;*/
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.legend .closebtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 36px;
+
+}
+
+.legend a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sideleftnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 60;
+/*    left: 0;*/
+    background-color: white; /*#4CAF50;*//*#111;*/
+    overflow-x: hidden;
+    transition: 0.5s;
+/*    padding-top: 60px;*/
+}
+
+.sideleftnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sideleftnav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sideleftnav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+ 
+
+
+
+@media only screen and (max-width: 763px) {
+    .sideleftnav {
+/*    display: none;*/
+    height: 100%;
+    width: 0;
+    top:90px;
+    position: fixed;
+    float:left;    
+    z-index: 1;
+    background-color: white; /*#000D21;*//*#111;*/
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 0px 0px 0px 0px;
+}
+
+.sideleftnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sideleftnav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sideleftnav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 36px;
+    margin-left: 50px;
+    padding: 0px 0px 0px 0px;
+}
+}
+
+.siderightnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 1350px;
+    background-color: #000D21;/*#111;*/
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.siderightnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.siderightnav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.siderightnav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #2f4770; /*#1e304f;*/ /*#f1f1f1;*/
+}
+
+/* Style the links inside the tab */
+div.tab a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+/* Change background color of links on hover */
+div.tab a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create an active/current tablink class */
+div.tab a:focus, .active {
+    background-color: #0B1F81; /*#ccc;*/
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* Style the close button */
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.topright:hover {color: red;}
+
+
+.scrollingtable {
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  width: auto; /*if you want a fixed width, set it here, else set to auto*/
+  min-width: 0/*100%*/; /*if you want a % width, set it here, else set to 0*/
+  height: 188px/*100%*/; /*set table height here; can be fixed value or %*/
+  min-height: 0/*104px*/; /*if using % height, make this large enough to fit scrollbar arrows + caption + thead*/
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 20px 0 20px 0; /*need enough padding to make room for caption*/
+  text-align: left;
+}
+.scrollingtable * {box-sizing: border-box;}
+.scrollingtable > div {
+  position: relative;
+  border-top: 1px solid black;
+  height: 100%;
+  padding-top: 20px; /*this determines column header height*/
+}
+.scrollingtable > div:before {
+  top: 0;
+  background: cornflowerblue; /*header row background color*/
+}
+.scrollingtable > div:before,
+.scrollingtable > div > div:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+.scrollingtable > div > div {
+  min-height: 0/*43px*/; /*if using % height, make this large enough to fit scrollbar arrows*/
+  max-height: 100%;
+  overflow: scroll/*auto*/; /*set to auto if using fixed or % width; else scroll*/
+  overflow-x: hidden;
+  border: 1px solid black; /*border around table body*/
+}
+.scrollingtable > div > div:after {background: white;} /*match page background color*/
+.scrollingtable > div > div > table {
+  width: 100%;
+  border-spacing: 0;
+  margin-top: -20px; /*inverse of column header height*/
+  /*margin-right: 17px;*/ /*uncomment if using % width*/
+}
+.scrollingtable > div > div > table > caption {
+  position: absolute;
+  top: -20px; /*inverse of caption height*/
+  margin-top: -1px; /*inverse of border-width*/
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+}
+.scrollingtable > div > div > table > * > tr > * {padding: 0;}
+.scrollingtable > div > div > table > thead {
+  vertical-align: bottom;
+  white-space: nowrap;
+  text-align: center;
+}
+.scrollingtable > div > div > table > thead > tr > * > div {
+  display: inline-block;
+  padding: 0 6px 0 6px; /*header cell padding*/
+}
+.scrollingtable > div > div > table > thead > tr > :first-child:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px; /*match column header height*/
+  border-left: 1px solid black; /*leftmost header border*/
+}
+.scrollingtable > div > div > table > thead > tr > * > div[label]:before,
+.scrollingtable > div > div > table > thead > tr > * > div > div:first-child,
+.scrollingtable > div > div > table > thead > tr > * + :before {
+  position: absolute;
+  top: 0;
+  white-space: pre-wrap;
+/*  background: blue;*/
+  color: white; /*header row font color*/
+}
+.scrollingtable > div > div > table > thead > tr > * > div[label]:before,
+.scrollingtable > div > div > table > thead > tr > * > div[label]:after {content: attr(label);}
+.scrollingtable > div > div > table > thead > tr > * + :before {
+  content: "";
+  display: block;
+  min-height: 20px; /*match column header height*/
+  padding-top: 1px;
+  border-left: 1px solid black; /*borders between header cells*/
+}
+.scrollingtable .scrollbarhead {float: right;}
+.scrollingtable .scrollbarhead:before {
+  position: absolute;
+  width: 100px;
+  top: -1px; /*inverse border-width*/
+  border-right: 1px solid black; 
+  background: white; /*match page background color*/
+}
+.scrollingtable > div > div > table > tbody > tr:after {
+  content: "";
+  display: table-cell;
+  position: relative;
+  padding: 0;
+  border-top: 1px solid black;
+  top: -1px; /*inverse of border width*/
+}
+.scrollingtable > div > div > table > tbody {vertical-align: top;}
+.scrollingtable > div > div > table > tbody > tr {background: white;}
+.scrollingtable > div > div > table > tbody > tr > * {
+  border-bottom: 1px solid black;
+  padding: 0 6px 0 6px;
+  height: 20px; /*match column header height*/
+}
+.scrollingtable > div > div > table > tbody:last-of-type > tr:last-child > * {border-bottom: none;}
+.scrollingtable > div > div > table > tbody > tr:nth-child(even) {background: gainsboro;} /*alternate row color*/
+.scrollingtable > div > div > table > tbody > tr > * + * {border-left: 1px solid black;} /*borders between body cells*/
+
+#primary_nav_wrap
+{
+/*	margin-top:15px;*/
+        height: 100%;
+
+}
+
+#primary_nav_wrap ul
+{
+	list-style:none;
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+#primary_nav_wrap ul a
+{
+	display:block;
+	color:#333;
+	text-decoration:none;
+	font-weight:700;
+        font-size:18px;
+	line-height:40px;
+	padding:0 15px;
+/*        padding: 16px 32px;*/
+	font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+
+
+#primary_nav_wrap ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+
+#primary_nav_wrap ul li.current-menu-item
+{
+/*	background:#ddd;*/
+    background-color: #0B1F81;
+    color: white;
+
+}
+
+
+
+#primary_nav_wrap ul li:hover
+{
+	background:#4CAF50
+}
+
+#primary_nav_wrap ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background:#fff;
+	padding:0
+}
+
+#primary_nav_wrap ul ul li
+{
+        display:block;
+	float:none;
+	width:200px
+}
+
+#primary_nav_wrap ul ul a
+{
+	line-height:120%;
+	padding:10px 15px
+}
+
+#primary_nav_wrap ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#primary_nav_wrap ul li:hover > ul
+{
+	display:block
+}
+
+.sidebtn {
+    background-color: #0B1F81;
+    color: white;
+    padding: 16px;
+    font-size: 18px;
+    border: #f9f9f9;
+    cursor: pointer;
+}
+
+.sidebtn:hover, .sidebtn:focus {
+    background-color: #3e8e41;
+}
+
+.sideslide {
+    position: relative;
+    display: inline-block;
+}
+
+
+.gradient-menu {
+  padding-left: 1.25em;
+  position: relative;
+  color: white;
+}
+.gradient-menu:before {
+  content: "";
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0.21em;
+  bottom: 0.21em;
+  width: 1em;
+   
+/*  background: linear-gradient(
+    to bottom, 
+    #0B1F81, #0B1F81 20%, 
+    white 20%, white 40%, 
+    #0B1F81 40%, #0B1F81 60%, 
+    white 60%, white 80%, 
+    #0B1F81 80%, #0B1F81 100%
+  );*/
+  
+    background: linear-gradient(
+    to bottom, 
+    white, white 20%, 
+    #0B1F81 20%, #0B1F81 40%, 
+    white 40%, white 60%, 
+    #0B1F81 60%, #0B1F81 80%, 
+    white 80%, white 100%
+  );
+}
+
+
+marquee {
+/* height: 50px;	
+ overflow: hidden;
+ position: relative;
+ background: yellow;*/
+ color: black;
+/* border: 1px solid orange;*/
+}
