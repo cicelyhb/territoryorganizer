@@ -3651,10 +3651,10 @@ and open the template in the editor.
                       if(myJSONResult[i].Type === 'DNS' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.DNS.icon,column);                                                            
                       }  
-                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.Letter_LNS.icon,column);                                                            
                       }  
-                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LS' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.Letter_LS.icon,column);                                                            
                       }                       
                       if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
@@ -3680,7 +3680,13 @@ and open the template in the editor.
                       }   
                       if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'PD' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Phone_PD.icon,column);                                 
-                      }                                                
+                      }      
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                                div.innerHTML =  Phone(i,icons.Letter_LNS.icon,column);                                 
+                      } 
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                                div.innerHTML =  Phone(i,icons.Letter_LS.icon,column);                                 
+                      } 					  
                       if(myJSONResult[i].Type === 'NH' && myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                div.innerHTML = '<div id="houserecord' + i + '" style="display:block;">' +
                                                '<table><td><img id="propertyicon' + i + '" src="icons/House_NW.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>'  +
