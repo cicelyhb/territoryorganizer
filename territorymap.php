@@ -58,7 +58,11 @@ and open the template in the editor.
 
                width:5%; 
 
-            }    
+            }  
+
+			tr.spaceUnder>td {
+			  padding-bottom: 1em;
+			}			
 
             @media only screen and (max-width: 763px) {
             .menuleft{
@@ -234,7 +238,7 @@ and open the template in the editor.
             <h3>Legend</h3>
         </div>
         <div id="myterritory"  class="legend" style="display:block"></div> 
-        <div class="tooltip"><div id="myeyeglass"  class="legend" style="display:block"></div><span class="tooltiptext">View Streets</span></div>         
+        <div class="tooltip"><div id="mylist"  class="legend" style="display:block"></div><span class="tooltiptext">View Streets</span></div>         
         <script src="scripts/myscripts.js"></script>
         <script type="text/javascript">    
             <?php
@@ -298,17 +302,32 @@ and open the template in the editor.
             var marker_phone_apt  = [];
             var marker_phone_home_apt  = [];
             var marker_phone_nt_apt  = [];
+            var marker_phone_nc_apt = [];	
+            var marker_phone_vm_apt = [];	
+            var marker_phone_ap_apt = [];
+            var marker_phone_pd_apt = [];	
+            var marker_phone_na_apt = [];
+            var marker_phone_lns_apt = [];	
+            var marker_phone_ls_apt = [];			
             var marker_dnc_apt  = [];
             
             var infowin_resident_nw_apt  = [[]]; //[[html,latitude,longitude]]            
             var infowin_resident_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_home_apt  = [[]]; //[[html,latitude,longitude]]
-            var infowin_resident_nt_apt  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_resident_nt_apt  = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_nc_apt  = [[]]; //[[html,latitude,longitude]] 			
             
             var infowin_phone_nw_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_home_apt  = [[]]; //[[html,latitude,longitude]]
-            var infowin_phone_nt_apt  = [[]]; //[[html,latitude,longitude]]            
+            var infowin_phone_nt_apt  = [[]]; //[[html,latitude,longitude]]  
+            var infowin_phone_nc_apt  = [[]]; //[[html,latitude,longitude]] 	
+            var infowin_phone_vm_apt  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_ap_apt  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_pd_apt  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_na_apt  = [[]]; //[[html,latitude,longitude]] 	
+            var infowin_phone_lns_apt  = [[]]; //[[html,latitude,longitude]] 	
+            var infowin_phone_ls_apt  = [[]]; //[[html,latitude,longitude]] 			
             var infowin_dnc_apt  = [[]]; //[[html,latitude,longitude]]
             
             
@@ -486,25 +505,32 @@ and open the template in the editor.
         $mapLayer->MapA($where19,"infowin_phone_dns","marker_phone_dns",true);         
         
         //Build Select query
-        $param1 =  array(array("Layer"=>"infowin_resident_nw_apt","Marker"=>"marker_resident_nw_apt","bPhone"=>"0","Type"=>"NH","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_nw_apt","Marker"=>"marker_phone_nw_apt","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/Phone_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_resident_apt","Marker"=>"marker_resident_apt","bPhone"=>"0","Type"=>"NH","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_resident_home_apt","Marker"=>"marker_resident_home_apt","bPhone"=>"0","Type"=>"HH","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
-                        array("Layer"=>"infowin_resident_nt_apt","Marker"=>"marker_resident_nt_apt","bPhone"=>"0","Type"=>"NTR","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_apt","Marker"=>"marker_phone_apt","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/Phone_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_home_apt","Marker"=>"marker_phone_home_apt","bPhone"=>"1","Type"=>"HH","Icon"=>"icons/Phone_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_nt_apt","Marker"=>"marker_phone_nt_apt","bPhone"=>"1","Type"=>"NTR","Icon"=>"icons/Phone_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_dnc_apt","Marker"=>"marker_dnc_apt","bPhone"=>"-1","Type"=>"DNC","Icon"=>"icons/DNC.png","IconMouseover"=>"icons/DNC_MouseOver.png"),
+        $param1 =  array(array("Layer"=>"infowin_resident_nw_apt","Marker"=>"marker_resident_nw_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nw_apt","Marker"=>"marker_phone_nw_apt","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_resident_apt","Marker"=>"marker_resident_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_resident_home_apt","Marker"=>"marker_resident_home_apt","bPhone"=>"0","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
+                        array("Layer"=>"infowin_resident_nt_apt","Marker"=>"marker_resident_nt_apt","bPhone"=>"0","Type"=>"NTR","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_apt","Marker"=>"marker_phone_apt","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_home_apt","Marker"=>"marker_phone_home_apt","bPhone"=>"1","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nt_apt","Marker"=>"marker_phone_nt_apt","bPhone"=>"1","Type"=>"NTR","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_dnc_apt","Marker"=>"marker_dnc_apt","bPhone"=>"-1","Type"=>"DNC","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/DNC.png","IconMouseover"=>"icons/DNC_MouseOver.png"),
+						array("Layer"=>"infowin_phone_nc_apt","Marker"=>"marker_phone_nc_apt","bPhone"=>"1","Type"=>"PC","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/Phone_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+						array("Layer"=>"infowin_phone_vm_apt","Marker"=>"marker_phone_vm_apt","bPhone"=>"1","Type"=>"PC","PhoneType"=>"VM","LetterType"=>"LNS","Icon"=>"icons/Phone_VM.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_ap_apt","Marker"=>"marker_phone_ap_apt","bPhone"=>"1","Type"=>"PC","PhoneType"=>"AP","LetterType"=>"LNS","Icon"=>"icons/Phone_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_pd_apt","Marker"=>"marker_phone_pd_apt","bPhone"=>"1","Type"=>"PC","PhoneType"=>"PD","LetterType"=>"LNS","Icon"=>"icons/Phone_PD.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_na_apt","Marker"=>"marker_phone_na_apt","bPhone"=>"1","Type"=>"PC","PhoneType"=>"NA","LetterType"=>"LNS","Icon"=>"icons/Phone_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),		
+						array("Layer"=>"infowin_phone_lns_apt","Marker"=>"marker_phone_lns_apt","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),							
+						array("Layer"=>"infowin_phone_ls_apt","Marker"=>"marker_phone_ls_apt","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/Phone_MouseOver.png")						
             );
         //Build Select query
         $param2 =  array(array("Layer"=>"infowin_resident_nw_multi","Marker"=>"marker_resident_nw_multi","bPhone"=>"0","Type"=>"NH","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_nw_multi","Marker"=>"marker_phone_nw_multi","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/Phone_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nw_multi","Marker"=>"marker_phone_nw_multi","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
                         array("Layer"=>"infowin_resident_multi","Marker"=>"marker_resident_multi","bPhone"=>"0","Type"=>"NH","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
                         array("Layer"=>"infowin_resident_home_multi","Marker"=>"marker_resident_home_multi","bPhone"=>"0","Type"=>"HH","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
                         array("Layer"=>"infowin_resident_nt_multi","Marker"=>"marker_resident_nt_multi","bPhone"=>"0","Type"=>"NTR","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_multi","Marker"=>"marker_phone_multi","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/Phone_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_home_multi","Marker"=>"marker_phone_home_multi","bPhone"=>"1","Type"=>"HH","Icon"=>"icons/Phone_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_nt_multi","Marker"=>"marker_phone_nt_multi","bPhone"=>"1","Type"=>"NTR","Icon"=>"icons/Phone_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_multi","Marker"=>"marker_phone_multi","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_home_multi","Marker"=>"marker_phone_home_multi","bPhone"=>"1","Type"=>"HH","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nt_multi","Marker"=>"marker_phone_nt_multi","bPhone"=>"1","Type"=>"NTR","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
                         array("Layer"=>"infowin_dnc_multi","Marker"=>"marker_dnc_multi","bPhone"=>"-1","Type"=>"DNC","Icon"=>"icons/DNC.png","IconMouseover"=>"icons/DNC_MouseOver.png"),
             );        
         
@@ -526,6 +552,13 @@ and open the template in the editor.
     CreateMarkerB(marker_phone_nw_apt,infowin_phone_nw_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');    
     CreateMarkerB(marker_phone_home_apt,infowin_phone_home_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     CreateMarkerB(marker_phone_nt_apt,infowin_phone_nt_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_phone_nc_apt,infowin_phone_nc_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
+    CreateMarkerB(marker_phone_vm_apt,infowin_phone_vm_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_ap_apt,infowin_phone_ap_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_pd_apt,infowin_phone_pd_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_na_apt,infowin_phone_na_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
+	CreateMarkerB(marker_phone_lns_apt,infowin_phone_lns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
+	CreateMarkerB(marker_phone_ls_apt,infowin_phone_ls_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');		
     CreateMarkerB(marker_dnc_apt,infowin_dnc_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     
     CreateMarkerB(marker_resident_multi,infowin_resident_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
@@ -569,11 +602,9 @@ and open the template in the editor.
             var label = type.label;
             var icon = type.icon;
             var div = document.createElement('div');
-//            div.innerHTML = '<img src="' + icon + '"> ' + label;
-            div.innerHTML = label + ' <br><img src="' + icon + '"><br><br>';
+             div.innerHTML = '<img src="' + icon + '"> = ' + label + '<br><br>';		
             legend.appendChild(div);
-        }
-
+        }      
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
        
    }
@@ -585,11 +616,11 @@ and open the template in the editor.
    territory.appendChild(div1);
    map.controls[google.maps.ControlPosition.TOP_LEFT].push(territory);
    
-   var eyeglass = document.getElementById('myeyeglass');
+   var viewlist = document.getElementById('mylist');
    var div2 = document.createElement('div');   
-   div2.innerHTML = '<img id ="eyeglass" src = "icons/eyeglass1.png">';
-   eyeglass.appendChild(div2);
-   map.controls[google.maps.ControlPosition.TOP_LEFT].push(eyeglass);
+   div2.innerHTML = '<img id ="viewlist" src = "icons/viewlist.png">';
+   viewlist.appendChild(div2);
+   map.controls[google.maps.ControlPosition.TOP_LEFT].push(viewlist);
    }
    
 //      function CreateLegend2(){
@@ -808,7 +839,35 @@ and open the template in the editor.
                 case "marker_phone_nt_apt":
                   //marker_phone_nt_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_nt_apt[index], "click");
-                  break;                                                      
+                  break;   
+                case "marker_phone_nc_apt":
+                  //marker_phone_nc_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_nc_apt[index], "click");
+                  break;
+                case "marker_phone_vm_apt":
+                  //marker_phone_vm_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_vm_apt[index], "click");
+                  break;
+                case "marker_phone_ap_apt":
+                  //marker_phone_ap_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_ap_apt[index], "click");
+                  break;	
+                case "marker_phone_pd_apt":
+                  //marker_phone_pd_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_pd_apt[index], "click");
+                  break;
+                case "marker_phone_na_apt":
+                  //marker_phone_na_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_na_apt[index], "click");
+                  break;	
+                case "marker_phone_lns_apt":
+                  //marker_phone_lns_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_lns_apt[index], "click");
+                  break;
+                case "marker_phone_ls_apt":
+                  //marker_phone_ls_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_ls_apt[index], "click");
+                  break;				  
                 case "marker_resident_nw_multi":  
                   //marker_resident_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_nw_multi[index], "click");
@@ -944,7 +1003,28 @@ and open the template in the editor.
                   break;
                 case "marker_phone_nt_apt":
                   marker_phone_nt_apt[index].infowindow.close();
-                  break;                                                            
+                  break; 
+                case "marker_phone_nc_apt":
+                  marker_phone_nc_apt[index].infowindow.close();
+                  break; 	
+                case "marker_phone_vm_apt":
+                  marker_phone_vm_apt[index].infowindow.close();
+                  break; 
+                case "marker_phone_ap_apt":
+                  marker_phone_ap_apt[index].infowindow.close();
+                  break; 		
+                case "marker_phone_pd_apt":
+                  marker_phone_pd_apt[index].infowindow.close();
+                  break;
+                case "marker_phone_na_apt":
+                  marker_phone_na_apt[index].infowindow.close();
+                  break;
+                case "marker_phone_lns_apt":
+                  marker_phone_lns_apt[index].infowindow.close();
+                  break;
+                case "marker_phone_ls_apt":
+                  marker_phone_ls_apt[index].infowindow.close();
+                  break;					  
                 case "marker_resident_nw_multi":
                   marker_resident_nw_multi[index].infowindow.close();
                   break;                  
@@ -2776,7 +2856,7 @@ and open the template in the editor.
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.DNC.icon;                        
-                    }
+                    } 					
                     break;                  
                   case "marker_resident_apt":
                     marker_resident_apt[index].infowindow.close();    
@@ -2846,66 +2926,409 @@ and open the template in the editor.
                     marker_phone_nw_apt[index].infowindow.close(); 
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                    
                     if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_NH.icon;
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.NH.icon;
                     }
                     if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_HH.icon;                      
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.HH.icon;                      
                     }
                     if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_NTR.icon;                          
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.NTR.icon;                          
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.DNC.icon;                        
-                    }                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_VM.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Letter_LS.icon;                        
+                    }										
                     break;                  
                   case "marker_phone_apt":
                     marker_phone_apt[index].infowindow.close(); 
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                    
                     if (type==='NH'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_NH.icon;
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.NH.icon;
                     }
                     if (type==='HH'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_HH.icon;                      
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.HH.icon;                      
                     }
                     if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_NTR.icon;                          
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.NTR.icon;                          
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_apt' + index).src = icons.DNC.icon;                        
-                    }                       
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_VM.icon;                        
+                    } 		
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 		
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_PD.icon;                        
+                    }
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Letter_LS.icon;                        
+                    }						
                     break;
                   case "marker_phone_home_apt":
                     marker_phone_home_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                  
                     if (type==='NH'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_NH.icon;
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.NH.icon;
                     }
                     if (type==='HH'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_HH.icon;                      
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.HH.icon;                      
                     }
                     if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_NTR.icon;                          
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.NTR.icon;                          
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_home_apt' + index).src = icons.DNC.icon;                        
-                    }                       
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_NH.icon;                        
+                    }
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_HH.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_NA.icon;                        
+                    }
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }	
+                    if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Letter_LS.icon;                        
+                    } 					
                     break;
                   case "marker_phone_nt_apt":
                     marker_phone_nt_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
                     if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_NH.icon;
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.NH.icon;
                     }
                     if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_HH.icon;                      
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.HH.icon;                      
                     }
                     if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_NTR.icon;                          
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.NTR.icon;                          
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.DNC.icon;                        
-                    }                      
-                    break;                                                            
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_VM.icon;                        
+                    }   
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Letter_LS.icon;                        
+                    } 					
+                    break;  
+                  case "marker_phone_nc_apt":
+                    marker_phone_nc_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_VM.icon;                        
+                    }   
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_HH.icon;                        
+                    }
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_NA.icon;                        
+                    }
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Letter_LNS.icon;                        
+                    } 	
+                    if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Letter_LS.icon;                        
+                    } 					
+                    break;	
+                  case "marker_phone_vm_apt":
+                    marker_phone_vm_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_VM.icon;                        
+                    }       
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 	
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Letter_LNS.icon;                        
+                    } 	
+                    if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Letter_LS.icon;                        
+                    } 					
+                    break;	
+                  case "marker_phone_ap_apt":
+                    marker_phone_ap_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_VM.icon;                        
+                    }       
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 			
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Letter_LS.icon;                        
+                    } 					
+                    break;
+                  case "marker_phone_pd_apt":
+                    marker_phone_pd_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_VM.icon;                        
+                    }       
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 	
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Letter_LS.icon;                        
+                    }
+				    break;					
+                  case "marker_phone_na_apt":
+                    marker_phone_na_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_VM.icon;                        
+                    }       
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 		
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;	
+                  case "marker_phone_lns_apt":
+                    marker_phone_lns_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_VM.icon;                        
+                    }       
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 		
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Letter_LS.icon;                        
+                    }						
+                    break;
+                  case "marker_phone_ls_apt":
+                    marker_phone_ls_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_VM.icon;                        
+                    }       
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 		
+                    if (type==='WL' && phonetype==='LNS'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && phonetype==='LS'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Letter_LS.icon;                        
+                    }						
+                    break;					
                   case "marker_resident_nw_multi":
                     marker_resident_nw_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                   
@@ -3624,7 +4047,7 @@ and open the template in the editor.
                                       lettertype:myJSONResult[i].LetterType,
                                       language:myJSONResult[i].Language,
                                       oddeven:iseven,
-                                      formattedaddress:myJSONResult[i].FormattedAddress,
+                                      formattedaddress:  myJSONResult[i].bUnit === '1'? myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') : myJSONResult[i].FormattedAddress,
                                       initialdate:myJSONResult[i].InitialDate,
                                       addressguid:myJSONResult[i].AddressGUID,
                                       resident:myJSONResult[i].Resident,
@@ -3688,481 +4111,53 @@ and open the template in the editor.
                                 div.innerHTML =  Phone(i,icons.Letter_LS.icon,column);                                 
                       } 					  
                       if(myJSONResult[i].Type === 'NH' && myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
-                               div.innerHTML = '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src="icons/House_NW.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>'  +
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' +   
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH">Home</option>' +
-                                               '<option value="NH" selected>Not Home</option>' +
-                                               '<option value="NTR">No Trespassing</option>' +
-                                               '</select></td></tr>' + 
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';
+                                div.innerHTML =  Home(i,icons.NW.icon,column);
                       }
                       if(myJSONResult[i].Type === 'NH' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src="icons/House_NH.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' + 
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' +  
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH">Home</option>' +
-                                               '<option value="NH" selected>Not Home</option>' +
-                                               '<option value="NTR">No Trespassing</option>' +
-                                               '</select></td></tr>' + 
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';
+                                div.innerHTML =  Home(i,icons.NH.icon,column);
                       }
                       if(myJSONResult[i].Type === 'HH' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src="icons/House_HH.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' + 
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' +    
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH" selected>Home</option>' +
-                                               '<option value="NH">Not Home</option>' +
-                                               '<option value="NTR">No Trespassing</option>' +
-                                               '</select></td></tr>' + 
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';
+                                div.innerHTML =  Home(i,icons.HH.icon,column);
                       }     
                       if(myJSONResult[i].Type === 'NTR' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src="icons/House_NTR.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' + 
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' +    
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH">Home</option>' +
-                                               '<option value="NH">Not Home</option>' +
-                                               '<option value="NTR" selected>No Trespassing</option>' +
-                                               '</select></td></tr>' + 
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';
+                                div.innerHTML =  Home(i,icons.NTR.icon,column);
                       }                        
                       if(myJSONResult[i].Type === 'DNC' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src="icons/DNC.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' +
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' + 
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC" selected>Do Not Call</option>' +
-                                               '<option value="HH">Home</option>' +
-                                               '<option value="NH">Not Home</option>' +
-                                               '<option value="NTR">No Trespassing</option>' +
-                                               '</select></td></tr>' + 
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';                                   
+                                div.innerHTML =  Home(i,icons.DNC.icon,column);                                   
                       }    
                       if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src = "icons/Phone_NW.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' +
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' + 
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH">Home</option>' +
-                                               '<option value="NH" selected>Not Home</option>' +
-                                               '<option value="NTR">No Trespassing</option>' +
-                                               '<option value="PC">Phone Call</option>' +
-                                               '<option value="WL">Write Letter</option>' +
-                                               '</select></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                                                                              
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Phone:" style="border:none;" readonly></td></tr>' +         
-                                               '<tr><td><select id="PhoneType' + i + '">' + 
-                                               '<option value="AP">Answered Phone</option>' + 
-                                               '<option value="PD">Phone Disconnected</option>' + 
-                                               '<option value="NC" selected>Not Called</option>' +
-                                               '<option value="VM">Voice Message</option>' + 
-                                               '</select> </td>' +          
-                                               '<td><div class="tooltip"><img src = "icons/Phone_Small.png">' +           
-                                               '<span class="tooltiptext">' + 
-                                                myJSONResult[i].Resident + '<br>' + myJSONResult[i].Phone +
-                                               '</span></div></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';                                     
+                                div.innerHTML =  Phone(i,icons.NW.icon,column);                                   
                       }  
                       if(myJSONResult[i].Type === 'NTR' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src = "icons/Phone_NTR.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' +
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' +   
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH">Home</option>' +
-                                               '<option value="NH">Not Home</option>' +
-                                               '<option value="NTR" selected>No Trespassing</option>' +
-                                               '<option value="PC">Phone Call</option>' +
-                                               '<option value="WL">Write Letter</option>' +                                               
-                                               '</select></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                                                                              
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Phone:" style="border:none;" readonly></td></tr>' +         
-                                               '<tr><td><select id="PhoneType' + i + '">' + 
-                                               '<option value="AP">Answered Phone</option>' +
-                                               '<option value="PD">Phone Disconnected</option>' + 
-                                               '<option value="NC" selected>Not Called</option>' +
-                                               '<option value="VM">Voice Message</option>' + 
-                                               '</select> </td>' +          
-                                               '<td><div class="tooltip"><img src = "icons/Phone_Small.png">' +           
-                                               '<span class="tooltiptext">' + 
-                                                myJSONResult[i].Resident + '<br>' + myJSONResult[i].Phone +
-                                               '</span></div></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';                                     
+                                div.innerHTML =  Phone(i,icons.NTR.icon,column);                                   
                       }         
                       if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src = "icons/Phone_NH.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' +
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' +     
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH">Home</option>' +
-                                               '<option value="NH" selected>Not Home</option>' +
-                                               '<option value="NTR">No Trespassing</option>' +
-                                               '<option value="PC">Phone Call</option>' +
-                                               '<option value="WL">Write Letter</option>' +                                               
-                                               '</select></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                                                                              
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Phone:" style="border:none;" readonly></td></tr>' +         
-                                               '<tr><td><select id="PhoneType' + i + '">' + 
-                                               '<option value="AP">Answered Phone</option>' + 
-                                               '<option value="PD">Phone Disconnected</option>' + 
-                                               '<option value="NC" selected>Not Called</option>' +
-                                               '<option value="VM">Voice Message</option>' + 
-                                               '</select> </td>' +          
-                                               '<td><div class="tooltip"><img src = "icons/Phone_Small.png">' +           
-                                               '<span class="tooltiptext">' + 
-                                                myJSONResult[i].Resident + '<br>' + myJSONResult[i].Phone +
-                                               '</span></div></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';                                     
+                                div.innerHTML =  Phone(i,icons.NH.icon,column);                                    
                       }    
                       if(myJSONResult[i].Type === 'HH' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                              div.innerHTML =  '<div id="houserecord' + i + '" style="display:block;">' +
-                                               '<table><td><img id="propertyicon' + i + '" src = "icons/Phone_HH.png" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td><td><p><b>' + myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') + '</b></p></td></table>' +
-                                               '<div id = "street_detail' + i + '" style="display:none;">' + 
-                                               
-                                               '<div id="hiddendata' + i + '" style="display:none;">' +
-                                               '<table>' +                                                   
-                                               '<tr><td><input type="hidden" id="iseven' + i + '"  value="' + iseven + '" readonly></td></tr>' +                                                
-                                               '<tr><td><input type="hidden" id="InitDate' + i + '" value="' + myJSONResult[i].InitialDate + '"/></td></tr>' +                 
-                                               '<tr><td><input type="hidden" id="AddressGUID' + i + '" value="' + myJSONResult[i].AddressGUID + '"/></td></tr>' +
-                                               '<tr><td><input type="hidden" id="bPhone' + i + '" value="' + myJSONResult[i].bPhone + '"/></td></tr>' + notes_elements +
-                                               '</table>' +                                                   
-                                               '</div>' +
-                                               
-                                               '<table>' +                                               
-                                               '<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Language' + i + '">' + 
-                                               '<option value="7FD97709-FD96-49DE-A6BB-23DDE04ED3B5" selected>English</option>' +  
-                                               '<option value="0537566C-1601-4CF7-953C-35CBA245085A">Spanish</option>' +
-                                               '</select> </td></tr>' +    
-                                               
-                                               '<tr><td><input type="text" value="House:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><select id="Type' + i + '">' + 
-                                               '<option value="DNC">Do Not Call</option>' +
-                                               '<option value="HH" selected>Home</option>' +
-                                               '<option value="NH">Not Home</option>' +
-                                               '<option value="NTR">No Trespassing</option>' +
-                                               '<option value="PC">Phone Call</option>' +
-                                               '<option value="WL">Write Letter</option>' +                                               
-                                               '</select></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                                                                              
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Phone:" style="border:none;" readonly></td></tr>' +         
-                                               '<tr><td><select id="PhoneType' + i + '">' + 
-                                               '<option value="AP">Answered Phone</option>' + 
-                                               '<option value="PD">Phone Disconnected</option>' + 
-                                               '<option value="NC" selected>Not Called</option>' +
-                                               '<option value="VM">Voice Message</option>' + 
-                                               '</select> </td>' +          
-                                               '<td><div class="tooltip"><img src = "icons/Phone_Small.png">' +           
-                                               '<span class="tooltiptext">' + 
-                                                myJSONResult[i].Resident + '<br>' + myJSONResult[i].Phone +
-                                               '</span></div></td></tr>' + 
-                                               
-                                               '</table>' +                                               
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="text" value="Add Note:" style="border:none;" readonly></td></tr>' + 
-                                               '<tr><td><textarea id="Notes' + i + '" rows="5" cols="40" value=""/></textarea></td></tr>' + 
-                                                                                              
-                                               '</table>' + notes +
-                                               
-                                               '<table>' +
-                                               
-                                               '<tr><td><input type="button" value="Submit Changes" onclick="saveData(' + '\'' + '\'' + ',' + i + ',' + '0)"/></td>' +
-                                               '<td><input type="button" value="Close" onclick="expandStreetDetail(' + '\'' + 'street_detail' + i + '\'' + ')"/></td></tr>' +                                               
-                                               
-                                               '</table>' + 
-                                               '</div>' +                                                   
-                                               '</div>';                                     
-                      }                                               
-                      
+                                div.innerHTML =  Phone(i,icons.HH.icon,column);                                     
+                      }   
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NC' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Phone(i,icons.Phone_NH.icon,column);                                   
+                      }
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'VM' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Phone(i,icons.Phone_VM.icon,column);                                   
+                      }    					  
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'AP' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Phone(i,icons.Phone_HH.icon,column);                                   
+                      }  
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'PD' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Phone(i,icons.Phone_PD.icon,column);                                   
+                      }  
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NA' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Phone(i,icons.Phone_NA.icon,column);                                   
+                      } 
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Phone(i,icons.Letter_LNS.icon,column);                                   
+                      } 
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Phone(i,icons.Letter_LS.icon,column);                                   
+                      }                       
                       detail.appendChild(div);
       
                       }
@@ -4400,7 +4395,7 @@ and open the template in the editor.
            document.getElementById("banner").style.marginLeft = "400px";              
          });   
          
-        $("#eyeglass").click(function (){  
+        $("#mylist").click(function (){  
             if(screen<768){ 
                 document.getElementById("myleft2").style.width = "0";              
                 document.getElementById("myleft1").style.width = "100%";                      
