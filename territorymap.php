@@ -297,6 +297,8 @@ and open the template in the editor.
             var marker_resident_apt = [];
             var marker_resident_home_apt  = [];
             var marker_resident_nt_apt  = [];
+            var marker_resident_ls_apt  = [];
+            var marker_resident_lns_apt  = [];			
             
             var marker_phone_nw_apt  = [];
             var marker_phone_apt  = [];
@@ -315,7 +317,9 @@ and open the template in the editor.
             var infowin_resident_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_home_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_nt_apt  = [[]]; //[[html,latitude,longitude]]
-            var infowin_resident_nc_apt  = [[]]; //[[html,latitude,longitude]] 			
+            var infowin_resident_nc_apt  = [[]]; //[[html,latitude,longitude]] 		
+            var infowin_resident_ls_apt  = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_lns_apt  = [[]]; //[[html,latitude,longitude]] 				
             
             var infowin_phone_nw_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_apt  = [[]]; //[[html,latitude,longitude]]
@@ -343,17 +347,32 @@ and open the template in the editor.
             var marker_phone_multi  = [];
             var marker_phone_home_multi  = [];
             var marker_phone_nt_multi  = [];
+            var marker_phone_nc_multi = [];	
+            var marker_phone_vm_multi = [];	
+            var marker_phone_ap_multi = [];
+            var marker_phone_pd_multi = [];	
+            var marker_phone_na_multi = [];
+            var marker_phone_lns_multi = [];	
+            var marker_phone_ls_multi = [];			
             var marker_dnc_multi  = [];
             
             var infowin_resident_nw_multi  = [[]]; //[[html,latitude,longitude]]            
             var infowin_resident_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_home_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_nt_multi  = [[]]; //[[html,latitude,longitude]] 
+			
             
             var infowin_phone_nw_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_home_multi  = [[]]; //[[html,latitude,longitude]]
-            var infowin_phone_nt_multi  = [[]]; //[[html,latitude,longitude]]            
+            var infowin_phone_nt_multi  = [[]]; //[[html,latitude,longitude]] 
+			var infowin_phone_nc_multi  = [[]]; //[[html,latitude,longitude]] 	
+            var infowin_phone_vm_multi  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_ap_multi  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_pd_multi  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_na_multi  = [[]]; //[[html,latitude,longitude]] 	
+            var infowin_phone_lns_multi  = [[]]; //[[html,latitude,longitude]] 	
+            var infowin_phone_ls_multi  = [[]]; //[[html,latitude,longitude]] 
             var infowin_dnc_multi  = [[]]; //[[html,latitude,longitude]] 
             var infowin_index;
             var territorygroups = []; 
@@ -520,18 +539,20 @@ and open the template in the editor.
 						array("Layer"=>"infowin_phone_pd_apt","Marker"=>"marker_phone_pd_apt","bPhone"=>"1","Type"=>"PC","PhoneType"=>"PD","LetterType"=>"LNS","Icon"=>"icons/Phone_PD.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
 						array("Layer"=>"infowin_phone_na_apt","Marker"=>"marker_phone_na_apt","bPhone"=>"1","Type"=>"PC","PhoneType"=>"NA","LetterType"=>"LNS","Icon"=>"icons/Phone_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),		
 						array("Layer"=>"infowin_phone_lns_apt","Marker"=>"marker_phone_lns_apt","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),							
-						array("Layer"=>"infowin_phone_ls_apt","Marker"=>"marker_phone_ls_apt","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/Phone_MouseOver.png")						
+						array("Layer"=>"infowin_phone_ls_apt","Marker"=>"marker_phone_ls_apt","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),						
+						array("Layer"=>"infowin_resident_lns_apt","Marker"=>"marker_resident_lns_apt","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),						
+						array("Layer"=>"infowin_resident_ls_apt","Marker"=>"marker_resident_ls_apt","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/House_MouseOver.png")						
             );
         //Build Select query
-        $param2 =  array(array("Layer"=>"infowin_resident_nw_multi","Marker"=>"marker_resident_nw_multi","bPhone"=>"0","Type"=>"NH","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_nw_multi","Marker"=>"marker_phone_nw_multi","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_resident_multi","Marker"=>"marker_resident_multi","bPhone"=>"0","Type"=>"NH","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_resident_home_multi","Marker"=>"marker_resident_home_multi","bPhone"=>"0","Type"=>"HH","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
-                        array("Layer"=>"infowin_resident_nt_multi","Marker"=>"marker_resident_nt_multi","bPhone"=>"0","Type"=>"NTR","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/House_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_multi","Marker"=>"marker_phone_multi","bPhone"=>"1","Type"=>"NH","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_home_multi","Marker"=>"marker_phone_home_multi","bPhone"=>"1","Type"=>"HH","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_phone_nt_multi","Marker"=>"marker_phone_nt_multi","bPhone"=>"1","Type"=>"NTR","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-                        array("Layer"=>"infowin_dnc_multi","Marker"=>"marker_dnc_multi","bPhone"=>"-1","Type"=>"DNC","Icon"=>"icons/DNC.png","IconMouseover"=>"icons/DNC_MouseOver.png"),
+        $param2 =  array(array("Layer"=>"infowin_resident_nw_multi","Marker"=>"marker_resident_nw_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nw_multi","Marker"=>"marker_phone_nw_multi","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_resident_multi","Marker"=>"marker_resident_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_resident_home_multi","Marker"=>"marker_resident_home_multi","bPhone"=>"0","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
+                        array("Layer"=>"infowin_resident_nt_multi","Marker"=>"marker_resident_nt_multi","bPhone"=>"0","Type"=>"NTR","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_multi","Marker"=>"marker_phone_multi","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_home_multi","Marker"=>"marker_phone_home_multi","bPhone"=>"1","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nt_multi","Marker"=>"marker_phone_nt_multi","bPhone"=>"1","Type"=>"NTR","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_dnc_multi","Marker"=>"marker_dnc_multi","bPhone"=>"-1","Type"=>"DNC","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/DNC.png","IconMouseover"=>"icons/DNC_MouseOver.png"),
             );        
         
         $mapLayer->MapB($congregationnumber,$Territory ,"infowin_apt","marker_apt",$param1);
@@ -548,6 +569,8 @@ and open the template in the editor.
     CreateMarkerB(marker_resident_nw_apt,infowin_resident_nw_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     CreateMarkerB(marker_resident_home_apt,infowin_resident_home_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     CreateMarkerB(marker_resident_nt_apt,infowin_resident_nt_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_lns_apt,infowin_resident_lns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_ls_apt,infowin_resident_ls_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
     CreateMarkerB(marker_phone_apt,infowin_phone_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     CreateMarkerB(marker_phone_nw_apt,infowin_phone_nw_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');    
     CreateMarkerB(marker_phone_home_apt,infowin_phone_home_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
@@ -820,6 +843,14 @@ and open the template in the editor.
                   //marker_resident_nt_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_nt_apt[index], "click");
                   break;
+                case "marker_resident_lns_apt":
+                  //marker_resident_lns_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_lns_apt[index], "click");
+                  break;
+                case "marker_resident_ls_apt":
+                  //marker_resident_ls_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_ls_apt[index], "click");
+                  break;				  
                 case "marker_dnc_apt":
                   //marker_dnc_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_dnc_apt[index], "click");
@@ -989,6 +1020,12 @@ and open the template in the editor.
                 case "marker_resident_nt_apt":
                   marker_resident_nt_apt[index].infowindow.close();
                   break;
+                case "marker_resident_lns_apt":
+                  marker_resident_lns_apt[index].infowindow.close();
+                  break;	
+                case "marker_resident_ls_apt":
+                  marker_resident_ls_apt[index].infowindow.close();
+                  break;				  
                 case "marker_dnc_apt":
                   marker_dnc_apt[index].infowindow.close();
                   break;
@@ -2856,7 +2893,13 @@ and open the template in the editor.
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.DNC.icon;                        
-                    } 					
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.Letter_LS.icon;                        
+                    }						
                     break;                  
                   case "marker_resident_apt":
                     marker_resident_apt[index].infowindow.close();    
@@ -2872,6 +2915,12 @@ and open the template in the editor.
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_apt' + index).src = icons.DNC.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_apt' + index).src = icons.Letter_LS.icon;                        
                     }                    
                     break;
                   case "marker_resident_home_apt":
@@ -2888,7 +2937,13 @@ and open the template in the editor.
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_home_apt' + index).src = icons.DNC.icon;                        
-                    }                    
+                    }  
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.Letter_LS.icon;                        
+                    }  					
                     break;
                   case "marker_resident_nt_apt":
                     marker_resident_nt_apt[index].infowindow.close();   
@@ -2904,8 +2959,58 @@ and open the template in the editor.
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.DNC.icon;                        
-                    }                     
+                    }  
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.Letter_LS.icon;                        
+                    }  					
                     break;
+                  case "marker_resident_lns_apt":
+                    marker_resident_lns_apt[index].infowindow.close();   
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.Letter_LS.icon;                        
+                    }  					
+                    break;	
+                  case "marker_resident_ls_apt":
+                    marker_resident_ls_apt[index].infowindow.close();   
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.Letter_LS.icon;                        
+                    }  					
+                    break;					
                   case "marker_dnc_apt":
                     marker_dnc_apt[index].infowindow.close();  
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
@@ -2920,7 +3025,7 @@ and open the template in the editor.
                     }
                     if (type==='DNC'){
                         document.getElementById('imagemarker_dnc_apt' + index).src = icons.DNC.icon;                        
-                    }                     
+                    }   					
                     break;
                   case "marker_phone_nw_apt":
                     marker_phone_nw_apt[index].infowindow.close(); 
@@ -2952,10 +3057,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_NA.icon;                        
                     } 
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Letter_LNS.icon;                        
                     }
-                    if (type==='WL' && phonetype==='LS'){
+                    if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Letter_LS.icon;                        
                     }										
                     break;                  
@@ -2989,10 +3094,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_NA.icon;                        
                     } 
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_apt' + index).src = icons.Letter_LNS.icon;                        
                     }
-                    if (type==='WL' && phonetype==='LS'){
+                    if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_apt' + index).src = icons.Letter_LS.icon;                        
                     }						
                     break;
@@ -3026,10 +3131,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_NA.icon;                        
                     }
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Letter_LNS.icon;                        
                     }	
-                    if (type==='WL' && phonetype==='LS'){
+                    if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Letter_LS.icon;                        
                     } 					
                     break;
@@ -3063,10 +3168,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_NA.icon;                        
                     } 
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Letter_LNS.icon;                        
                     }
-                    if (type==='WL' && phonetype==='LS'){
+                    if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Letter_LS.icon;                        
                     } 					
                     break;  
@@ -3100,10 +3205,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_NA.icon;                        
                     }
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Letter_LNS.icon;                        
                     } 	
-                    if (type==='WL' && phonetype==='LS'){
+                    if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Letter_LS.icon;                        
                     } 					
                     break;	
@@ -3137,10 +3242,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_NA.icon;                        
                     } 	
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Letter_LNS.icon;                        
                     } 	
-                    if (type==='WL' && phonetype==='LS'){
+                    if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Letter_LS.icon;                        
                     } 					
                     break;	
@@ -3174,10 +3279,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_NA.icon;                        
                     } 			
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Letter_LNS.icon;                        
                     }
-                    if (type==='WL' && phonetype==='LS'){
+                    if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Letter_LS.icon;                        
                     } 					
                     break;
@@ -3211,10 +3316,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_NA.icon;                        
                     } 	
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Letter_LNS.icon;                        
                     } 
-					if (type==='WL' && phonetype==='LS'){
+					if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Letter_LS.icon;                        
                     }
 				    break;					
@@ -3248,10 +3353,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_NA.icon;                        
                     } 		
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Letter_LNS.icon;                        
                     } 
-					if (type==='WL' && phonetype==='LS'){
+					if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Letter_LS.icon;                        
                     }					
                     break;	
@@ -3285,10 +3390,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_NA.icon;                        
                     } 		
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Letter_LNS.icon;                        
                     } 
-					if (type==='WL' && phonetype==='LS'){
+					if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Letter_LS.icon;                        
                     }						
                     break;
@@ -3322,10 +3427,10 @@ and open the template in the editor.
                     if (type==='PC' && phonetype==='NA'){
                         document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_NA.icon;                        
                     } 		
-                    if (type==='WL' && phonetype==='LNS'){
+                    if (type==='WL' && lettertype==='LNS'){
                         document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Letter_LNS.icon;                        
                     } 
-					if (type==='WL' && phonetype==='LS'){
+					if (type==='WL' && lettertype==='LS'){
                         document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Letter_LS.icon;                        
                     }						
                     break;					
@@ -4121,7 +4226,13 @@ and open the template in the editor.
                       }     
                       if(myJSONResult[i].Type === 'NTR' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.NTR.icon,column);
-                      }                        
+                      }   
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Home(i,icons.Letter_LNS.icon,column);                                   
+                      } 
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                                div.innerHTML =  Home(i,icons.Letter_LS.icon,column);                                   
+                      }   					  
                       if(myJSONResult[i].Type === 'DNC' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.DNC.icon,column);                                   
                       }    
