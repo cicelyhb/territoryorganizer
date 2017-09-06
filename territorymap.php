@@ -263,7 +263,8 @@ and open the template in the editor.
             var marker_phone_nc = [];
             var marker_phone_vm = [];  
             var marker_phone_ap = []; 
-            var marker_phone_pd = [];   
+            var marker_phone_pd = [];  
+            var marker_phone_na = [];			
             var marker_phone_lns = []; 
             var marker_phone_ls = [];    
             var marker_phone_dns = [];            
@@ -285,6 +286,7 @@ and open the template in the editor.
             var infowin_phone_vm = [[]]; //[[html,latitude,longitude]]  
             var infowin_phone_ap = [[]]; //[[html,latitude,longitude]]   
             var infowin_phone_pd = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_na = [];			
             var infowin_phone_lns = [[]]; //[[html,latitude,longitude]]  
             var infowin_phone_ls = [[]]; //[[html,latitude,longitude]]    
             var infowin_phone_dns = [[]]; //[[html,latitude,longitude]]            
@@ -521,7 +523,10 @@ and open the template in the editor.
         $mapLayer->MapA($where18,"infowin_resident_dns","marker_resident_dns",false);    
         //Build Select query
         $where19 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bLetter = 0 AND Type = 'DNS'";
-        $mapLayer->MapA($where19,"infowin_phone_dns","marker_phone_dns",true);         
+        $mapLayer->MapA($where19,"infowin_phone_dns","marker_phone_dns",true);  
+        //Build Select query
+        $where20 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bLetter = 0 AND Type = 'PC' AND PhoneType = 'NA'";
+        $mapLayer->MapA($where20,"infowin_phone_na","marker_phone_na",true); 		
         
         //Build Select query
         $param1 =  array(array("Layer"=>"infowin_resident_nw_apt","Marker"=>"marker_resident_nw_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
@@ -605,12 +610,13 @@ and open the template in the editor.
     CreateMarker(marker_phone,infowin_phone,icons.NH.icon,icons.Phone_NH.mouseovericon);
     CreateMarker(marker_phone_nw,infowin_phone_nw,icons.NH.icon,icons.Phone_NH.mouseovericon);
     CreateMarker(marker_phone_home,infowin_phone_home,icons.HH.icon,icons.Phone_HH.mouseovericon);
-    CreateMarker(marker_phone_nt,infowin_phone_nt,icons.NTR.icon,icons.Phone_NH.mouseovericon);
+    CreateMarker(marker_phone_nt,infowin_phone_nt,icons.NTR.icon,icons.Phone_NH.mouseovericon);	
     CreateMarker(marker_phone_dns,infowin_phone_dns,icons.DNS.icon,icons.Phone_NH.mouseovericon);      
     CreateMarker(marker_phone_nc,infowin_phone_nc,icons.Phone_NH.icon,icons.Phone_NH.mouseovericon);  
     CreateMarker(marker_phone_vm,infowin_phone_vm,icons.Phone_VM.icon,icons.Phone_NH.mouseovericon);  
     CreateMarker(marker_phone_ap,infowin_phone_ap,icons.Phone_HH.icon,icons.Phone_NH.mouseovericon);     
-    CreateMarker(marker_phone_pd,infowin_phone_pd,icons.Phone_PD.icon,icons.Phone_NH.mouseovericon);   
+    CreateMarker(marker_phone_pd,infowin_phone_pd,icons.Phone_PD.icon,icons.Phone_NH.mouseovericon);
+    CreateMarker(marker_phone_na,infowin_phone_na,icons.Phone_NA.icon,icons.Phone_NH.mouseovericon);	
     CreateMarker(marker_phone_lns,infowin_phone_lns,icons.Letter_LNS.icon,icons.Phone_NH.mouseovericon);    
     CreateMarker(marker_phone_ls,infowin_phone_ls,icons.Letter_LS.icon,icons.Phone_NH.mouseovericon);  
    
@@ -998,7 +1004,10 @@ and open the template in the editor.
                   break;   
                 case "marker_phone_pd":
                   marker_phone_pd[index].infowindow.close();
-                  break;    
+                  break;  
+                case "marker_phone_na":
+                  marker_phone_na[index].infowindow.close();
+                  break;				  
                 case "marker_phone_lns":
                   marker_phone_lns[index].infowindow.close();
                   break;  
@@ -2047,6 +2056,13 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
                     } 
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
+                        marker_phone_nw[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    } 					
                     if (type==='WL' && lettertype==='LNS'){
                         google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
@@ -2132,7 +2148,14 @@ and open the template in the editor.
                         marker_phone[index].setIcon(icons.Phone_PD.icon);
                         google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }  
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
+                        marker_phone[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    } 					
                     if (type==='WL' && lettertype==='LNS'){
                         google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
@@ -2216,7 +2239,14 @@ and open the template in the editor.
                         marker_phone_home[index].setIcon(icons.Phone_PD.icon);
                         google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }    
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
+                        marker_phone_home[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    } 					
                     if (type==='WL' && lettertype==='LNS'){    
                         google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
@@ -2303,6 +2333,13 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
                     } 
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
+                        marker_phone_nt[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    } 					
                     if (type==='WL' && lettertype==='LNS'){       
                         google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
@@ -2382,7 +2419,14 @@ and open the template in the editor.
                         marker_phone_nc[index].setIcon(icons.Phone_PD.icon);
                         google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }  
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
+                        marker_phone_nc[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    } 						
                     if (type==='WL' && lettertype==='LNS'){  
                         google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
@@ -2462,7 +2506,21 @@ and open the template in the editor.
                         marker_phone_vm[index].setIcon(icons.Phone_PD.icon);
                         google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }      
+                    }  
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
+                        marker_phone_vm[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    }					
+                    if (type==='WL' && lettertype==='LNS'){  
+                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
+                        marker_phone_vm[index].setIcon(icons.Letter_LNS.icon);
+                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
+                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
+                    }  					
                     if (type==='WL' && lettertype==='LNS'){ 
                         google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
@@ -2543,6 +2601,13 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
                     }  
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
+                        marker_phone_ap[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    } 					
                     if (type==='WL' && lettertype==='LNS'){     
                         google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
@@ -2623,6 +2688,13 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
                     }
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
+                        marker_phone_pd[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    } 					
                     if (type==='WL' && lettertype==='LNS'){  
                         google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
@@ -2703,6 +2775,13 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
                     }
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
+                        marker_phone_lns[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    }						
                     if (type==='WL' && lettertype==='LNS'){  
                         google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
@@ -2783,6 +2862,13 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
                     }
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
+                        marker_phone_ls[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    }						
                     if (type==='WL' && lettertype==='LNS'){  
                         google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
@@ -2863,6 +2949,13 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
                         google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
                     }
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
+                        marker_phone_dns[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    }					
                     if (type==='WL' && lettertype==='LNS'){  
                         google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
@@ -2878,7 +2971,94 @@ and open the template in the editor.
                         google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
                     }                    
                     marker_phone_dns[index].infowindow.close();
-                    break;                      
+                    break;   
+                  case "marker_phone_na":
+                    if (type==='NH'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
+                        marker_phone_na[index].setIcon(icons.NH.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
+                    }
+                    if (type==='HH'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
+                        marker_phone_na[index].setIcon(icons.HH.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
+                    }
+                    if (type==='NTR'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                         
+                        marker_phone_na[index].setIcon(icons.NTR.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
+                    }  
+                    if (type==='DNC'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
+                        marker_phone_na[index].setIcon(icons.DNC.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
+                    }  
+                    if (type==='DNS'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
+                        marker_phone_na[index].setIcon(icons.DNS.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
+                    }                      
+                    if (type==='PC' && phonetype==='NC'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
+                        marker_phone_na[index].setIcon(icons.Phone_NH.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
+                    }  
+                    if (type==='PC' && phonetype==='VM'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
+                        marker_phone_na[index].setIcon(icons.Phone_VM.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
+                    }
+                    if (type==='PC' && phonetype==='AP'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
+                        marker_phone_na[index].setIcon(icons.Phone_HH.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
+                    }   
+                    if (type==='PC' && phonetype==='PD'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
+                        marker_phone_na[index].setIcon(icons.Phone_PD.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
+                    }
+                    if (type==='PC' && phonetype==='NA'){
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
+                        marker_phone_na[index].setIcon(icons.Phone_NA.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
+                    }					
+                    if (type==='WL' && lettertype==='LNS'){  
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
+                        marker_phone_na[index].setIcon(icons.Letter_LNS.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
+                    }    
+                    if (type==='WL' && lettertype==='LS'){  
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
+                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
+                        marker_phone_na[index].setIcon(icons.Letter_LS.icon);
+                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
+                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
+                    }                    
+                    marker_phone_dns[index].infowindow.close();
+                    break;  					
                   case "marker_resident_nw_apt":
                     marker_resident_nw_apt[index].infowindow.close();                    
                     google.maps.event.trigger(marker_apt[infowin_index], "click");
@@ -4208,7 +4388,10 @@ and open the template in the editor.
                       }   
                       if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'PD' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Phone_PD.icon,column);                                 
-                      }      
+                      } 
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NA' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                                div.innerHTML =  Phone(i,icons.Phone_NA.icon,column);                                 
+                      } 					  
                       if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Letter_LNS.icon,column);                                 
                       } 
