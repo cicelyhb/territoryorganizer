@@ -1080,6 +1080,7 @@ class Login{
                 $i14=0;	
                 $i15=0;		
 				$i16=0;	
+				$i17=0;				
                 $total=0;
                 $column = array(18);
                 $multihome= array(array());
@@ -1337,6 +1338,34 @@ class Login{
                                $i=$i16;
                                $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
                             } 
+							
+                       //Marker 17
+                               
+                            if($array[16]["Type"]==$column[5] && $array[16]["LetterType"]==$column[20] && (int)$array[16]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[16]["Layer"];
+                               $markername1=$array[16]["Marker"];
+                               $Icon=$array[16]["Icon"];
+                               $IconMouseover=$array[16]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i17+=1;
+                               $i=$i17;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                            } 
+
+                       //Marker 18
+                               
+                            if($array[17]["Type"]==$column[5] && $array[17]["LetterType"]==$column[20] && (int)$array[17]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[17]["Layer"];
+                               $markername1=$array[17]["Marker"];
+                               $Icon=$array[17]["Icon"];
+                               $IconMouseover=$array[17]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i18+=1;
+                               $i=$i18;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                            } 							
                             
                         
                         if ($HavePhone)
