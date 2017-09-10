@@ -56,8 +56,7 @@ while( $row = mysqli_fetch_array( $result, MYSQLI_NUM))
                   "bUnit" => $row[15],
                   "Phone" => $row[16],
                   "Building" => $row[17],
-                  "PhoneType" => $row[18],
-                  "LetterType" => $row[19]);
+                  "LetterType" => $row[18]);
 }
 
 //close connections
