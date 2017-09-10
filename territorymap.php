@@ -600,7 +600,7 @@ and open the template in the editor.
     CreateMarkerB(marker_dnc_multi,infowin_dnc_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
    
     CreateMarker(marker_resident,infowin_resident,icons.NH.icon,icons.NH.mouseovericon);
-    CreateMarker(marker_resident_nw,infowin_resident_nw,icons.NH.icon,icons.NH.mouseovericon);
+    CreateMarker(marker_resident_nw,infowin_resident_nw,icons.NW.icon,icons.NW.mouseovericon);
     CreateMarker(marker_resident_home,infowin_resident_home,icons.HH.icon,icons.HH.mouseovericon);
     CreateMarker(marker_resident_nt,infowin_resident_nt,icons.NTR.icon,icons.NTR.mouseovericon);
     CreateMarker(marker_resident_lns,infowin_resident_lns,icons.Letter_LNS.icon,icons.NH.mouseovericon);    
@@ -608,7 +608,7 @@ and open the template in the editor.
     CreateMarker(marker_resident_dns,infowin_resident_dns,icons.DNS.icon,icons.DNS.mouseovericon);     
     
     CreateMarker(marker_phone,infowin_phone,icons.NH.icon,icons.Phone_NH.mouseovericon);
-    CreateMarker(marker_phone_nw,infowin_phone_nw,icons.NH.icon,icons.Phone_NH.mouseovericon);
+    CreateMarker(marker_phone_nw,infowin_phone_nw,icons.NW.icon,icons.Phone_NH.mouseovericon);
     CreateMarker(marker_phone_home,infowin_phone_home,icons.HH.icon,icons.Phone_HH.mouseovericon);
     CreateMarker(marker_phone_nt,infowin_phone_nt,icons.NTR.icon,icons.Phone_NH.mouseovericon);	
     CreateMarker(marker_phone_dns,infowin_phone_dns,icons.DNS.icon,icons.Phone_NH.mouseovericon);      
@@ -1153,7 +1153,7 @@ and open the template in the editor.
 
         n = escape(document.getElementById("Notes" + index).value);
         nt = parseInt(escape(document.getElementById("N_total"  + index).value));
-        
+        lettertype = escape(document.getElementById("LetterType" + index).value);
         if(bPhone=="1")
         {
           phonetype = escape(document.getElementById("PhoneType" + index).value);
@@ -1564,23 +1564,51 @@ and open the template in the editor.
               document.getElementById("propertyicon" + index).src = icons.NH.icon;
           }
           if(type==="HH" && bPhone==='0'){
-              document.getElementById("propertyicon" + index).src = icons.HH.icon;
+              document.getElementById("propertyicon" + index).src = icons.HH.icon;		  
           } 
           if(type==="NTR" && bPhone==='0'){
-              document.getElementById("propertyicon" + index).src = icons.NTR.icon;
+              document.getElementById("propertyicon" + index).src = icons.NTR.icon;		  
           }   
+          if(type==="DNS" && bPhone==='0'){
+              document.getElementById("propertyicon" + index).src = icons.DNS.icon;		  
+          } 		  
           if(type==="NH" && bPhone==='1'){
-              document.getElementById("propertyicon" + index).src = icons.Phone_NH.icon;
+              document.getElementById("propertyicon" + index).src = icons.NH.icon;		  
           }
           if(type==="HH" && bPhone==='1'){
-              document.getElementById("propertyicon" + index).src = icons.Phone_HH.icon;
+              document.getElementById("propertyicon" + index).src = icons.HH.icon;		  
           } 
           if(type==="NTR" && bPhone==='1'){
-              document.getElementById("propertyicon" + index).src = icons.Phone_NTR.icon;
+              document.getElementById("propertyicon" + index).src = icons.NTR.icon;			  
           }
+          if(type==="DNS" && bPhone==='1'){
+              document.getElementById("propertyicon" + index).src = icons.DNS.icon;			  
+          }		  
           if(type==="DNC"){
-              document.getElementById("propertyicon" + index).src = icons.DNC.icon;
-          }          
+              document.getElementById("propertyicon" + index).src = icons.DNC.icon;		  
+          }   
+          if(type==="PC" && phonetype==='NC' && bPhone==='1'){
+              document.getElementById("propertyicon" + index).src = icons.Phone_NH.icon;			  
+          }	
+          if(type==="PC" && phonetype==='AP' && bPhone==='1'){
+              document.getElementById("propertyicon" + index).src = icons.Phone_HH.icon;			  
+          }	
+          if(type==="PC" && phonetype==='VM' && bPhone==='1'){
+              document.getElementById("propertyicon" + index).src = icons.Phone_VM.icon;			  
+          }	
+          if(type==="PC" && phonetype==='NA' && bPhone==='1'){
+              document.getElementById("propertyicon" + index).src = icons.Phone_NA.icon;			  
+          }	
+          if(type==="PC" && phonetype==='PD' && bPhone==='1'){
+              document.getElementById("propertyicon" + index).src = icons.Phone_PD.icon;			  
+          }		
+          if(type==="WL" && lettertype==='LNS'){
+              document.getElementById("propertyicon" + index).src = icons.Letter_LNS.icon;			  
+          }	
+          if(type==="WL" && lettertype==='LS'){
+              document.getElementById("propertyicon" + index).src = icons.Letter_LS.icon;			  
+          }		  
+			  expandStreetDetail('street_detail' + index );			  
       }
       if(bInfowin===1){
           switch  (markername){
@@ -2186,7 +2214,7 @@ and open the template in the editor.
                         google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
                         google.maps.event.clearListeners(marker_phone_home[index], "mouseover");                         
                         marker_phone_home[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
+                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
                         google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                       
                     }
                     if (type==='NTR'){
