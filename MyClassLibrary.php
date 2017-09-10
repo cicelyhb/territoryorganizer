@@ -492,9 +492,9 @@ class Login{
 //                    echo '</th>',PHP_EOL;                     
                     echo '</tr>',PHP_EOL;
                     echo '<tr>',PHP_EOL;
-                    echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
-                    echo 'Territory',PHP_EOL;
-                    echo '</font></th>',PHP_EOL;
+                    // echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
+                    // echo 'Territory',PHP_EOL;
+                    // echo '</font></th>',PHP_EOL;
                     echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
                     echo 'Progress',PHP_EOL;
                     echo '</font></th>',PHP_EOL;
@@ -506,7 +506,10 @@ class Login{
                     echo '</font></th>',PHP_EOL; 
                     echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
                     echo 'Phone',PHP_EOL;
-                    echo '</font></th>',PHP_EOL;                     
+                    echo '</font></th>',PHP_EOL;   
+                    echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
+                    echo 'Letter',PHP_EOL;
+                    echo '</font></th>',PHP_EOL; 					
                     echo '</tr>',PHP_EOL;
                    // echo '</thead>',PHP_EOL;
                 
@@ -522,9 +525,9 @@ class Login{
                            // echo '<tbody>',PHP_EOL;
                            // echo '<div class="table-wrap">',PHP_EOL;
                             echo '<tr>',PHP_EOL;
-                            echo '<td align="center">',PHP_EOL;
-                            echo '<a href = "territorymap.php?territory='.$territory[1].'" style="padding: 0px 0px 0px 0px;">'.trim($territory[1]).'</a>',PHP_EOL;
-                            echo '</td>',PHP_EOL;
+                            // echo '<td align="center">',PHP_EOL;
+                            // echo '<a href = "territorymap.php?territory='.$territory[1].'" style="padding: 0px 0px 0px 0px;">'.trim($territory[1]).'</a>',PHP_EOL;
+                            // echo '</td>',PHP_EOL;
                             echo '<td align="center">',PHP_EOL;
                             echo '<div class="tooltip">',PHP_EOL;
                             echo '<progress value="'.$territory[2].'" max="100"></progress>',PHP_EOL;
@@ -539,7 +542,10 @@ class Login{
                             echo '</td>',PHP_EOL;  
                             echo '<td>',PHP_EOL;
                             echo '<center>'.$territory[6].'</center>',PHP_EOL;
-                            echo '</td>',PHP_EOL;                             
+                            echo '</td>',PHP_EOL;     
+                            echo '<td>',PHP_EOL;
+                            echo '<center>'.$territory[14].'</center>',PHP_EOL;
+                            echo '</td>',PHP_EOL;  							
                             echo '</tr>',PHP_EOL;
    
                             foreach($this->codeinjector AS $line ){
@@ -591,16 +597,16 @@ class Login{
                      while( $street = mysqli_fetch_array( $stmt, MYSQLI_NUM))
                      {                             
                           $this->codeinjector[] = '<tr>';
-                          $this->codeinjector[] = '<td width="20%">';
-                          $this->codeinjector[] = '</td>';
+                          // $this->codeinjector[] = '<td width="20%">';
+                          // $this->codeinjector[] = '</td>';
                           $this->codeinjector[] = '<td align="center">';
                           $this->codeinjector[] = $street[0].' '.$street[1];                                
                           $this->codeinjector[] = '</td>';
                           $this->codeinjector[] = '</tr>';
                           $this->codeinjector[] = '<tr>';  
-                          $this->codeinjector[] = '<td>';
-                          //echo $TerritoryNumber,PHP_EOL;
-                          $this->codeinjector[] = '</td>';
+                          // $this->codeinjector[] = '<td>';
+                          // //echo $TerritoryNumber,PHP_EOL;
+                          // $this->codeinjector[] = '</td>';
                           $this->codeinjector[] = '<td align="center">';
                           $this->codeinjector[] = '<div class="tooltip">';
                           $this->codeinjector[] = '<progress value="'.$street[2].'" max="100"></progress>';
@@ -615,7 +621,10 @@ class Login{
                           $this->codeinjector[] = '</td>';    
                           $this->codeinjector[] = '<td align="center">';
                           $this->codeinjector[] = '<center><a href = "#" onclick="streetviewmodule('.$sngquote.$congregationnumber.$sngquote.','.$sngquote.$territoryNumber.$sngquote.','.$sngquote.$street[0].$sngquote.','.$sngquote.$street[1].$sngquote.',3);" style="padding: 0px 0px 0px 0px;">'.$street[6].'</a></center>';
-                          $this->codeinjector[] = '</td>';                             
+                          $this->codeinjector[] = '</td>';  
+                          $this->codeinjector[] = '<td align="center">';
+                          $this->codeinjector[] = '<center><a href = "#" onclick="streetviewmodule('.$sngquote.$congregationnumber.$sngquote.','.$sngquote.$territoryNumber.$sngquote.','.$sngquote.$street[0].$sngquote.','.$sngquote.$street[1].$sngquote.',4);" style="padding: 0px 0px 0px 0px;">'.$street[7].'</a></center>';
+                          $this->codeinjector[] = '</td>';  						  
                           $this->codeinjector[] = '</tr>';
                     }  
                     $stmt->close();
