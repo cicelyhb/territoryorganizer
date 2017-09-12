@@ -273,7 +273,7 @@ and open the template in the editor.
             var infowin_resident_nw = [[]]; //[[html,latitude,longitude]]
             var infowin_resident = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_home = [[]]; //[[html,latitude,longitude]]
-            var infowin_resident_nt = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_nt = [[]]; //[[html,latitude,longitude]]		
             var infowin_resident_lns = [[]]; //[[html,latitude,longitude]] 
             var infowin_resident_ls = [[]]; //[[html,latitude,longitude]] 
             var infowin_resident_dns = [[]]; //[[html,latitude,longitude]]            
@@ -300,12 +300,14 @@ and open the template in the editor.
             var marker_resident_home_apt  = [];
             var marker_resident_nt_apt  = [];
             var marker_resident_ls_apt  = [];
-            var marker_resident_lns_apt  = [];			
+            var marker_resident_lns_apt  = [];	
+            var marker_resident_dns_apt  = [];			
             
             var marker_phone_nw_apt  = [];
             var marker_phone_apt  = [];
             var marker_phone_home_apt  = [];
             var marker_phone_nt_apt  = [];
+            var marker_phone_dns_apt  = [];			
             var marker_phone_nc_apt = [];	
             var marker_phone_vm_apt = [];	
             var marker_phone_ap_apt = [];
@@ -318,15 +320,16 @@ and open the template in the editor.
             var infowin_resident_nw_apt  = [[]]; //[[html,latitude,longitude]]            
             var infowin_resident_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_home_apt  = [[]]; //[[html,latitude,longitude]]
-            var infowin_resident_nt_apt  = [[]]; //[[html,latitude,longitude]]
-            var infowin_resident_nc_apt  = [[]]; //[[html,latitude,longitude]] 		
+            var infowin_resident_nt_apt  = [[]]; //[[html,latitude,longitude]]	
             var infowin_resident_ls_apt  = [[]]; //[[html,latitude,longitude]]
-            var infowin_resident_lns_apt  = [[]]; //[[html,latitude,longitude]] 				
+            var infowin_resident_lns_apt  = [[]]; //[[html,latitude,longitude]] 	
+            var infowin_resident_dns_apt  = [[]]; //[[html,latitude,longitude]] 			
             
             var infowin_phone_nw_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_home_apt  = [[]]; //[[html,latitude,longitude]]
-            var infowin_phone_nt_apt  = [[]]; //[[html,latitude,longitude]]  
+            var infowin_phone_nt_apt  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_dns_apt  = [[]]; //[[html,latitude,longitude]] 			
             var infowin_phone_nc_apt  = [[]]; //[[html,latitude,longitude]] 	
             var infowin_phone_vm_apt  = [[]]; //[[html,latitude,longitude]] 
             var infowin_phone_ap_apt  = [[]]; //[[html,latitude,longitude]] 
@@ -344,11 +347,15 @@ and open the template in the editor.
             var marker_resident_multi = [];
             var marker_resident_home_multi  = [];
             var marker_resident_nt_multi  = [];
+            var marker_resident_dns_multi  = [];			
+            var marker_resident_ls_multi  = []; //[[html,latitude,longitude]]
+            var marker_resident_lns_multi  = []; //[[html,latitude,longitude]]			
             
             var marker_phone_nw_multi  = [];
             var marker_phone_multi  = [];
             var marker_phone_home_multi  = [];
             var marker_phone_nt_multi  = [];
+            var marker_phone_dns_multi  = [];			
             var marker_phone_nc_multi = [];	
             var marker_phone_vm_multi = [];	
             var marker_phone_ap_multi = [];
@@ -362,12 +369,15 @@ and open the template in the editor.
             var infowin_resident_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_home_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_nt_multi  = [[]]; //[[html,latitude,longitude]] 
-			
+            var infowin_resident_dns_multi  = [[]]; //[[html,latitude,longitude]] 			
+            var infowin_resident_ls_multi  = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_lns_multi  = [[]]; //[[html,latitude,longitude]]				
             
             var infowin_phone_nw_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_home_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_nt_multi  = [[]]; //[[html,latitude,longitude]] 
+            var infowin_phone_dns_multi  = [[]]; //[[html,latitude,longitude]]			
 			var infowin_phone_nc_multi  = [[]]; //[[html,latitude,longitude]] 	
             var infowin_phone_vm_multi  = [[]]; //[[html,latitude,longitude]] 
             var infowin_phone_ap_multi  = [[]]; //[[html,latitude,longitude]] 
@@ -546,7 +556,9 @@ and open the template in the editor.
 						array("Layer"=>"infowin_phone_lns_apt","Marker"=>"marker_phone_lns_apt","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),							
 						array("Layer"=>"infowin_phone_ls_apt","Marker"=>"marker_phone_ls_apt","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),						
 						array("Layer"=>"infowin_resident_lns_apt","Marker"=>"marker_resident_lns_apt","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),						
-						array("Layer"=>"infowin_resident_ls_apt","Marker"=>"marker_resident_ls_apt","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/House_MouseOver.png")						
+						array("Layer"=>"infowin_resident_ls_apt","Marker"=>"marker_resident_ls_apt","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_phone_dns_apt","Marker"=>"marker_phone_dns_apt","bPhone"=>"1","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+						array("Layer"=>"infowin_resident_dns_apt","Marker"=>"marker_resident_dns_apt","bPhone"=>"0","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/House_MouseOver.png")						
             );
         //Build Select query
         $param2 =  array(array("Layer"=>"infowin_resident_nw_multi","Marker"=>"marker_resident_nw_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
@@ -558,6 +570,17 @@ and open the template in the editor.
                         array("Layer"=>"infowin_phone_home_multi","Marker"=>"marker_phone_home_multi","bPhone"=>"1","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
                         array("Layer"=>"infowin_phone_nt_multi","Marker"=>"marker_phone_nt_multi","bPhone"=>"1","Type"=>"NTR","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
                         array("Layer"=>"infowin_dnc_multi","Marker"=>"marker_dnc_multi","bPhone"=>"-1","Type"=>"DNC","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/DNC.png","IconMouseover"=>"icons/DNC_MouseOver.png"),
+						array("Layer"=>"infowin_phone_nc_multi","Marker"=>"marker_phone_nc_multi","bPhone"=>"1","Type"=>"PC","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/Phone_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+						array("Layer"=>"infowin_phone_vm_multi","Marker"=>"marker_phone_vm_multi","bPhone"=>"1","Type"=>"PC","PhoneType"=>"VM","LetterType"=>"LNS","Icon"=>"icons/Phone_VM.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_ap_multi","Marker"=>"marker_phone_ap_multi","bPhone"=>"1","Type"=>"PC","PhoneType"=>"AP","LetterType"=>"LNS","Icon"=>"icons/Phone_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_pd_multi","Marker"=>"marker_phone_pd_multi","bPhone"=>"1","Type"=>"PC","PhoneType"=>"PD","LetterType"=>"LNS","Icon"=>"icons/Phone_PD.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_na_multi","Marker"=>"marker_phone_na_multi","bPhone"=>"1","Type"=>"PC","PhoneType"=>"NA","LetterType"=>"LNS","Icon"=>"icons/Phone_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),		
+						array("Layer"=>"infowin_phone_lns_multi","Marker"=>"marker_phone_lns_multi","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),							
+						array("Layer"=>"infowin_phone_ls_multi","Marker"=>"marker_phone_ls_multi","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+						array("Layer"=>"infowin_resident_lns_multi","Marker"=>"marker_resident_lns_multi","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),						
+						array("Layer"=>"infowin_resident_ls_multi","Marker"=>"marker_resident_ls_multi","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_phone_dns_multi","Marker"=>"marker_phone_dns_multi","bPhone"=>"1","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+						array("Layer"=>"infowin_resident_dns_multi","Marker"=>"marker_resident_dns_multi","bPhone"=>"0","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/House_MouseOver.png")						
             );        
         
         $mapLayer->MapB($congregationnumber,$Territory ,"infowin_apt","marker_apt",$param1);
@@ -576,6 +599,7 @@ and open the template in the editor.
     CreateMarkerB(marker_resident_nt_apt,infowin_resident_nt_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     CreateMarkerB(marker_resident_lns_apt,infowin_resident_lns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     CreateMarkerB(marker_resident_ls_apt,infowin_resident_ls_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
+    CreateMarkerB(marker_resident_dns_apt,infowin_resident_dns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');		
     CreateMarkerB(marker_phone_apt,infowin_phone_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     CreateMarkerB(marker_phone_nw_apt,infowin_phone_nw_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');    
     CreateMarkerB(marker_phone_home_apt,infowin_phone_home_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
@@ -586,17 +610,29 @@ and open the template in the editor.
 	CreateMarkerB(marker_phone_pd_apt,infowin_phone_pd_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
 	CreateMarkerB(marker_phone_na_apt,infowin_phone_na_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
 	CreateMarkerB(marker_phone_lns_apt,infowin_phone_lns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
-	CreateMarkerB(marker_phone_ls_apt,infowin_phone_ls_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');		
+	CreateMarkerB(marker_phone_ls_apt,infowin_phone_ls_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_dns_apt,infowin_phone_dns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
     CreateMarkerB(marker_dnc_apt,infowin_dnc_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
     
     CreateMarkerB(marker_resident_multi,infowin_resident_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
     CreateMarkerB(marker_resident_nw_multi,infowin_resident_nw_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
     CreateMarkerB(marker_resident_home_multi,infowin_resident_home_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
-    CreateMarkerB(marker_resident_nt_multi,infowin_resident_nt_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_resident_nt_multi,infowin_resident_nt_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_dns_multi,infowin_resident_dns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_lns_multi,infowin_resident_lns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_ls_multi,infowin_resident_ls_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
     CreateMarkerB(marker_phone_multi,infowin_phone_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
     CreateMarkerB(marker_phone_nw_multi,infowin_phone_nw_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');    
     CreateMarkerB(marker_phone_home_multi,infowin_phone_home_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
     CreateMarkerB(marker_phone_nt_multi,infowin_phone_nt_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_phone_dns_multi,infowin_phone_dns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_nc_multi,infowin_phone_nc_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_vm_multi,infowin_phone_vm_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
+    CreateMarkerB(marker_phone_ap_multi,infowin_phone_ap_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_pd_multi,infowin_phone_pd_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_na_multi,infowin_phone_na_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
+    CreateMarkerB(marker_phone_lns_multi,infowin_phone_lns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_ls_multi,infowin_phone_ls_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
     CreateMarkerB(marker_dnc_multi,infowin_dnc_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
    
     CreateMarker(marker_resident,infowin_resident,icons.NH.icon,icons.NH.mouseovericon);
@@ -849,6 +885,10 @@ and open the template in the editor.
                   //marker_resident_nt_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_nt_apt[index], "click");
                   break;
+                case "marker_resident_dns_apt":
+                  //marker_resident_dns_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_dns_apt[index], "click");
+                  break;				  
                 case "marker_resident_lns_apt":
                   //marker_resident_lns_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_lns_apt[index], "click");
@@ -897,6 +937,10 @@ and open the template in the editor.
                   //marker_phone_na_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_na_apt[index], "click");
                   break;	
+                case "marker_phone_dns_apt":
+                  //marker_phone_dns_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_dns_apt[index], "click");
+                  break;				  
                 case "marker_phone_lns_apt":
                   //marker_phone_lns_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_lns_apt[index], "click");
@@ -921,6 +965,18 @@ and open the template in the editor.
                   //marker_resident_nt_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_nt_multi[index], "click");
                   break;
+                case "marker_resident_dns_multi":
+                  //marker_resident_dns_multi[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_dns_multi[index], "click");
+                  break;				  
+                case "marker_resident_lns_multi":
+                  //marker_resident_lns_multi[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_lns_multi[index], "click");
+                  break;	
+                case "marker_resident_ls_multi":
+                  //marker_resident_ls_multi[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_ls_multi[index], "click");
+                  break;				  
                 case "marker_dnc_multi":
                   //marker_dnc_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_dnc_multi[index], "click");
@@ -940,7 +996,39 @@ and open the template in the editor.
                 case "marker_phone_nt_multi":
                   //marker_phone_nt_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_nt_multi[index], "click");
-                  break;                  
+				  break;
+                case "marker_phone_dns_multi":
+                  //marker_phone_dns_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_dns_multi[index], "click");				  
+                  break; 				  
+                case "marker_phone_nc_multi":
+                  //marker_phone_nc_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_nc_multi[index], "click");				  
+                  break;    
+                case "marker_phone_vm_multi":
+                  //marker_phone_vm_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_vm_multi[index], "click");				  
+                  break; 
+                case "marker_phone_ap_multi":
+                  //marker_phone_ap_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_ap_multi[index], "click");				  
+                  break; 
+                case "marker_phone_pd_multi":
+                  //marker_phone_pd_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_pd_multi[index], "click");				  
+                  break; 
+                case "marker_phone_na_multi":
+                  //marker_phone_na_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_na_multi[index], "click");				  
+                  break;  	
+                case "marker_phone_lns_multi":
+                  //marker_phone_lns_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_lns_multi[index], "click");				  
+                  break; 
+                case "marker_phone_ls_multi":
+                  //marker_phone_ls_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_ls_multi[index], "click");				  
+                  break;				  
         }  // end of switch
         
         for(var i = 0; i<marker_apt.length;i++){
@@ -969,15 +1057,15 @@ and open the template in the editor.
                 case "marker_resident_nt":
                   marker_resident_nt[index].infowindow.close();
                   break;
+                case "marker_resident_dns":
+                  marker_resident_dns[index].infowindow.close();
+                  break;   				  
                 case "marker_resident_lns":
                   marker_resident_lns[index].infowindow.close();
                   break;      
                 case "marker_resident_ls":
                   marker_resident_ls[index].infowindow.close();
-                  break;   
-                case "marker_resident_dns":
-                  marker_resident_dns[index].infowindow.close();
-                  break;                  
+                  break;                    
                 case "marker_dnc":
                   marker_dnc[index].infowindow.close();
                   break;
@@ -1028,7 +1116,10 @@ and open the template in the editor.
                   break;
                 case "marker_resident_nt_apt":
                   marker_resident_nt_apt[index].infowindow.close();
-                  break;
+                  break;				  
+                case "marker_resident_dns_apt":
+                  marker_resident_dns_apt[index].infowindow.close();
+                  break;				  
                 case "marker_resident_lns_apt":
                   marker_resident_lns_apt[index].infowindow.close();
                   break;	
@@ -1065,6 +1156,9 @@ and open the template in the editor.
                 case "marker_phone_na_apt":
                   marker_phone_na_apt[index].infowindow.close();
                   break;
+                case "marker_phone_dns_apt":
+                  marker_phone_dns_apt[index].infowindow.close();
+                  break;				  
                 case "marker_phone_lns_apt":
                   marker_phone_lns_apt[index].infowindow.close();
                   break;
@@ -1083,6 +1177,15 @@ and open the template in the editor.
                 case "marker_resident_nt_multi":
                   marker_resident_nt_multi[index].infowindow.close();
                   break;
+                case "marker_resident_dns_multi":
+                  marker_resident_dns_multi[index].infowindow.close();
+                  break;				  
+                case "marker_resident_lns_multi":
+                  marker_resident_lns_multi[index].infowindow.close();
+                  break;	
+                case "marker_resident_ls_multi":
+                  marker_resident_ls_multi[index].infowindow.close();
+                  break;				  
                 case "marker_dnc_multi":
                   marker_dnc_multi[index].infowindow.close();
                   break;
@@ -1097,7 +1200,31 @@ and open the template in the editor.
                   break;
                 case "marker_phone_nt_multi":
                   marker_phone_nt_multi[index].infowindow.close();
-                  break;                        
+                  break; 
+                case "marker_phone_dns_multi":
+                  marker_phone_dns_multi[index].infowindow.close();
+                  break;				  
+                case "marker_phone_nc_multi":
+                  marker_phone_nc_multi[index].infowindow.close();
+                  break;
+                case "marker_phone_vm_multi":
+                  marker_phone_vm_multi[index].infowindow.close();
+                  break;
+                case "marker_phone_ap_multi":
+                  marker_phone_ap_multi[index].infowindow.close();
+                  break;
+                case "marker_phone_pd_multi":
+                  marker_phone_pd_multi[index].infowindow.close();
+                  break;
+                case "marker_phone_na_multi":
+                  marker_phone_na_multi[index].infowindow.close();
+                  break;
+                case "marker_phone_lns_multi":
+                  marker_phone_lns_multi[index].infowindow.close();
+                  break;	
+                case "marker_phone_ls_multi":
+                  marker_phone_ls_multi[index].infowindow.close();
+                  break;				  
         }  // end of switch  
     }    
     
@@ -3099,6 +3226,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.DNS.icon;                          
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.DNC.icon;                        
                     } 
@@ -3121,6 +3251,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_apt' + index).src = icons.DNC.icon;                        
                     }
@@ -3143,6 +3276,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_home_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_home_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3165,6 +3301,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.DNS.icon;                          
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3175,6 +3314,31 @@ and open the template in the editor.
                         document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.Letter_LS.icon;                        
                     }  					
                     break;
+                  case "marker_resident_dns_apt":
+                    marker_resident_dns_apt[index].infowindow.close();   
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.DNS.icon;                          
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.Letter_LS.icon;                        
+                    }  					
+                    break;					
                   case "marker_resident_lns_apt":
                     marker_resident_lns_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
@@ -3187,6 +3351,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3209,6 +3376,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.DNS.icon;                          
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3231,6 +3401,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_dnc_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_dnc_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_dnc_apt' + index).src = icons.DNC.icon;                        
                     }   					
@@ -3247,6 +3420,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.DNS.icon;                          
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3284,6 +3460,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3321,6 +3500,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_home_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.DNS.icon;                          
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_home_apt' + index).src = icons.DNC.icon;                        
                     } 
@@ -3358,6 +3540,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3383,6 +3568,46 @@ and open the template in the editor.
                         document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Letter_LS.icon;                        
                     } 					
                     break;  
+                  case "marker_phone_dns_apt":
+                    marker_phone_dns_apt[index].infowindow.close();     
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                   
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.DNS.icon;                          
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.DNC.icon;                        
+                    }  
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_VM.icon;                        
+                    }   
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_PD.icon;                        
+                    }	
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Letter_LNS.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Letter_LS.icon;                        
+                    } 					
+                    break; 					
                   case "marker_phone_nc_apt":
                     marker_phone_nc_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
@@ -3395,6 +3620,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3435,6 +3663,9 @@ and open the template in the editor.
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.DNC.icon;                        
                     }  
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='PC' && phonetype==='NC'){
                         document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_NH.icon;                        
                     } 	
@@ -3469,6 +3700,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.DNS.icon;                          
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3506,6 +3740,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.DNS.icon;                          
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3543,6 +3780,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_na_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_na_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3580,6 +3820,12 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.DNS.icon;                          
+                    }						
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3617,6 +3863,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.DNS.icon;                          
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.DNC.icon;                        
                     }  
@@ -3654,9 +3903,18 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.DNS.icon;                        
+                    } 					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.DNC.icon;                        
-                    }                   
+                    }   
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
                     break;                  
                   case "marker_resident_multi":
                     marker_resident_multi[index].infowindow.close();
@@ -3670,9 +3928,18 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_multi' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_multi' + index).src = icons.DNS.icon;                        
+                    } 						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_multi' + index).src = icons.DNC.icon;                        
-                    }                    
+                    }  
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
                     break;
                   case "marker_resident_home_multi":
                     marker_resident_home_multi[index].infowindow.close();
@@ -3686,9 +3953,18 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_home_multi' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.DNS.icon;                        
+                    } 					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_home_multi' + index).src = icons.DNC.icon;                        
-                    }                   
+                    }     
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
                     break;
                   case "marker_resident_nt_multi":
                     marker_resident_nt_multi[index].infowindow.close();
@@ -3702,10 +3978,94 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.DNS.icon;                        
+                    } 					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.DNC.icon;                        
-                    }                     
+                    }
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
                     break;
+                  case "marker_resident_lns_multi":
+                    marker_resident_lns_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.DNS.icon;                        
+                    }					
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.DNC.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;	
+                  case "marker_resident_ls_multi":
+                    marker_resident_ls_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.DNS.icon;                        
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.DNC.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;		
+                  case "marker_resident_dns_multi":
+                    marker_resident_dns_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.DNS.icon;                        
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.DNC.icon;                        
+                    }
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;						
                   case "marker_dnc_multi":
                     marker_dnc_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
@@ -3718,6 +4078,9 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_dnc_multi' + index).src = icons.NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_dnc_multi' + index).src = icons.DNS.icon;                        
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_dnc_multi' + index).src = icons.DNC.icon;                        
                     }                    
@@ -3733,9 +4096,33 @@ and open the template in the editor.
                     }
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
+                    }	
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.DNS.icon;                        
+                    }						
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.DNC.icon;                        
+                    }
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Letter_LS.icon;                        
                     }                    
                     break;                  
                   case "marker_phone_multi":
@@ -3750,9 +4137,33 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.DNS.icon;                        
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_multi' + index).src = icons.DNC.icon;                        
-                    }                   
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Letter_LS.icon;                        
+                    } 					
                     break;
                   case "marker_phone_home_multi":
                     marker_phone_home_multi[index].infowindow.close();
@@ -3766,9 +4177,33 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.DNS.icon;                        
+                    }					
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_home_multi' + index).src = icons.DNC.icon;                        
-                    }                    
+                    }   
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 	
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Letter_LS.icon;                        
+                    } 					
                     break;
                   case "marker_phone_nt_multi":
                     marker_phone_nt_multi[index].infowindow.close();
@@ -3782,10 +4217,354 @@ and open the template in the editor.
                     if (type==='NTR'){
                         document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_NTR.icon;                          
                     }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.DNS.icon;                        
+                    }							
                     if (type==='DNC'){
                         document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.DNC.icon;                        
-                    }                   
-                    break;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break; 
+                  case "marker_phone_nc_multi":
+                    marker_phone_nc_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.DNS.icon;                        
+                    }					
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break; 	
+                  case "marker_phone_vm_multi":
+                    marker_phone_vm_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.DNS.icon;                        
+                    }					
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break; 	
+                  case "marker_phone_ap_multi":
+                    marker_phone_ap_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.DNS.icon;                        
+                    }					
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;	
+                  case "marker_phone_pd_multi":
+                    marker_phone_pd_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.DNS.icon;                        
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;	
+                  case "marker_phone_na_multi":
+                    marker_phone_na_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.DNS.icon;                        
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;	
+                  case "marker_phone_lns_multi":
+                    marker_phone_lns_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.DNS.icon;                        
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;	
+                  case "marker_phone_ls_multi":
+                    marker_phone_ls_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.DNS.icon;                        
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;	
+                  case "marker_phone_dns_multi":
+                    marker_phone_dns_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+                    if (type==='NH'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NH.icon;
+                    }
+                    if (type==='HH'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_HH.icon;                      
+                    }
+                    if (type==='NTR'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NTR.icon;                          
+                    }
+                    if (type==='DNS'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.DNS.icon;                        
+                    }						
+                    if (type==='DNC'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.DNC.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NC'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='VM'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_VM.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='AP'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_HH.icon;                        
+                    } 	
+                    if (type==='PC' && phonetype==='PD'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_PD.icon;                        
+                    } 
+                    if (type==='PC' && phonetype==='NA'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NA.icon;                        
+                    } 
+                    if (type==='WL' && lettertype==='LNS'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Letter_LNS.icon;                        
+                    } 
+					if (type==='WL' && lettertype==='LS'){
+                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Letter_LS.icon;                        
+                    }					
+                    break;					
           }  // end of switch       
       }
 
@@ -4369,115 +5148,118 @@ and open the template in the editor.
                                       notes_element:notes_elements,
                                       notes:notes};
 
-                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '0' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.NW.icon,column);
                       }
-                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.NH.icon,column);                          
                       }
-                      if(myJSONResult[i].Type === 'HH' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'HH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.HH.icon,column);                          
                       }     
-                      if(myJSONResult[i].Type === 'NTR' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'NTR' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.NTR.icon,column);                          
                       }                        
                       if(myJSONResult[i].Type === 'DNC' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.DNC.icon,column);                                                            
                       } 
-                      if(myJSONResult[i].Type === 'DNS' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'DNS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.DNS.icon,column);                                                            
                       }  
-                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].bTouched === '1'  && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.Letter_LNS.icon,column);                                                            
                       }  
-                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'WL' && myJSONResult[i].LetterType === 'LS' && myJSONResult[i].bTouched === '1'  && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.Letter_LS.icon,column);                                                            
                       }                       
-                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].bTouched === '0' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.NW.icon,column);                                   
                       }  
-                      if(myJSONResult[i].Type === 'NTR' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'NTR' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.NTR.icon,column);                               
                       }         
-                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.NH.icon,column);                                    
                       }    
-                      if(myJSONResult[i].Type === 'HH' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'HH' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.HH.icon,column);                                                                                                               
                       }                                    
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NC' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NC' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Phone_NH.icon,column);                                   
                       }                                              
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'VM' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'VM' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Phone_VM.icon,column);                                  
                       }                        
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'AP' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'AP' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Phone_HH.icon,column);                                 
                       }   
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'PD' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'PD' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Phone_PD.icon,column);                                 
                       } 
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NA' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NA' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Phone_NA.icon,column);                                 
                       } 					  
-                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Letter_LNS.icon,column);                                 
                       } 
-                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '0'){
                                 div.innerHTML =  Phone(i,icons.Letter_LS.icon,column);                                 
                       } 					  
-                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '0' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.NW.icon,column);
                       }
-                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.NH.icon,column);
                       }
-                      if(myJSONResult[i].Type === 'HH' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'HH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.HH.icon,column);
                       }     
-                      if(myJSONResult[i].Type === 'NTR' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'NTR' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.NTR.icon,column);
-                      }   
-                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                      } 
+                      if(myJSONResult[i].Type === 'DNS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bUnit === '1'){
+                                 div.innerHTML = Home(i,icons.DNS.icon,column);                                                            
+                      } 					  
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.Letter_LNS.icon,column);                                   
                       } 
-                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.Letter_LS.icon,column);                                   
                       }   					  
                       if(myJSONResult[i].Type === 'DNC' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.DNC.icon,column);                                   
                       }    
-                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].DateModified === '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].bTouched === '0' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.NW.icon,column);                                   
                       }  
-                      if(myJSONResult[i].Type === 'NTR' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'NTR' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.NTR.icon,column);                                   
                       }         
-                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.NH.icon,column);                                    
                       }    
-                      if(myJSONResult[i].Type === 'HH' &&  myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'HH' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.HH.icon,column);                                     
                       }   
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NC' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NC' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Phone_NH.icon,column);                                   
                       }
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'VM' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'VM' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Phone_VM.icon,column);                                   
                       }    					  
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'AP' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'AP' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Phone_HH.icon,column);                                   
                       }  
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'PD' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'PD' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Phone_PD.icon,column);                                   
                       }  
-                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NA' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NA' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Phone_NA.icon,column);                                   
                       } 
-                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LNS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Letter_LNS.icon,column);                                   
                       } 
-                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].DateModified !== '' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                      if(myJSONResult[i].Type === 'WL' &&  myJSONResult[i].LetterType === 'LS' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Letter_LS.icon,column);                                   
                       }                       
                       detail.appendChild(div);
