@@ -2682,8 +2682,13 @@ and open the template in the editor.
                 html +='<td>';  
 
                 if (column.type==="PC")
-                {           
-                     html +='<div class="tooltip"><a href="tel:+18503211442"><img src = "icons/Phone_Small.png"></a>'; 
+                {       
+                var phonenumber=column.phone.toString().replace('-', ''); 
+				phonenumber=phonenumber.toString().replace(' ', ''); 				
+				phonenumber=phonenumber.toString().replace('(', ''); 
+				phonenumber=phonenumber.toString().replace(')', ''); 	
+			
+                     html +='<div class="tooltip"><a href="tel:+1' + phonenumber + '"><img src = "icons/Phone_Small.png"></a>'; 
                 }
                 else
                 {
