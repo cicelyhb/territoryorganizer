@@ -248,8 +248,12 @@ and open the template in the editor.
             ?>            
             var d = new Date();
             var users = [];
+			
+			// buckets
             var marker_resident_nw = [];
             var marker_resident = [];
+            var marker_resident_second = [];
+            var marker_resident_third = [];			
             var marker_resident_home = [];
             var marker_resident_nt = [];
             var marker_resident_lns = [];
@@ -258,6 +262,8 @@ and open the template in the editor.
             
             var marker_phone_nw = [];
             var marker_phone = [];
+            var marker_phone_second = [];
+            var marker_phone_third = [];			
             var marker_phone_home = [];
             var marker_phone_nt = [];
             var marker_phone_nc = [];
@@ -272,6 +278,8 @@ and open the template in the editor.
             
             var infowin_resident_nw = [[]]; //[[html,latitude,longitude]]
             var infowin_resident = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_second = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_third = [[]]; //[[html,latitude,longitude]]			
             var infowin_resident_home = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_nt = [[]]; //[[html,latitude,longitude]]		
             var infowin_resident_lns = [[]]; //[[html,latitude,longitude]] 
@@ -280,6 +288,8 @@ and open the template in the editor.
             
             var infowin_phone_nw = [[]]; //[[html,latitude,longitude]]            
             var infowin_phone = [[]]; //[[html,latitude,longitude]]
+            var infowin_phone_second = [[]]; //[[html,latitude,longitude]]
+            var infowin_phone_third = [[]]; //[[html,latitude,longitude]]			
             var infowin_phone_home = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_nt = [[]]; //[[html,latitude,longitude]] 
             var infowin_phone_nc = [[]]; //[[html,latitude,longitude]]    
@@ -297,6 +307,8 @@ and open the template in the editor.
             
             var marker_resident_nw_apt = [];
             var marker_resident_apt = [];
+            var marker_resident_second_apt = [];
+            var marker_resident_third_apt = [];			
             var marker_resident_home_apt  = [];
             var marker_resident_nt_apt  = [];
             var marker_resident_ls_apt  = [];
@@ -305,6 +317,8 @@ and open the template in the editor.
             
             var marker_phone_nw_apt  = [];
             var marker_phone_apt  = [];
+            var marker_phone_second_apt  = [];
+            var marker_phone_third_apt  = [];			
             var marker_phone_home_apt  = [];
             var marker_phone_nt_apt  = [];
             var marker_phone_dns_apt  = [];			
@@ -319,6 +333,8 @@ and open the template in the editor.
             
             var infowin_resident_nw_apt  = [[]]; //[[html,latitude,longitude]]            
             var infowin_resident_apt  = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_second_apt = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_third_apt = [[]]; //[[html,latitude,longitude]]			
             var infowin_resident_home_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_nt_apt  = [[]]; //[[html,latitude,longitude]]	
             var infowin_resident_ls_apt  = [[]]; //[[html,latitude,longitude]]
@@ -327,6 +343,8 @@ and open the template in the editor.
             
             var infowin_phone_nw_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_apt  = [[]]; //[[html,latitude,longitude]]
+            var infowin_phone_second_apt  = [[]]; //[[html,latitude,longitude]]	
+            var infowin_phone_third_apt  = [[]]; //[[html,latitude,longitude]]			
             var infowin_phone_home_apt  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_nt_apt  = [[]]; //[[html,latitude,longitude]] 
             var infowin_phone_dns_apt  = [[]]; //[[html,latitude,longitude]] 			
@@ -345,6 +363,8 @@ and open the template in the editor.
             
             var marker_resident_nw_multi = [];
             var marker_resident_multi = [];
+            var marker_resident_second_multi = [];	
+            var marker_resident_third_multi = [];				
             var marker_resident_home_multi  = [];
             var marker_resident_nt_multi  = [];
             var marker_resident_dns_multi  = [];			
@@ -353,6 +373,8 @@ and open the template in the editor.
             
             var marker_phone_nw_multi  = [];
             var marker_phone_multi  = [];
+            var marker_phone_second_multi  = [];	
+            var marker_phone_third_multi  = [];				
             var marker_phone_home_multi  = [];
             var marker_phone_nt_multi  = [];
             var marker_phone_dns_multi  = [];			
@@ -367,6 +389,8 @@ and open the template in the editor.
             
             var infowin_resident_nw_multi  = [[]]; //[[html,latitude,longitude]]            
             var infowin_resident_multi  = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_second_multi  = [[]]; //[[html,latitude,longitude]]
+            var infowin_resident_third_multi  = [[]]; //[[html,latitude,longitude]]			
             var infowin_resident_home_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_resident_nt_multi  = [[]]; //[[html,latitude,longitude]] 
             var infowin_resident_dns_multi  = [[]]; //[[html,latitude,longitude]] 			
@@ -375,6 +399,8 @@ and open the template in the editor.
             
             var infowin_phone_nw_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_multi  = [[]]; //[[html,latitude,longitude]]
+            var infowin_phone_second_multi  = [[]]; //[[html,latitude,longitude]]	
+            var infowin_phone_third_multi  = [[]]; //[[html,latitude,longitude]]				
             var infowin_phone_home_multi  = [[]]; //[[html,latitude,longitude]]
             var infowin_phone_nt_multi  = [[]]; //[[html,latitude,longitude]] 
             var infowin_phone_dns_multi  = [[]]; //[[html,latitude,longitude]]			
@@ -386,6 +412,7 @@ and open the template in the editor.
             var infowin_phone_lns_multi  = [[]]; //[[html,latitude,longitude]] 	
             var infowin_phone_ls_multi  = [[]]; //[[html,latitude,longitude]] 
             var infowin_dnc_multi  = [[]]; //[[html,latitude,longitude]] 
+			//end buckets
             var infowin_index;
             var territorygroups = []; 
              
@@ -401,11 +428,16 @@ and open the template in the editor.
                             icon: 'icons/House_NH.png',
                             mouseovericon:'icons/House_MouseOver.png'
                           },
-                            HH: {
-                            label: 'Home',
-                            icon: 'icons/House_HH.png',
+                            NH2: {
+                            label: 'Not Home 2nd Attempt',
+                            icon: 'icons/House_NH_Second.png',
                             mouseovericon:'icons/House_MouseOver.png'
-                          },
+                          },	
+                            NH3: {
+                            label: 'Not Home 2nd Plus Attempt',
+                            icon: 'icons/House_NH_SecondPlus.png',
+                            mouseovericon:'icons/House_MouseOver.png'
+                          },						  
                             NTR: {
                             label: 'No Trespassing/Gated',
                             icon: 'icons/House_NTR.png',
@@ -415,7 +447,12 @@ and open the template in the editor.
                             label: 'Danger Not Safe',
                             icon: 'icons/House_DNS.png',
                             mouseovericon:'icons/House_MouseOver.png'
-                          },                           
+                          },   
+                            HH: {
+                            label: 'Home',
+                            icon: 'icons/House_HH.png',
+                            mouseovericon:'icons/House_MouseOver.png'
+                          },						  
 //                            Phone_NW: {
 //                            label: 'Not Worked',
 //                            icon: 'icons/Phone_NW.png',
@@ -425,7 +462,7 @@ and open the template in the editor.
                             label: 'Not Called',
                             icon: 'icons/Phone_NH.png',
                             mouseovericon:'icons/Phone_MouseOver.png'
-                          }, 
+                          }, 						  
                             Phone_HH: {
                             label: 'Answered Phone',
                             icon: 'icons/Phone_HH.png',
@@ -471,75 +508,41 @@ and open the template in the editor.
         // Gets data from URL parameters
         $congregationnumber = $_SESSION['congregationnumber'];
         $Territory = $_GET['territory'];
-                     
-//        $mapLayer= new Layer($server,$database,$username,$password);    
+                        
         $mapLayer= new Layer($host,$username,$password,$database,$port,$socket,$congregationnumber);
         //Build Select query
         $where = "TerritoryNumber = '".$Territory."'";
-        $mapLayer->MapPolygon($where); 
-        //Build Select query
-        $where1 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 0 AND bTouched = 0 AND Type = 'NH'";
-        $mapLayer->MapA($where1,"infowin_resident_nw","marker_resident_nw",false);           
-        //Build Select query
-        $where2 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 0 AND bTouched = 1 AND Type = 'NH'";
-        $mapLayer->MapA($where2,"infowin_resident","marker_resident",false);              
-         //Build Select query
-        $where3 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 0 AND Type = 'HH'";
-        $mapLayer->MapA($where3,"infowin_resident_home","marker_resident_home",false);                             
-        //Build Select query
-        $where4 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 0 AND Type = 'NTR'";
-        $mapLayer->MapA($where4,"infowin_resident_nt","marker_resident_nt",false); 
-        //Build Select query
-        $where5 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bTouched = 0 AND Type = 'NH'";
-        $mapLayer->MapA($where5,"infowin_phone_nw","marker_phone_nw",true);          
-        //Build Select query
-        $where6 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bTouched = 1 AND Type = 'NH'";
-        $mapLayer->MapA($where6,"infowin_phone","marker_phone",true);                       
-        //Build Select query
-        $where7 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND Type = 'HH'";
-        $mapLayer->MapA($where7,"infowin_phone_home","marker_phone_home",true);                         
-        //Build Select query
-        $where8 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND Type = 'NTR'";
-        $mapLayer->MapA($where8,"infowin_phone_nt","marker_phone_nt",true);                         
-        //Build Select query
-        $where9 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND Type = 'DNC'";
-        $mapLayer->MapA($where9,"infowin_dnc","marker_dnc",false);  
-        //Build Select query
-        $where10 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND Type = 'PC' AND PhoneType = 'NC'";
-        $mapLayer->MapA($where10,"infowin_phone_nc","marker_phone_nc",true);  
-        //Build Select query
-        $where11 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND Type = 'PC' AND PhoneType = 'VM'";
-        $mapLayer->MapA($where11,"infowin_phone_vm","marker_phone_vm",true);        
-        //Build Select query
-        $where12 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND Type = 'PC' AND PhoneType = 'AP'";
-        $mapLayer->MapA($where12,"infowin_phone_ap","marker_phone_ap",true);
-        //Build Select query
-        $where13 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND Type = 'PC' AND PhoneType = 'PD'";
-        $mapLayer->MapA($where13,"infowin_phone_pd","marker_phone_pd",true); 
-        //Build Select query
-        $where14 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 0 AND bLetter = 0 AND Type = 'WL' AND LetterType = 'LNS'";
-        $mapLayer->MapA($where14,"infowin_resident_lns","marker_resident_lns",false);     
-        //Build Select query
-        $where15 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bLetter = 0 AND Type = 'WL' AND LetterType = 'LNS'";
-        $mapLayer->MapA($where15,"infowin_phone_lns","marker_phone_lns",true); 
-        //Build Select query
-        $where16 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 0 AND bLetter = 0 AND Type = 'WL' AND LetterType = 'LS'";
-        $mapLayer->MapA($where16,"infowin_resident_ls","marker_resident_ls",false);     
-        //Build Select query
-        $where17 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bLetter = 0 AND Type = 'WL' AND LetterType = 'LS'";
-        $mapLayer->MapA($where17,"infowin_phone_ls","marker_phone_ls",true); 
-        //Build Select query
-        $where18 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 0 AND bLetter = 0 AND Type = 'DNS'";
-        $mapLayer->MapA($where18,"infowin_resident_dns","marker_resident_dns",false);    
-        //Build Select query
-        $where19 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bLetter = 0 AND Type = 'DNS'";
-        $mapLayer->MapA($where19,"infowin_phone_dns","marker_phone_dns",true);  
-        //Build Select query
-        $where20 = "TerritoryNumber = '".$Territory."' AND bUnit=0 AND bMulti=0 AND bPhone = 1 AND bLetter = 0 AND Type = 'PC' AND PhoneType = 'NA'";
-        $mapLayer->MapA($where20,"infowin_phone_na","marker_phone_na",true); 		
+        $mapLayer->MapPolygon($where); 		
         
         //Build Select query
-        $param1 =  array(array("Layer"=>"infowin_resident_nw_apt","Marker"=>"marker_resident_nw_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
+        $param1 =  array(array("Layer"=>"infowin_resident_nw","Marker"=>"marker_resident_nw","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nw","Marker"=>"marker_phone_nw","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_resident","Marker"=>"marker_resident","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_resident_home","Marker"=>"marker_resident_home","bPhone"=>"0","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
+                        array("Layer"=>"infowin_resident_nt","Marker"=>"marker_resident_nt","bPhone"=>"0","Type"=>"NTR","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/House_MouseOver.png"),
+                        array("Layer"=>"infowin_phone","Marker"=>"marker_phone","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_home","Marker"=>"marker_phone_home","bPhone"=>"1","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_phone_nt","Marker"=>"marker_phone_nt","bPhone"=>"1","Type"=>"NTR","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+                        array("Layer"=>"infowin_dnc","Marker"=>"marker_dnc","bPhone"=>"-1","Type"=>"DNC","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/DNC.png","IconMouseover"=>"icons/DNC_MouseOver.png"),
+						array("Layer"=>"infowin_phone_nc","Marker"=>"marker_phone_nc","bPhone"=>"1","Type"=>"PC","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/Phone_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+						array("Layer"=>"infowin_phone_vm","Marker"=>"marker_phone_vm","bPhone"=>"1","Type"=>"PC","PhoneType"=>"VM","LetterType"=>"LNS","Icon"=>"icons/Phone_VM.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_ap","Marker"=>"marker_phone_ap","bPhone"=>"1","Type"=>"PC","PhoneType"=>"AP","LetterType"=>"LNS","Icon"=>"icons/Phone_HH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_pd","Marker"=>"marker_phone_pd","bPhone"=>"1","Type"=>"PC","PhoneType"=>"PD","LetterType"=>"LNS","Icon"=>"icons/Phone_PD.png","IconMouseover"=>"icons/Phone_MouseOver.png"),	
+						array("Layer"=>"infowin_phone_na","Marker"=>"marker_phone_na","bPhone"=>"1","Type"=>"PC","PhoneType"=>"NA","LetterType"=>"LNS","Icon"=>"icons/Phone_NTR.png","IconMouseover"=>"icons/Phone_MouseOver.png"),		
+						array("Layer"=>"infowin_phone_lns","Marker"=>"marker_phone_lns","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/Phone_MouseOver.png"),							
+						array("Layer"=>"infowin_phone_ls","Marker"=>"marker_phone_ls","bPhone"=>"1","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),						
+						array("Layer"=>"infowin_resident_lns","Marker"=>"marker_resident_lns","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),						
+						array("Layer"=>"infowin_resident_ls","Marker"=>"marker_resident_ls","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_phone_dns","Marker"=>"marker_phone_dns","bPhone"=>"1","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
+						array("Layer"=>"infowin_resident_dns","Marker"=>"marker_resident_dns","bPhone"=>"0","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_resident_second","Marker"=>"marker_resident_second","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_Second.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_resident_third","Marker"=>"marker_resident_third","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_SecondPlus.png","IconMouseover"=>"icons/House_MouseOver.png"),
+				        array("Layer"=>"infowin_phone_second","Marker"=>"marker_phone_second","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_Second.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_phone_third","Marker"=>"marker_phone_third","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_SecondPlus.png","IconMouseover"=>"icons/House_MouseOver.png")							
+            );
+			
+        //Build Select query
+        $param2 =  array(array("Layer"=>"infowin_resident_nw_apt","Marker"=>"marker_resident_nw_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
                         array("Layer"=>"infowin_phone_nw_apt","Marker"=>"marker_phone_nw_apt","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
                         array("Layer"=>"infowin_resident_apt","Marker"=>"marker_resident_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
                         array("Layer"=>"infowin_resident_home_apt","Marker"=>"marker_resident_home_apt","bPhone"=>"0","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
@@ -558,10 +561,14 @@ and open the template in the editor.
 						array("Layer"=>"infowin_resident_lns_apt","Marker"=>"marker_resident_lns_apt","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),						
 						array("Layer"=>"infowin_resident_ls_apt","Marker"=>"marker_resident_ls_apt","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/House_MouseOver.png"),
 						array("Layer"=>"infowin_phone_dns_apt","Marker"=>"marker_phone_dns_apt","bPhone"=>"1","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-						array("Layer"=>"infowin_resident_dns_apt","Marker"=>"marker_resident_dns_apt","bPhone"=>"0","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/House_MouseOver.png")						
+						array("Layer"=>"infowin_resident_dns_apt","Marker"=>"marker_resident_dns_apt","bPhone"=>"0","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/House_MouseOver.png"),
+				        array("Layer"=>"infowin_resident_second_apt","Marker"=>"marker_resident_second_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_Second.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_resident_third_apt","Marker"=>"marker_resident_third_apt","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_SecondPlus.png","IconMouseover"=>"icons/House_MouseOver.png"),						
+				        array("Layer"=>"infowin_phone_second_apt","Marker"=>"marker_phone_second_apt","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_Second.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_phone_third_apt","Marker"=>"marker_phone_third_apt","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_SecondPlus.png","IconMouseover"=>"icons/House_MouseOver.png")							
             );
         //Build Select query
-        $param2 =  array(array("Layer"=>"infowin_resident_nw_multi","Marker"=>"marker_resident_nw_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
+        $param3 =  array(array("Layer"=>"infowin_resident_nw_multi","Marker"=>"marker_resident_nw_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/House_MouseOver.png"),
                         array("Layer"=>"infowin_phone_nw_multi","Marker"=>"marker_phone_nw_multi","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NW.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
                         array("Layer"=>"infowin_resident_multi","Marker"=>"marker_resident_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),
                         array("Layer"=>"infowin_resident_home_multi","Marker"=>"marker_resident_home_multi","bPhone"=>"0","Type"=>"HH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_HH.png","IconMouseover"=>"icons/House_MouseOver.png"),     
@@ -580,62 +587,77 @@ and open the template in the editor.
 						array("Layer"=>"infowin_resident_lns_multi","Marker"=>"marker_resident_lns_multi","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/letterwriting_NH.png","IconMouseover"=>"icons/House_MouseOver.png"),						
 						array("Layer"=>"infowin_resident_ls_multi","Marker"=>"marker_resident_ls_multi","bPhone"=>"0","Type"=>"WL","PhoneType"=>"NC","LetterType"=>"LS","Icon"=>"icons/letterwriting_LS.png","IconMouseover"=>"icons/House_MouseOver.png"),
 						array("Layer"=>"infowin_phone_dns_multi","Marker"=>"marker_phone_dns_multi","bPhone"=>"1","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/Phone_MouseOver.png"),
-						array("Layer"=>"infowin_resident_dns_multi","Marker"=>"marker_resident_dns_multi","bPhone"=>"0","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/House_MouseOver.png")						
-            );        
-        
-        $mapLayer->MapB($congregationnumber,$Territory ,"infowin_apt","marker_apt",$param1);
-        $mapLayer->MapC($congregationnumber,$Territory ,"infowin_multi","marker_multi",$param2);
+						array("Layer"=>"infowin_resident_dns_multi","Marker"=>"marker_resident_dns_multi","bPhone"=>"0","Type"=>"DNS","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_DNS.png","IconMouseover"=>"icons/House_MouseOver.png"),
+				        array("Layer"=>"infowin_resident_second_multi","Marker"=>"marker_resident_second_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_Second.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_resident_third_multi","Marker"=>"marker_resident_third_multi","bPhone"=>"0","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_SecondPlus.png","IconMouseover"=>"icons/House_MouseOver.png"),						
+				        array("Layer"=>"infowin_phone_second_multi","Marker"=>"marker_phone_second_multi","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_Second.png","IconMouseover"=>"icons/House_MouseOver.png"),
+						array("Layer"=>"infowin_phone_third_multi","Marker"=>"marker_phone_third_multi","bPhone"=>"1","Type"=>"NH","PhoneType"=>"NC","LetterType"=>"LNS","Icon"=>"icons/House_NH_SecondPlus.png","IconMouseover"=>"icons/House_MouseOver.png")							
+            );    
+			
+        $mapLayer->MapA($congregationnumber,$Territory , $param1);        
+        $mapLayer->MapB($congregationnumber,$Territory ,"infowin_apt","marker_apt",$param2);
+        $mapLayer->MapC($congregationnumber,$Territory ,"infowin_multi","marker_multi",$param3);
         $mapLayer->close();
 
         
         
         ?>
-    CreateMarkerA(marker_apt,infowin_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerA(marker_multi,infowin_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
+    CreateMarkerA(marker_apt,infowin_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerA(marker_multi,infowin_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
     
-    CreateMarkerB(marker_resident_apt,infowin_resident_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_resident_nw_apt,infowin_resident_nw_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_resident_home_apt,infowin_resident_home_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_resident_nt_apt,infowin_resident_nt_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_resident_lns_apt,infowin_resident_lns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_resident_ls_apt,infowin_resident_ls_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
-    CreateMarkerB(marker_resident_dns_apt,infowin_resident_dns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');		
-    CreateMarkerB(marker_phone_apt,infowin_phone_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_phone_nw_apt,infowin_phone_nw_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');    
-    CreateMarkerB(marker_phone_home_apt,infowin_phone_home_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_phone_nt_apt,infowin_phone_nt_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-    CreateMarkerB(marker_phone_nc_apt,infowin_phone_nc_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
-    CreateMarkerB(marker_phone_vm_apt,infowin_phone_vm_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-	CreateMarkerB(marker_phone_ap_apt,infowin_phone_ap_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-	CreateMarkerB(marker_phone_pd_apt,infowin_phone_pd_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-	CreateMarkerB(marker_phone_na_apt,infowin_phone_na_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
-	CreateMarkerB(marker_phone_lns_apt,infowin_phone_lns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
-	CreateMarkerB(marker_phone_ls_apt,infowin_phone_ls_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
-	CreateMarkerB(marker_phone_dns_apt,infowin_phone_dns_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');	
-    CreateMarkerB(marker_dnc_apt,infowin_dnc_apt,'icons/Apartment_NH.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_apt,infowin_resident_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_resident_second_apt,infowin_resident_second_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_third_apt,infowin_resident_third_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_nw_apt,infowin_resident_nw_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_home_apt,infowin_resident_home_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_nt_apt,infowin_resident_nt_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_lns_apt,infowin_resident_lns_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_resident_ls_apt,infowin_resident_ls_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');	
+    CreateMarkerB(marker_resident_dns_apt,infowin_resident_dns_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');		
+    CreateMarkerB(marker_phone_second_apt,infowin_phone_second_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_phone_third_apt,infowin_phone_third_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_phone_apt,infowin_phone_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');	
+    CreateMarkerB(marker_phone_nw_apt,infowin_phone_nw_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');    
+    CreateMarkerB(marker_phone_home_apt,infowin_phone_home_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_phone_nt_apt,infowin_phone_nt_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+    CreateMarkerB(marker_phone_nc_apt,infowin_phone_nc_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');	
+    CreateMarkerB(marker_phone_vm_apt,infowin_phone_vm_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_ap_apt,infowin_phone_ap_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_pd_apt,infowin_phone_pd_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_na_apt,infowin_phone_na_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');	
+	CreateMarkerB(marker_phone_lns_apt,infowin_phone_lns_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');	
+	CreateMarkerB(marker_phone_ls_apt,infowin_phone_ls_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
+	CreateMarkerB(marker_phone_dns_apt,infowin_phone_dns_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');	
+    CreateMarkerB(marker_dnc_apt,infowin_dnc_apt,'icons/Apartment_Neutral.png','icons/Apartment_MouseOver.png');
     
-    CreateMarkerB(marker_resident_multi,infowin_resident_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
-    CreateMarkerB(marker_resident_nw_multi,infowin_resident_nw_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
-    CreateMarkerB(marker_resident_home_multi,infowin_resident_home_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
-    CreateMarkerB(marker_resident_nt_multi,infowin_resident_nt_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_resident_dns_multi,infowin_resident_dns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_resident_lns_multi,infowin_resident_lns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_resident_ls_multi,infowin_resident_ls_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
-    CreateMarkerB(marker_phone_multi,infowin_phone_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
-    CreateMarkerB(marker_phone_nw_multi,infowin_phone_nw_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');    
-    CreateMarkerB(marker_phone_home_multi,infowin_phone_home_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
-    CreateMarkerB(marker_phone_nt_multi,infowin_phone_nt_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
-    CreateMarkerB(marker_phone_dns_multi,infowin_phone_dns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_phone_nc_multi,infowin_phone_nc_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_phone_vm_multi,infowin_phone_vm_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
-    CreateMarkerB(marker_phone_ap_multi,infowin_phone_ap_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_phone_pd_multi,infowin_phone_pd_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_phone_na_multi,infowin_phone_na_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
-    CreateMarkerB(marker_phone_lns_multi,infowin_phone_lns_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');	
-    CreateMarkerB(marker_phone_ls_multi,infowin_phone_ls_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');		
-    CreateMarkerB(marker_dnc_multi,infowin_dnc_multi,'icons/Duplex_NH.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_resident_multi,infowin_resident_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_resident_second_multi,infowin_resident_second_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_third_multi,infowin_resident_third_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_nw_multi,infowin_resident_nw_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_resident_home_multi,infowin_resident_home_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_resident_nt_multi,infowin_resident_nt_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_dns_multi,infowin_resident_dns_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_lns_multi,infowin_resident_lns_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_resident_ls_multi,infowin_resident_ls_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');		
+    CreateMarkerB(marker_phone_multi,infowin_phone_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_phone_second_multi,infowin_phone_second_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_third_multi,infowin_phone_third_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');		
+    CreateMarkerB(marker_phone_nw_multi,infowin_phone_nw_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');    
+    CreateMarkerB(marker_phone_home_multi,infowin_phone_home_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_phone_nt_multi,infowin_phone_nt_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
+    CreateMarkerB(marker_phone_dns_multi,infowin_phone_dns_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_nc_multi,infowin_phone_nc_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_vm_multi,infowin_phone_vm_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');		
+    CreateMarkerB(marker_phone_ap_multi,infowin_phone_ap_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_pd_multi,infowin_phone_pd_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_na_multi,infowin_phone_na_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');		
+    CreateMarkerB(marker_phone_lns_multi,infowin_phone_lns_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');	
+    CreateMarkerB(marker_phone_ls_multi,infowin_phone_ls_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');		
+    CreateMarkerB(marker_dnc_multi,infowin_dnc_multi,'icons/Duplex_Neutral.png','icons/Duplex_MouseOver.png');
    
     CreateMarker(marker_resident,infowin_resident,icons.NH.icon,icons.NH.mouseovericon);
+    CreateMarker(marker_resident_second,infowin_resident_second,icons.NH2.icon,icons.NH2.mouseovericon);	
+    CreateMarker(marker_resident_third,infowin_resident_third,icons.NH3.icon,icons.NH3.mouseovericon);	
     CreateMarker(marker_resident_nw,infowin_resident_nw,icons.NW.icon,icons.NW.mouseovericon);
     CreateMarker(marker_resident_home,infowin_resident_home,icons.HH.icon,icons.HH.mouseovericon);
     CreateMarker(marker_resident_nt,infowin_resident_nt,icons.NTR.icon,icons.NTR.mouseovericon);
@@ -644,6 +666,8 @@ and open the template in the editor.
     CreateMarker(marker_resident_dns,infowin_resident_dns,icons.DNS.icon,icons.DNS.mouseovericon);     
     
     CreateMarker(marker_phone,infowin_phone,icons.NH.icon,icons.Phone_NH.mouseovericon);
+    CreateMarker(marker_phone_second,infowin_phone_second,icons.NH2.icon,icons.Phone_NH.mouseovericon);	
+    CreateMarker(marker_phone_third,infowin_phone_third,icons.NH3.icon,icons.Phone_NH.mouseovericon);	
     CreateMarker(marker_phone_nw,infowin_phone_nw,icons.NW.icon,icons.Phone_NH.mouseovericon);
     CreateMarker(marker_phone_home,infowin_phone_home,icons.HH.icon,icons.Phone_HH.mouseovericon);
     CreateMarker(marker_phone_nt,infowin_phone_nt,icons.NTR.icon,icons.Phone_NH.mouseovericon);	
@@ -877,6 +901,14 @@ and open the template in the editor.
                   //marker_resident_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_apt[index], "click");
                   break;
+                case "marker_resident_second_apt":  
+                  //marker_resident_second_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_second_apt[index], "click");
+                  break;	
+                case "marker_resident_third_apt":  
+                  //marker_resident_third_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_third_apt[index], "click");
+                  break;				  
                 case "marker_resident_home_apt": 
                   //marker_resident_home_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_home_apt[index], "click");
@@ -909,6 +941,14 @@ and open the template in the editor.
                   //marker_phone_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_apt[index], "click");
                   break;
+                case "marker_phone_second_apt":  
+                  //marker_phone_second_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_second_apt[index], "click");
+                  break;	
+                case "marker_phone_third_apt":  
+                  //marker_phone_third_apt[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_third_apt[index], "click");
+                  break;				  
                 case "marker_phone_home_apt":
                   //marker_phone_home_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_home_apt[index], "click");
@@ -954,9 +994,17 @@ and open the template in the editor.
                   google.maps.event.trigger(marker_resident_nw_multi[index], "click");
                   break;            
                 case "marker_resident_multi":  
-                  //marker_resident_apt[index].infowindow.open(map, this);
+                  //marker_resident_multi[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_multi[index], "click");
                   break;
+                case "marker_resident_second_multi":  
+                  //marker_resident_second_multi[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_second_multi[index], "click");
+                  break;	
+                case "marker_resident_third_multi":  
+                  //marker_resident_third_multi[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_resident_third_multi[index], "click");
+                  break;				  
                 case "marker_resident_home_multi": 
                   //marker_resident_home_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_resident_home_multi[index], "click");
@@ -989,6 +1037,14 @@ and open the template in the editor.
                   //marker_phone_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_multi[index], "click");
                   break;
+                case "marker_phone_second_multi":
+                  //marker_phone_second_multi[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_second_multi[index], "click");
+                  break;
+                case "marker_phone_third_multi":
+                  //marker_phone_third_multi[index].infowindow.open(map, this);
+                  google.maps.event.trigger(marker_phone_third_multi[index], "click");
+                  break;				  
                 case "marker_phone_home_multi":
                   //marker_phone_home_apt[index].infowindow.open(map, this);
                   google.maps.event.trigger(marker_phone_home_multi[index], "click");
@@ -1051,6 +1107,12 @@ and open the template in the editor.
                 case "marker_resident":
                   marker_resident[index].infowindow.close();
                   break;
+                case "marker_resident_second":
+                  marker_resident_second[index].infowindow.close();
+                  break;
+                case "marker_resident_third":
+                  marker_resident_third[index].infowindow.close();
+                  break;				  
                 case "marker_resident_home":
                   marker_resident_home[index].infowindow.close();
                   break;
@@ -1075,6 +1137,12 @@ and open the template in the editor.
                 case "marker_phone":
                   marker_phone[index].infowindow.close();
                   break;
+                case "marker_phone_second":
+                  marker_phone_second[index].infowindow.close();
+                  break;
+                case "marker_phone_third":
+                  marker_phone_third[index].infowindow.close();
+                  break;				  
                 case "marker_phone_home":
                   marker_phone_home[index].infowindow.close();
                   break;
@@ -1111,6 +1179,12 @@ and open the template in the editor.
                 case "marker_resident_apt":
                   marker_resident_apt[index].infowindow.close();
                   break;
+                case "marker_resident_second_apt":
+                  marker_resident_second_apt[index].infowindow.close();
+                  break;	
+                case "marker_resident_third_apt":
+                  marker_resident_third_apt[index].infowindow.close();
+                  break;				  
                 case "marker_resident_home_apt":
                   marker_resident_home_apt[index].infowindow.close();
                   break;
@@ -1135,6 +1209,12 @@ and open the template in the editor.
                 case "marker_phone_apt":
                   marker_phone_apt[index].infowindow.close();
                   break;
+                case "marker_phone_second_apt":
+                  marker_phone_second_apt[index].infowindow.close();
+                  break;	
+                case "marker_phone_third_apt":
+                  marker_phone_third_apt[index].infowindow.close();
+                  break;				  
                 case "marker_phone_home_apt":
                   marker_phone_home_apt[index].infowindow.close();
                   break;
@@ -1171,6 +1251,12 @@ and open the template in the editor.
                 case "marker_resident_multi":
                   marker_resident_multi[index].infowindow.close();
                   break;
+                case "marker_resident_second_multi":
+                  marker_resident_second_multi[index].infowindow.close();
+                  break;
+                case "marker_resident_third_multi":
+                  marker_resident_third_multi[index].infowindow.close();
+                  break;				  
                 case "marker_resident_home_multi":
                   marker_resident_home_multi[index].infowindow.close();
                   break;
@@ -1195,6 +1281,12 @@ and open the template in the editor.
                 case "marker_phone_multi":
                   marker_phone_multi[index].infowindow.close();
                   break;
+                case "marker_phone_second_multi":
+                  marker_phone_second_multi[index].infowindow.close();
+                  break;	
+                case "marker_phone_third_multi":
+                  marker_phone_third_multi[index].infowindow.close();
+                  break;				  
                 case "marker_phone_home_multi":
                   marker_phone_home_multi[index].infowindow.close();
                   break;
@@ -1236,7 +1328,8 @@ and open the template in the editor.
         var bPhone;
         var initdate;
         var phonetype;
-        var lettertype;        
+        var lettertype;
+        var iSubmit;        
         var n1; 
         var n2; 
         var n3; 
@@ -1277,6 +1370,7 @@ and open the template in the editor.
         bPhone = escape(document.getElementById("bPhone" + index).value);
 
         initdate = escape(document.getElementById("InitDate" + index).value);
+        iSubmit = parseInt(escape(document.getElementById("iSubmit" + index).value)) + 1;		
 
         n = escape(document.getElementById("Notes" + index).value);
         nt = parseInt(escape(document.getElementById("N_total"  + index).value));
@@ -1424,6 +1518,7 @@ and open the template in the editor.
         bPhone = escape(document.getElementById("bPhone").value);
 
         initdate = escape(document.getElementById("InitDate").value);
+        iSubmit = parseInt(escape(document.getElementById("iSubmit").value)) + 1;			
 
         n = escape(document.getElementById("Notes").value);
         nt = parseInt(escape(document.getElementById("N_total").value));
@@ -1687,9 +1782,15 @@ and open the template in the editor.
         downloadUrl(url, function(data, responseCode) {
           if (responseCode == 200 && data.length >= 1) {
       if(bInfowin===0){
-          if(type==="NH" && bPhone==='0'){
+          if(type==="NH" && iSubmit<2 && bPhone==='0'){
               document.getElementById("propertyicon" + index).src = icons.NH.icon;
           }
+          if(type==="NH" && iSubmit>1 && bPhone==='0'){
+              document.getElementById("propertyicon" + index).src = icons.NH2.icon;
+          }	
+          if(type==="NH" && iSubmit>2 && bPhone==='0'){
+              document.getElementById("propertyicon" + index).src = icons.NH3.icon;
+          }			  
           if(type==="HH" && bPhone==='0'){
               document.getElementById("propertyicon" + index).src = icons.HH.icon;		  
           } 
@@ -1740,2830 +1841,316 @@ and open the template in the editor.
       if(bInfowin===1){
           switch  (markername){
                   case "marker_resident_nw":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseout");
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseover");                       
-                        marker_resident_nw[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseover");                        
-                        marker_resident_nw[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                       
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseover");                        
-                        marker_resident_nw[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});    
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseover");                       
-                        marker_resident_nw[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                       
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseover");                       
-                        marker_resident_nw[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                       
-                    }                     
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseover");                       
-                        marker_resident_nw[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }     
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_nw[index], "mouseover");                       
-                        marker_resident_nw[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_resident_nw[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }                    
-                    marker_resident_nw[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_nw,index);
                     break;            
                   case "marker_resident":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_resident[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident[index], "mouseover");                       
-                        marker_resident[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_resident[index], "mouseout",function() {this.setIcon(icons.NH.icon);});    
-                        google.maps.event.addListener(marker_resident[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_resident[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident[index], "mouseover");                         
-                        marker_resident[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_resident[index], "mouseout",function() {this.setIcon(icons.HH.icon);});    
-                        google.maps.event.addListener(marker_resident[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                        
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_resident[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident[index], "mouseover");                        
-                        marker_resident[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_resident[index], "mouseout",function() {this.setIcon(icons.NTR.icon);}); 
-                        google.maps.event.addListener(marker_resident[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                        
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_resident[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident[index], "mouseover");                       
-                        marker_resident[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_resident[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_resident[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                       
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_resident[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident[index], "mouseover");                       
-                        marker_resident[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_resident[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_resident[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                       
-                    }                     
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_resident[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident[index], "mouseover");                       
-                        marker_resident[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_resident[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_resident[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }   
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_resident[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident[index], "mouseover");                       
-                        marker_resident[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_resident[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_resident[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }                     
-                    marker_resident[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident,index);
                     break;
+                  case "marker_resident_second":
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_second,index);
+                    break;
+                  case "marker_resident_third":
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_third,index);
+                    break;					
                   case "marker_resident_home":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseover");                      
-                        marker_resident_home[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_resident_home[index], "mouseout",function() {this.setIcon(icons.NH.icon);}); 
-                        google.maps.event.addListener(marker_resident_home[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseover");                       
-                        marker_resident_home[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_resident_home[index], "mouseout",function() {this.setIcon(icons.HH.icon);});  
-                        google.maps.event.addListener(marker_resident_home[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                        
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseover");                       
-                        marker_resident_home[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_resident_home[index], "mouseout",function() {this.setIcon(icons.NTR.icon);}); 
-                        google.maps.event.addListener(marker_resident_home[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseout");
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseover");                       
-                        marker_resident_home[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_resident_home[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});  
-                        google.maps.event.addListener(marker_resident_home[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseout");
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseover");                       
-                        marker_resident_home[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_resident_home[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});  
-                        google.maps.event.addListener(marker_resident_home[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                     
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseout");
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseover");                       
-                        marker_resident_home[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_resident_home[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});  
-                        google.maps.event.addListener(marker_resident_home[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                        
-                    }       
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseout");
-                        google.maps.event.clearListeners(marker_resident_home[index], "mouseover");                       
-                        marker_resident_home[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_resident_home[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});  
-                        google.maps.event.addListener(marker_resident_home[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                        
-                    }                     
-                    marker_resident_home[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_home,index);
                     break;
                   case "marker_resident_nt":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseover");                       
-                        marker_resident_nt[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseout",function() {this.setIcon(icons.NH.icon);});     
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                        
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseover");                         
-                        marker_resident_nt[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseout",function() {this.setIcon(icons.HH.icon);});     
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                        
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseover");                       
-                        marker_resident_nt[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});   
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseover");                        
-                        marker_resident_nt[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseout",function() {this.setIcon(icons.DNC.icon);}); 
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                       
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseover");                        
-                        marker_resident_nt[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseout",function() {this.setIcon(icons.DNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                       
-                    }                     
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseover");                        
-                        marker_resident_nt[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }      
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_nt[index], "mouseover");                        
-                        marker_resident_nt[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);}); 
-                        google.maps.event.addListener(marker_resident_nt[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }                     
-                    marker_resident_nt[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_nt,index);
                     break;
                   case "marker_resident_lns":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseover");                       
-                        marker_resident_lns[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseout",function() {this.setIcon(icons.NH.icon);});     
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                        
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseover");                         
-                        marker_resident_lns[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseout",function() {this.setIcon(icons.HH.icon);});     
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                        
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseover");                       
-                        marker_resident_lns[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});   
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseover");                        
-                        marker_resident_lns[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseout",function() {this.setIcon(icons.DNC.icon);}); 
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                       
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseover");                        
-                        marker_resident_lns[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseout",function() {this.setIcon(icons.DNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                       
-                    }                     
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseover");                        
-                        marker_resident_lns[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }     
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_lns[index], "mouseover");                        
-                        marker_resident_lns[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);}); 
-                        google.maps.event.addListener(marker_resident_lns[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }                        
-                    marker_resident_lns[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_lns,index);
                     break;        
                   case "marker_resident_ls":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseover");                       
-                        marker_resident_ls[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseout",function() {this.setIcon(icons.NH.icon);});     
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                        
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseover");                         
-                        marker_resident_ls[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseout",function() {this.setIcon(icons.HH.icon);});     
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                        
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseover");                       
-                        marker_resident_ls[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});   
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseover");                        
-                        marker_resident_ls[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseout",function() {this.setIcon(icons.DNC.icon);}); 
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                       
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseover");                        
-                        marker_resident_ls[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseout",function() {this.setIcon(icons.DNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                       
-                    }                     
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseover");                        
-                        marker_resident_ls[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }     
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_ls[index], "mouseover");                        
-                        marker_resident_ls[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);}); 
-                        google.maps.event.addListener(marker_resident_ls[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }                        
-                    marker_resident_ls[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_ls,index);
                     break; 
                   case "marker_resident_dns":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseover");                       
-                        marker_resident_dns[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseout",function() {this.setIcon(icons.NH.icon);});     
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                        
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseover");                         
-                        marker_resident_dns[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseout",function() {this.setIcon(icons.HH.icon);});     
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                        
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseover");                       
-                        marker_resident_dns[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});   
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseover");                        
-                        marker_resident_dns[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseout",function() {this.setIcon(icons.DNC.icon);}); 
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                       
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseover");                        
-                        marker_resident_dns[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseout",function() {this.setIcon(icons.DNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                       
-                    }                     
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseover");                        
-                        marker_resident_dns[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);}); 
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }     
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_resident_dns[index], "mouseover");                        
-                        marker_resident_dns[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);}); 
-                        google.maps.event.addListener(marker_resident_dns[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }                        
-                    marker_resident_dns[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_resident_dns,index);
                     break;                    
                   case "marker_dnc":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseout");      
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseover");                        
-                        marker_dnc[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_dnc[index], "mouseout",function() {this.setIcon(icons.NH.icon);});  
-                        google.maps.event.addListener(marker_dnc[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});                       
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseout");   
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseover");                         
-                        marker_dnc[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_dnc[index], "mouseout",function() {this.setIcon(icons.HH.icon);});    
-                        google.maps.event.addListener(marker_dnc[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});                       
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseout");    
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseover");                      
-                        marker_dnc[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_dnc[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});  
-                        google.maps.event.addListener(marker_dnc[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});                        
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseover");                       
-                        marker_dnc[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_dnc[index], "mouseout",function() {this.setIcon(icons.DNC.icon);}); 
-                        google.maps.event.addListener(marker_dnc[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseout");  
-                        google.maps.event.clearListeners(marker_dnc[index], "mouseover");                       
-                        marker_dnc[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_dnc[index], "mouseout",function() {this.setIcon(icons.DNS.icon);}); 
-                        google.maps.event.addListener(marker_dnc[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                     
-                    marker_dnc[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_dnc,index);
                     break;
                   case "marker_phone_nw":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover");                      
-                        marker_phone_nw[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                         
-//                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-//                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                       
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout");     
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover");                       
-                        marker_phone_nw[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.HH.icon);}); 
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                         
-//                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);}); 
-//                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout");     
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover");                       
-                        marker_phone_nw[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});  
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                         
-//                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_NTR.icon);});  
-//                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                        
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                      
-                    }
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                      
-                    }                    
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }    
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }    
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    } 					
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nw[index], "mouseover"); 
-                        marker_phone_nw[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_nw[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                     
-                    marker_phone_nw[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_nw,index);
                     break;                  
                   case "marker_phone":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover");                      
-                        marker_phone[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                          
-//                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-//                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover");                        
-                        marker_phone[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-//                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-//                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                       
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover");                       
-                        marker_phone[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                         
-//                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_NTR.icon);});
-//                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                        
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover");                      
-                        marker_phone[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                         
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover");                      
-                        marker_phone[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                         
-                    }                       
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
-                        marker_phone[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }      
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
-                        marker_phone[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
-                        marker_phone[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }     
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
-                        marker_phone[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
-                        marker_phone[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    } 					
-                    if (type==='WL' && lettertype==='LNS'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
-                        marker_phone[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='WL' && lettertype==='LS'){
-                        google.maps.event.clearListeners(marker_phone[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone[index], "mouseover"); 
-                        marker_phone[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                     
-                    marker_phone[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone,index);
                     break;
+                  case "marker_phone_second":
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_second,index);
+                    break;	
+                  case "marker_phone_third":
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_third,index);
+                    break;						
                   case "marker_phone_home":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover");                        
-                        marker_phone_home[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                         
-//                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-//                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                       
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover");                         
-                        marker_phone_home[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                       
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover");                      
-                        marker_phone_home[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                          
-//                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_NTR.icon);});
-//                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover");                          
-                        marker_phone_home[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover");                          
-                        marker_phone_home[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
-                        marker_phone_home[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
-                        marker_phone_home[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
-                        marker_phone_home[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
-                        marker_phone_home[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
-                        marker_phone_home[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    } 					
-                    if (type==='WL' && lettertype==='LNS'){    
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
-                        marker_phone_home[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='WL' && lettertype==='LS'){    
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_home[index], "mouseover"); 
-                        marker_phone_home[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_home[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_home[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                     
-                    marker_phone_home[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_home,index);
                     break;
                   case "marker_phone_nt":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover");                       
-                        marker_phone_nt[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                         
-//                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-//                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                       
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover");                       
-                        marker_phone_nt[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                            
-//                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-//                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                         
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover");                         
-                        marker_phone_nt[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                         
-//                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_NTR.icon);});
-//                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                       
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover");                       
-                        marker_phone_nt[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover");                       
-                        marker_phone_nt[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                     
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
-                        marker_phone_nt[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }       
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
-                        marker_phone_nt[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
-                        marker_phone_nt[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
-                        marker_phone_nt[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
-                        marker_phone_nt[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    } 					
-                    if (type==='WL' && lettertype==='LNS'){       
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
-                        marker_phone_nt[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }        
-                    if (type==='WL' && lettertype==='LS'){       
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nt[index], "mouseover"); 
-                        marker_phone_nt[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_nt[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                      
-                    marker_phone_nt[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_nt,index);
                     break;
                   case "marker_phone_nc":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover");                       
-                        marker_phone_nc[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover");                       
-                        marker_phone_nc[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover");                         
-                        marker_phone_nc[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover");                       
-                        marker_phone_nc[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover");                       
-                        marker_phone_nc[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                     
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
-                        marker_phone_nc[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
-                        marker_phone_nc[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
-                        marker_phone_nc[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
-                        marker_phone_nc[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
-                        marker_phone_nc[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    } 						
-                    if (type==='WL' && lettertype==='LNS'){  
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
-                        marker_phone_nc[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='WL' && lettertype==='LS'){  
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_nc[index], "mouseover"); 
-                        marker_phone_nc[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_nc[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                      
-                    marker_phone_nc[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_nc,index);
                     break;   
                   case "marker_phone_vm":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover");                       
-                        marker_phone_vm[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover");                       
-                        marker_phone_vm[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover");                         
-                        marker_phone_vm[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover");                       
-                        marker_phone_vm[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover");                       
-                        marker_phone_vm[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }     
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    }					
-                    if (type==='WL' && lettertype==='LNS'){  
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  					
-                    if (type==='WL' && lettertype==='LNS'){ 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='WL' && lettertype==='LS'){ 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_vm[index], "mouseover"); 
-                        marker_phone_vm[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_vm[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                      
-                    marker_phone_vm[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_vm,index);
                     break; 
                   case "marker_phone_ap":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover");                       
-                        marker_phone_ap[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover");                       
-                        marker_phone_ap[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover");                         
-                        marker_phone_ap[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover");                       
-                        marker_phone_ap[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover");                       
-                        marker_phone_ap[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
-                        marker_phone_ap[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
-                        marker_phone_ap[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
-                        marker_phone_ap[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
-                        marker_phone_ap[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
-                        marker_phone_ap[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    } 					
-                    if (type==='WL' && lettertype==='LNS'){     
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
-                        marker_phone_ap[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }       
-                    if (type==='WL' && lettertype==='LS'){     
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ap[index], "mouseover"); 
-                        marker_phone_ap[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_ap[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                     
-                    marker_phone_ap[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_ap,index);
                     break; 
                   case "marker_phone_pd":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover");                       
-                        marker_phone_pd[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover");                       
-                        marker_phone_pd[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover");                         
-                        marker_phone_pd[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover");                       
-                        marker_phone_pd[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover");                       
-                        marker_phone_pd[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
-                        marker_phone_pd[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
-                        marker_phone_pd[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
-                        marker_phone_pd[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
-                        marker_phone_pd[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
-                        marker_phone_pd[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    } 					
-                    if (type==='WL' && lettertype==='LNS'){  
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
-                        marker_phone_pd[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }    
-                    if (type==='WL' && lettertype==='LS'){  
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_pd[index], "mouseover"); 
-                        marker_phone_pd[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_pd[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                    
-                    marker_phone_pd[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_pd,index);
                     break;     
                   case "marker_phone_lns":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover");                       
-                        marker_phone_lns[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover");                       
-                        marker_phone_lns[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover");                         
-                        marker_phone_lns[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover");                       
-                        marker_phone_lns[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    } 
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover");                       
-                        marker_phone_lns[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
-                        marker_phone_lns[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
-                        marker_phone_lns[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
-                        marker_phone_lns[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
-                        marker_phone_lns[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
-                        marker_phone_lns[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    }						
-                    if (type==='WL' && lettertype==='LNS'){  
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
-                        marker_phone_lns[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }    
-                    if (type==='WL' && lettertype==='LS'){  
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_lns[index], "mouseover"); 
-                        marker_phone_lns[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_lns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                    
-                    marker_phone_lns[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_lns,index);
                     break;  
                   case "marker_phone_ls":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover");                       
-                        marker_phone_ls[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover");                       
-                        marker_phone_ls[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover");                         
-                        marker_phone_ls[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover");                       
-                        marker_phone_ls[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover");                       
-                        marker_phone_ls[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
-                        marker_phone_ls[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
-                        marker_phone_ls[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
-                        marker_phone_ls[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
-                        marker_phone_ls[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
-                        marker_phone_ls[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    }						
-                    if (type==='WL' && lettertype==='LNS'){  
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
-                        marker_phone_ls[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }    
-                    if (type==='WL' && lettertype==='LS'){  
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_ls[index], "mouseover"); 
-                        marker_phone_ls[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_ls[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                    
-                    marker_phone_ls[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_ls,index);
                     break;  
                   case "marker_phone_dns":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover");                       
-                        marker_phone_dns[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover");                       
-                        marker_phone_dns[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover");                         
-                        marker_phone_dns[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover");                       
-                        marker_phone_dns[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover");                       
-                        marker_phone_dns[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
-                        marker_phone_dns[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
-                        marker_phone_dns[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
-                        marker_phone_dns[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
-                        marker_phone_dns[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
-                        marker_phone_dns[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    }					
-                    if (type==='WL' && lettertype==='LNS'){  
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
-                        marker_phone_dns[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }    
-                    if (type==='WL' && lettertype==='LS'){  
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_dns[index], "mouseover"); 
-                        marker_phone_dns[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_dns[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                    
-                    marker_phone_dns[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_dns,index); 
                     break;   
                   case "marker_phone_na":
-                    if (type==='NH'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
-                        marker_phone_na[index].setIcon(icons.NH.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                                                
-                    }
-                    if (type==='HH'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
-                        marker_phone_na[index].setIcon(icons.HH.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                                                    
-                    }
-                    if (type==='NTR'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                         
-                        marker_phone_na[index].setIcon(icons.NTR.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NTR.mouseovericon);});                                              
-                    }  
-                    if (type==='DNC'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
-                        marker_phone_na[index].setIcon(icons.DNC.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
-                    }  
-                    if (type==='DNS'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover");                       
-                        marker_phone_na[index].setIcon(icons.DNS.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});                        
-                    }                      
-                    if (type==='PC' && phonetype==='NC'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
-                        marker_phone_na[index].setIcon(icons.Phone_NH.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }  
-                    if (type==='PC' && phonetype==='VM'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
-                        marker_phone_na[index].setIcon(icons.Phone_VM.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='AP'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
-                        marker_phone_na[index].setIcon(icons.Phone_HH.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);});                        
-                    }   
-                    if (type==='PC' && phonetype==='PD'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
-                        marker_phone_na[index].setIcon(icons.Phone_PD.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);});                        
-                    }
-                    if (type==='PC' && phonetype==='NA'){
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
-                        marker_phone_na[index].setIcon(icons.Phone_NA.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);});                        
-                    }					
-                    if (type==='WL' && lettertype==='LNS'){  
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
-                        marker_phone_na[index].setIcon(icons.Letter_LNS.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }    
-                    if (type==='WL' && lettertype==='LS'){  
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseout"); 
-                        google.maps.event.clearListeners(marker_phone_na[index], "mouseover"); 
-                        marker_phone_na[index].setIcon(icons.Letter_LS.icon);
-                        google.maps.event.addListener(marker_phone_na[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
-                        google.maps.event.addListener(marker_phone_na[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});                        
-                    }                    
-                    marker_phone_dns[index].infowindow.close();
+					changeMarkerImage(bPhone,type,phonetype,lettertype,iSubmit,marker_phone_na,index);                       
                     break;  					
                   case "marker_resident_nw_apt":
                     marker_resident_nw_apt[index].infowindow.close();                    
                     google.maps.event.trigger(marker_apt[infowin_index], "click");
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.DNS.icon;                          
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_nw_apt' + index).src = icons.Letter_LS.icon;                        
-                    }						
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_nw_apt', index);						
                     break;                  
                   case "marker_resident_apt":
                     marker_resident_apt[index].infowindow.close();    
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                  
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_apt' + index).src = icons.DNC.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_apt' + index).src = icons.Letter_LS.icon;                        
-                    }                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_apt', index);                  
                     break;
+                  case "marker_resident_second_apt":
+                    marker_resident_second_apt[index].infowindow.close();    
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                  
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_second_apt', index);                  
+                    break;	
+                  case "marker_resident_third_apt":
+                    marker_resident_third_apt[index].infowindow.close();    
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                  
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_third_apt', index);                     
+                    break;					
                   case "marker_resident_home_apt":
                     marker_resident_home_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_home_apt' + index).src = icons.Letter_LS.icon;                        
-                    }  					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_home_apt', index);  					
                     break;
                   case "marker_resident_nt_apt":
                     marker_resident_nt_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.DNS.icon;                          
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_nt_apt' + index).src = icons.Letter_LS.icon;                        
-                    }  					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_nt_apt', index);   					
                     break;
                   case "marker_resident_dns_apt":
                     marker_resident_dns_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_dns_apt' + index).src = icons.Letter_LS.icon;                        
-                    }  					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_dns_apt', index);  					
                     break;					
                   case "marker_resident_lns_apt":
                     marker_resident_lns_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_lns_apt' + index).src = icons.Letter_LS.icon;                        
-                    }  					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_lns_apt', index);   					
                     break;	
                   case "marker_resident_ls_apt":
                     marker_resident_ls_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.DNS.icon;                          
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_ls_apt' + index).src = icons.Letter_LS.icon;                        
-                    }  					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_ls_apt', index);  					
                     break;					
                   case "marker_dnc_apt":
                     marker_dnc_apt[index].infowindow.close();  
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_dnc_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_dnc_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_dnc_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_dnc_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_dnc_apt' + index).src = icons.DNC.icon;                        
-                    }   					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_dnc_apt', index);	  					
                     break;
                   case "marker_phone_nw_apt":
                     marker_phone_nw_apt[index].infowindow.close(); 
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.DNS.icon;                          
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_VM.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_nw_apt' + index).src = icons.Letter_LS.icon;                        
-                    }										
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_nw_apt', index);										
                     break;                  
                   case "marker_phone_apt":
                     marker_phone_apt[index].infowindow.close(); 
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_VM.icon;                        
-                    } 		
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 		
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_PD.icon;                        
-                    }
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_apt' + index).src = icons.Letter_LS.icon;                        
-                    }						
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_apt', index);						
                     break;
+                  case "marker_phone_second_apt":
+                    marker_phone_second_apt[index].infowindow.close(); 
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_second_apt', index);						
+                    break;	
+                  case "marker_phone_third_apt":
+                    marker_phone_third_apt[index].infowindow.close(); 
+                    google.maps.event.trigger(marker_apt[infowin_index], "click");                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_third_apt', index);						
+                    break;					
                   case "marker_phone_home_apt":
                     marker_phone_home_apt[index].infowindow.close();   
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                  
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.DNS.icon;                          
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_NH.icon;                        
-                    }
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_HH.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Phone_NA.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }	
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_home_apt' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_home_apt', index);					
                     break;
                   case "marker_phone_nt_apt":
                     marker_phone_nt_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_VM.icon;                        
-                    }   
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_nt_apt' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_nt_apt', index); 					
                     break;  
                   case "marker_phone_dns_apt":
                     marker_phone_dns_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_VM.icon;                        
-                    }   
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_dns_apt' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_dns_apt', index);						
                     break; 					
                   case "marker_phone_nc_apt":
                     marker_phone_nc_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_VM.icon;                        
-                    }   
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_HH.icon;                        
-                    }
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Phone_NA.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Letter_LNS.icon;                        
-                    } 	
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_nc_apt' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_nc_apt', index);					
                     break;	
                   case "marker_phone_vm_apt":
                     marker_phone_vm_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_VM.icon;                        
-                    }       
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 	
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Letter_LNS.icon;                        
-                    } 	
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_vm_apt' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_vm_apt', index);	 					
                     break;	
                   case "marker_phone_ap_apt":
                     marker_phone_ap_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.DNS.icon;                          
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_VM.icon;                        
-                    }       
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 			
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Letter_LNS.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_ap_apt' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_ap_apt', index);					
                     break;
                   case "marker_phone_pd_apt":
                     marker_phone_pd_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.DNS.icon;                          
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_VM.icon;                        
-                    }       
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 	
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_pd_apt' + index).src = icons.Letter_LS.icon;                        
-                    }
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_pd_apt', index);
 				    break;					
                   case "marker_phone_na_apt":
                     marker_phone_na_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_VM.icon;                        
-                    }       
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 		
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_na_apt' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_na_apt', index);
                     break;	
                   case "marker_phone_lns_apt":
                     marker_phone_lns_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_VM.icon;                        
-                    }       
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 		
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_lns_apt' + index).src = icons.Letter_LS.icon;                        
-                    }						
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_lns_apt', index);					
                     break;
                   case "marker_phone_ls_apt":
                     marker_phone_ls_apt[index].infowindow.close();     
                     google.maps.event.trigger(marker_apt[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.DNS.icon;                          
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_VM.icon;                        
-                    }       
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_HH.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_PD.icon;                        
-                    }	
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Phone_NA.icon;                        
-                    } 		
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_ls_apt' + index).src = icons.Letter_LS.icon;                        
-                    }						
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_ls_apt', index);					
                     break;					
                   case "marker_resident_nw_multi":
                     marker_resident_nw_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                   
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.DNS.icon;                        
-                    } 					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.DNC.icon;                        
-                    }   
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_nw_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_nw_multi', index);  					
                     break;                  
                   case "marker_resident_multi":
                     marker_resident_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_multi' + index).src = icons.DNS.icon;                        
-                    } 						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_multi' + index).src = icons.DNC.icon;                        
-                    }  
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_multi', index);					
                     break;
+                  case "marker_resident_second_multi":
+                    marker_resident_second_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_second_multi', index);					
+                    break;
+                  case "marker_resident_third_multi":
+                    marker_resident_third_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_third_multi', index);					
+                    break;					
                   case "marker_resident_home_multi":
                     marker_resident_home_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.DNS.icon;                        
-                    } 					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.DNC.icon;                        
-                    }     
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_home_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_home_multi', index);						
                     break;
                   case "marker_resident_nt_multi":
                     marker_resident_nt_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.DNS.icon;                        
-                    } 					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.DNC.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_nt_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_nt_multi', index);				
                     break;
                   case "marker_resident_lns_multi":
                     marker_resident_lns_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.DNS.icon;                        
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.DNC.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_lns_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_lns_multi', index);						
                     break;	
                   case "marker_resident_ls_multi":
                     marker_resident_ls_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.DNC.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_ls_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_ls_multi', index);						
                     break;		
                   case "marker_resident_dns_multi":
                     marker_resident_dns_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.DNC.icon;                        
-                    }
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_resident_dns_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_resident_dns_multi', index);						
                     break;						
                   case "marker_dnc_multi":
                     marker_dnc_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_dnc_multi' + index).src = icons.NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_dnc_multi' + index).src = icons.HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_dnc_multi' + index).src = icons.NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_dnc_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_dnc_multi' + index).src = icons.DNC.icon;                        
-                    }                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_dnc_multi', index);	                
                     break;
                   case "marker_phone_nw_multi":
                     marker_phone_nw_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }	
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.DNC.icon;                        
-                    }
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_nw_multi' + index).src = icons.Letter_LS.icon;                        
-                    }                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_nw_multi', index);                  
                     break;                  
                   case "marker_phone_multi":
                     marker_phone_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.DNS.icon;                        
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_multi' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_multi', index);  					
                     break;
+                  case "marker_phone_second_multi":
+                    marker_phone_second_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_second_multi', index);  					
+                    break;	
+                  case "marker_phone_third_multi":
+                    marker_phone_third_multi[index].infowindow.close();
+                    google.maps.event.trigger(marker_multi[infowin_index], "click");                    
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_third_multi', index);  					
+                    break;						
                   case "marker_phone_home_multi":
                     marker_phone_home_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.DNS.icon;                        
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.DNC.icon;                        
-                    }   
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 	
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_home_multi' + index).src = icons.Letter_LS.icon;                        
-                    } 					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_home_multi', index); 					
                     break;
                   case "marker_phone_nt_multi":
                     marker_phone_nt_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.DNS.icon;                        
-                    }							
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_nt_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_nt_multi', index); 					
                     break; 
                   case "marker_phone_nc_multi":
                     marker_phone_nc_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.DNS.icon;                        
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_nc_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_nc_multi', index); 					
                     break; 	
                   case "marker_phone_vm_multi":
                     marker_phone_vm_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.DNS.icon;                        
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_vm_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_vm_multi', index); 				
                     break; 	
                   case "marker_phone_ap_multi":
                     marker_phone_ap_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.DNS.icon;                        
-                    }					
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_ap_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_ap_multi', index); 					
                     break;	
                   case "marker_phone_pd_multi":
                     marker_phone_pd_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_pd_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_pd_multi', index); 				
                     break;	
                   case "marker_phone_na_multi":
                     marker_phone_na_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_na_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_na_multi', index); 					
                     break;	
                   case "marker_phone_lns_multi":
                     marker_phone_lns_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_lns_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_lns_multi', index); 					
                     break;	
                   case "marker_phone_ls_multi":
                     marker_phone_ls_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_ls_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_ls_multi', index); 					
                     break;	
                   case "marker_phone_dns_multi":
                     marker_phone_dns_multi[index].infowindow.close();
                     google.maps.event.trigger(marker_multi[infowin_index], "click");                    
-                    if (type==='NH'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NH.icon;
-                    }
-                    if (type==='HH'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_HH.icon;                      
-                    }
-                    if (type==='NTR'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NTR.icon;                          
-                    }
-                    if (type==='DNS'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.DNS.icon;                        
-                    }						
-                    if (type==='DNC'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.DNC.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NC'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='VM'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_VM.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='AP'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_HH.icon;                        
-                    } 	
-                    if (type==='PC' && phonetype==='PD'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_PD.icon;                        
-                    } 
-                    if (type==='PC' && phonetype==='NA'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Phone_NA.icon;                        
-                    } 
-                    if (type==='WL' && lettertype==='LNS'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Letter_LNS.icon;                        
-                    } 
-					if (type==='WL' && lettertype==='LS'){
-                        document.getElementById('imagemarker_phone_dns_multi' + index).src = icons.Letter_LS.icon;                        
-                    }					
+				    changeMarkerImageUnitMulti(type, phonetype, lettertype, iSubmit,'imagemarker_phone_dns_multi', index); 				
                     break;					
           }  // end of switch       
       }
@@ -4587,7 +2174,7 @@ and open the template in the editor.
         }
       };
 
-      request.open('GET', url, true);
+      request.open('POST', url, true);
       request.send(null);
     }
     
@@ -4640,6 +2227,165 @@ and open the template in the editor.
         }        
         
     }
+	
+	function changeMarkerImageUnitMulti(type, phonetype, lettertype, isubmit, elementid, index){		
+		if (type==='NH' && isubmit<2){
+			document.getElementById(elementid + index).src = icons.NH.icon;
+		}
+		if (type==='NH' && isubmit>1){
+			document.getElementById(elementid + index).src = icons.NH2.icon;         
+		}	
+		if (type==='NH' && isubmit>2){
+			document.getElementById(elementid + index).src = icons.NH3.icon;            
+		}						
+		if (type==='HH'){
+			document.getElementById(elementid + index).src = icons.HH.icon;                      
+		}
+		if (type==='NTR'){
+			document.getElementById(elementid + index).src = icons.NTR.icon;                          
+		}
+		if (type==='DNS'){
+			document.getElementById(elementid + index).src = icons.DNS.icon;                          
+		}						
+		if (type==='DNC'){
+			document.getElementById(elementid + index).src = icons.DNC.icon;                        
+		}  
+		if (type==='PC' && phonetype==='NC'){
+			document.getElementById(elementid + index).src = icons.Phone_NH.icon;                        
+		} 	
+		if (type==='PC' && phonetype==='VM'){
+			document.getElementById(elementid + index).src = icons.Phone_VM.icon;                        
+		}       
+		if (type==='PC' && phonetype==='AP'){
+			document.getElementById(elementid + index).src = icons.Phone_HH.icon;                        
+		} 
+		if (type==='PC' && phonetype==='PD'){
+			document.getElementById(elementid + index).src = icons.Phone_PD.icon;                        
+		}	
+		if (type==='PC' && phonetype==='NA'){
+			document.getElementById(elementid + index).src = icons.Phone_NA.icon;                        
+		} 		
+		if (type==='WL' && lettertype==='LNS'){
+			document.getElementById(elementid + index).src = icons.Letter_LNS.icon;                        
+		} 
+		if (type==='WL' && lettertype==='LS'){
+			document.getElementById(elementid + index).src = icons.Letter_LS.icon;                        
+		}			
+	}
+	
+	function changeMarkerImage(bphone,type,phonetype,lettertype,isubmit,marker,index){
+		if (type==='NH' && isubmit<2){
+			google.maps.event.clearListeners(marker[index], "mouseout");
+			google.maps.event.clearListeners(marker[index], "mouseover");                       
+			marker[index].setIcon(icons.NH.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.NH.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}			
+		}
+		if (type==='NH' && isubmit>1){
+			google.maps.event.clearListeners(marker[index], "mouseout");
+			google.maps.event.clearListeners(marker[index], "mouseover");                       
+			marker[index].setIcon(icons.NH2.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.NH2.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.NH2.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}				
+		}	
+		if (type==='NH' && isubmit>2){
+			google.maps.event.clearListeners(marker[index], "mouseout");
+			google.maps.event.clearListeners(marker[index], "mouseover");                       
+			marker[index].setIcon(icons.NH3.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.NH3.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.NH3.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}	                       
+		}	
+		if (type==='HH'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover");                       
+			marker[index].setIcon(icons.HH.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.HH.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.HH.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}	                                                   
+		}
+		if (type==='NTR'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover");                         
+			marker[index].setIcon(icons.NTR.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.NTR.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.NTR.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}	                                             
+		}  
+		if (type==='DNC'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover");                       
+			marker[index].setIcon(icons.DNC.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.DNC.icon);});
+			google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.DNC.mouseovericon);});                        
+		}  
+		if (type==='DNS'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover");                       
+			marker[index].setIcon(icons.DNS.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.DNS.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.DNS.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}	                      
+		}                      
+		if (type==='PC' && phonetype==='NC'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover"); 
+			marker[index].setIcon(icons.Phone_NH.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.Phone_NH.icon);})
+			google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);})                       
+		}  
+		if (type==='PC' && phonetype==='VM'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover"); 
+			marker[index].setIcon(icons.Phone_VM.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.Phone_VM.icon);})
+			google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_VM.mouseovericon);})                        
+		}
+		if (type==='PC' && phonetype==='AP'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover"); 
+			marker[index].setIcon(icons.Phone_HH.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.Phone_HH.icon);})
+			google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_HH.mouseovericon);})                       
+		}   
+		if (type==='PC' && phonetype==='PD'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover"); 
+			marker[index].setIcon(icons.Phone_PD.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.Phone_PD.icon);})
+			google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_PD.mouseovericon);})                        
+		}
+		if (type==='PC' && phonetype==='NA'){
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover"); 
+			marker[index].setIcon(icons.Phone_NA.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.Phone_NA.icon);})
+			google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NA.mouseovericon);})                        
+		}					
+		if (type==='WL' && lettertype==='LNS'){  
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover"); 
+			marker[index].setIcon(icons.Letter_LNS.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.Letter_LNS.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}	                       
+		}    
+		if (type==='WL' && lettertype==='LS'){  
+			google.maps.event.clearListeners(marker[index], "mouseout"); 
+			google.maps.event.clearListeners(marker[index], "mouseover"); 
+			marker[index].setIcon(icons.Letter_LS.icon);
+			google.maps.event.addListener(marker[index], "mouseout",function() {this.setIcon(icons.Letter_LS.icon);});
+			if (bphone==="false"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.NH.mouseovericon);});}
+			if (bphone==="true"){google.maps.event.addListener(marker[index], "mouseover",function() {this.setIcon(icons.Phone_NH.mouseovericon);});}                        
+		}                    
+		marker[index].infowindow.close();		
+	}
+	
+		
+	
+	
    function getUsername(username){
     for( var i=0;i<users.length;i++){     
       if(users[i].username===username){
@@ -4656,7 +2402,8 @@ and open the template in the editor.
                     '<div id="hiddendata' + index + '" style="display:none;">' +
                     '<table>' +                                                   
                     '<tr><td><input type="hidden" id="iseven' + index + '"  value="' + column.oddeven + '" readonly></td></tr>' +                                                
-                    '<tr><td><input type="hidden" id="InitDate' + index + '" value="' + column.initialdate + '"/></td></tr>' +                 
+                    '<tr><td><input type="hidden" id="InitDate' + index + '" value="' + column.initialdate + '"/></td></tr>' +
+                    '<tr><td><input type="hidden" id="iSubmit' + index + '" value="' + column.isubmit + '"/></td></tr>' + 					
                     '<tr><td><input type="hidden" id="AddressGUID' + index + '" value="' + column.addressguid + '"/></td></tr>' +
                     '<tr><td><input type="hidden" id="bPhone' + index + '" value="' + column.bphone + '"/></td></tr>' + column.notes_element +
                     '</table>' +                                                   
@@ -4791,7 +2538,8 @@ and open the template in the editor.
                     '<div id="hiddendata' + index + '" style="display:none;">' +
                     '<table>' +                                                   
                     '<tr><td><input type="hidden" id="iseven' + index + '"  value="' + column.oddeven + '" readonly></td></tr>' +                                                
-                    '<tr><td><input type="hidden" id="InitDate' + index + '" value="' + column.initialdate + '"/></td></tr>' +                 
+                    '<tr><td><input type="hidden" id="InitDate' + index + '" value="' + column.initialdate + '"/></td></tr>' + 
+                    '<tr><td><input type="hidden" id="iSubmit' + index + '" value="' + column.isubmit + '"/></td></tr>' + 					
                     '<tr><td><input type="hidden" id="AddressGUID' + index + '" value="' + column.addressguid + '"/></td></tr>' +
                     '<tr><td><input type="hidden" id="bPhone' + index + '" value="' + column.bphone + '"/></td></tr>' + column.notes_element +
                     '</table>' +                                                   
@@ -5141,6 +2889,7 @@ and open the template in the editor.
                                       oddeven:iseven,
                                       formattedaddress:  myJSONResult[i].bUnit === '1'? myJSONResult[i].FormattedAddress.toString().replace(',', ' UNIT# ' + myJSONResult[i].Unit + ',') : myJSONResult[i].FormattedAddress,
                                       initialdate:myJSONResult[i].InitialDate,
+                                      isubmit:myJSONResult[i].iSubmit,									  
                                       addressguid:myJSONResult[i].AddressGUID,
                                       resident:myJSONResult[i].Resident,
                                       phone:myJSONResult[i].Phone,
@@ -5148,12 +2897,20 @@ and open the template in the editor.
                                       notes_element:notes_elements,
                                       notes:notes};
 
+						var iSubmit = parseInt(myJSONResult[i].iSubmit);
+						
                       if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '0' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.NW.icon,column);
                       }
-                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                      if(myJSONResult[i].Type === 'NH' && iSubmit<2 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.NH.icon,column);                          
                       }
+                      if(myJSONResult[i].Type === 'NH' && iSubmit>1 && iSubmit<3 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                                 div.innerHTML = Home(i,icons.NH2.icon,column);                          
+                      }	
+                      if(myJSONResult[i].Type === 'NH' && iSubmit>2 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
+                                 div.innerHTML = Home(i,icons.NH3.icon,column);                          
+                      }						  
                       if(myJSONResult[i].Type === 'HH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '0'){
                                  div.innerHTML = Home(i,icons.HH.icon,column);                          
                       }     
@@ -5208,9 +2965,15 @@ and open the template in the editor.
                       if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '0' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.NW.icon,column);
                       }
-                      if(myJSONResult[i].Type === 'NH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
-                                div.innerHTML =  Home(i,icons.NH.icon,column);
+                      if(myJSONResult[i].Type === 'NH' && iSubmit<2 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                                 div.innerHTML = Home(i,icons.NH.icon,column);                          
                       }
+                      if(myJSONResult[i].Type === 'NH' && iSubmit>1 && iSubmit<3 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                                 div.innerHTML = Home(i,icons.NH2.icon,column);                          
+                      }	
+                      if(myJSONResult[i].Type === 'NH' && iSubmit>2 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
+                                 div.innerHTML = Home(i,icons.NH3.icon,column);                          
+                      }					  
                       if(myJSONResult[i].Type === 'HH' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '0' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Home(i,icons.HH.icon,column);
                       }     
@@ -5230,16 +2993,22 @@ and open the template in the editor.
                                 div.innerHTML =  Home(i,icons.DNC.icon,column);                                   
                       }    
                       if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].bTouched === '0' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                                div.innerHTML =  Phone(i,icons.NW.icon,column);                                   
-                      }  
+                                div.innerHTML =  Home(i,icons.NW.icon,column);                                   
+                      }          
+                      if(myJSONResult[i].Type === 'NH' && iSubmit<2 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                 div.innerHTML = Home(i,icons.NH.icon,column);                          
+                      }
+                      if(myJSONResult[i].Type === 'NH' && iSubmit>1 && iSubmit<3 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                 div.innerHTML = Home(i,icons.NH2.icon,column);                          
+                      }	
+                      if(myJSONResult[i].Type === 'NH' && iSubmit>2 && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
+                                 div.innerHTML = Home(i,icons.NH3.icon,column);                          
+                      }	  
                       if(myJSONResult[i].Type === 'NTR' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                                div.innerHTML =  Phone(i,icons.NTR.icon,column);                                   
-                      }         
-                      if(myJSONResult[i].Type === 'NH' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                                div.innerHTML =  Phone(i,icons.NH.icon,column);                                    
-                      }    
+                                div.innerHTML =  Home(i,icons.NTR.icon,column);                                   
+                      } 					  
                       if(myJSONResult[i].Type === 'HH' &&  myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
-                                div.innerHTML =  Phone(i,icons.HH.icon,column);                                     
+                                div.innerHTML =  Home(i,icons.HH.icon,column);                                     
                       }   
                       if(myJSONResult[i].Type === 'PC' &&  myJSONResult[i].PhoneType === 'NC' && myJSONResult[i].bTouched === '1' && myJSONResult[i].bPhone === '1' && myJSONResult[i].bUnit === '1'){
                                 div.innerHTML =  Phone(i,icons.Phone_NH.icon,column);                                   

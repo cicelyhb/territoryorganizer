@@ -26,18 +26,8 @@ if( mysqli_connect_errno() ) {
      die( mysqli_connect_error());
 }
 
-//Build Select query
-$tsql = sprintf("UPDATE ministryapp.territory "
-        . "SET Type = '%s'"
-        . ",PhoneType = '%s'"
-        . ",Language = '%s'"
-        . ",Notes = '%s'"
-        . ",InitialDate = '%s'"
-        . ",DateModified = '%s'"  
-        . ",bTouched = '1'"  
-        . ",LetterType = '%s'"            
-        . "WHERE AddressGUID = '%s';"
-        ,$type,$phonetype,$language,$notes,$initdate,$moddate,$lettertype,$addressguid);
+//Build query
+$tsql = "call saveTerritory('$type','$phonetype','$language','$notes','$initdate','$moddate','$lettertype','$addressguid')";
 
 
 $result = mysqli_query($conn,$tsql);

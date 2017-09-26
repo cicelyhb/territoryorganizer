@@ -497,8 +497,8 @@ and open the template in the editor.
         
         var house = "icons/House_NW.png";
         var housesaved = "icons/House_NW_Saved.png";        
-        var apartment = "icons/Apartment_NH.png"
-        var multihouse = "icons/Duplex_NH.png";
+        var apartment = "icons/Apartment_NW.png"
+        var multihouse = "icons/Duplex_NW.png";
         var phone = "icons/Phone_NW.png";  
         var phonesaved = "icons/Phone_NW_Saved.png";         
 

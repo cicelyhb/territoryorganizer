@@ -58,7 +58,8 @@ while( $row = mysqli_fetch_array( $result, MYSQLI_NUM))
                   "Building" => $row[17],
                   "LetterType" => $row[18],
 				  "bLetter" => $row[19],
-				  "bTouched" => $row[20]);
+				  "bTouched" => $row[20],
+				  "iSubmit" => $row[21]);
 }
 
 //close connections
