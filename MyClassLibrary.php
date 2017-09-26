@@ -502,6 +502,9 @@ class Login{
                     echo 'Houses',PHP_EOL;
                     echo '</font></th>',PHP_EOL; 
                     echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
+                    echo 'NH',PHP_EOL;
+                    echo '</font></th>',PHP_EOL; 					
+                    echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
                     echo 'DNC',PHP_EOL;
                     echo '</font></th>',PHP_EOL; 
                     echo '<th bgcolor="#0B1F81"><font color="white">',PHP_EOL;
@@ -537,6 +540,9 @@ class Login{
                             echo '<td align="center">',PHP_EOL;
                             echo $territory[3],PHP_EOL;
                             echo '</td>',PHP_EOL;
+                            echo '<td>',PHP_EOL;
+                            echo '<center>'.$territory[15].'</center>',PHP_EOL;
+                            echo '</td>',PHP_EOL; 							
                             echo '<td>',PHP_EOL;
                             echo '<center>'.$territory[5].'</center>',PHP_EOL;
                             echo '</td>',PHP_EOL;  
@@ -616,6 +622,9 @@ class Login{
                           $this->codeinjector[] = '<td align="center">';
                           $this->codeinjector[] = '<center><a href = "#" onclick="streetviewmodule('.$sngquote.$congregationnumber.$sngquote.','.$sngquote.$territoryNumber.$sngquote.','.$sngquote.$street[0].$sngquote.','.$sngquote.$street[1].$sngquote.',1);" style="padding: 0px 0px 0px 0px;">'.$street[3].'/'.$street[4].'</a></center>';
                           $this->codeinjector[] = '</td>';
+                          $this->codeinjector[] = '<td align="center">';
+                          $this->codeinjector[] = '<center><a href = "#" onclick="streetviewmodule('.$sngquote.$congregationnumber.$sngquote.','.$sngquote.$territoryNumber.$sngquote.','.$sngquote.$street[0].$sngquote.','.$sngquote.$street[1].$sngquote.',5);" style="padding: 0px 0px 0px 0px;">'.$street[8].'</a></center>';
+                          $this->codeinjector[] = '</td>';						  
                           $this->codeinjector[] = '<td align="center">';
                           $this->codeinjector[] = '<center><a href = "#" onclick="streetviewmodule('.$sngquote.$congregationnumber.$sngquote.','.$sngquote.$territoryNumber.$sngquote.','.$sngquote.$street[0].$sngquote.','.$sngquote.$street[1].$sngquote.',2);" style="padding: 0px 0px 0px 0px;">'.$street[5].'</a></center>';
                           $this->codeinjector[] = '</td>';    
@@ -817,21 +826,9 @@ class Login{
             
             public function MapC($congregationnumber,$territory,$layername,$markername,$array)
             {
-                
-//              array(array('"Layer"=>"resident_layer_apt ","Marker"=>"marker_resident_apt ","bPhone"=>0,"Type"=>"DNC:HH:NTR"'),
-//                    array('"Layer"=>"resident_layer_home_apt ","Marker"=>"marker_resident_home_apt ","bPhone"=>0,"Type"=>"HH"'),     
-//                    array('"Layer"=>"resident_layer_nt_apt ","Marker"=>"marker_resident_nt_apt ","bPhone"=>0,"Type"=>"NTR"'),
-//                    array('"Layer"=>"phone_layer_apt ","Marker"=>"marker_phone_apt ","bPhone"=>1,"Type"=>"DNC:HH:NTR"'),
-//                    array('"Layer"=>"phone_layer_home_apt ","Marker"=>"marker_phone_home_apt ","bPhone"=>1,"Type"=>"HH"'),
-//                    array('"Layer"=>"phone_layer_nt_apt ","Marker"=>"marker_phone_nt_apt ","bPhone"=>1,"Type"=>"NTR"'),
-//                    array('"Layer"=>"dnc_layer_apt ","Marker"=>"marker_dnc_apt ","bPhone"=>-1,"Type"=>"DNC"'),
-                
-                
 
-//                $sql = "SELECT TerritoryNumber,Latitude,Longitude,FormattedAddress,Territory,Building FROM dbo.fn_MultiHousingTerritory(".$Territory.") ORDER BY Latitude,Longitude,FormattedAddress";
-                //$sql = "SELECT TerritoryNumber,Latitude,Longitude,FormattedAddress,Territory,Building FROM dbo.fn_MultiHousingTerritory(".$Territory.") ORDER BY Latitude,Longitude,FormattedAddress";
                 $sql="call multihousingterritory('$congregationnumber','$territory',0,1)";
-                //$stmt = sqlsrv_query($this->conn,$sql);
+
                 $stmt = mysqli_query($this->conn,$sql);
                
 //                if ( !$stmt )  
@@ -859,9 +856,13 @@ class Login{
                 $i17=0;		
                 $i18=0;		
                 $i19=0;	
-                $i20=0;						
+                $i20=0;		
+                $i21=0;	
+                $i22=0;	
+                $i23=0;	
+                $i24=0;					
                 $total=0;
-                $column = array(18);
+                $column = array(22);
                 $multihome= array(array());
                 $coordxy = array(3);
                 $index=0;
@@ -893,10 +894,11 @@ class Login{
 	                   $column[17] = $Territory->Building; 
                        $column[18] = $Territory->bTouched; 
                        $column[19] = $Territory->bLetter;					   
-                       $column[20] = $Territory->LetterType;	
+                       $column[20] = $Territory->LetterType;
+                       $column[21] = $Territory->iSubmit;					   
                       //AddressGUID,TerritoryNumber,Latitude,Longitude,FormattedAddress,Type,Residents,PhoneType,Language,InitialDate,Notes,ModifiedDate,bPhone,Apartment 
                        $address_array = explode(' ',$column[4]);
-                       //Marker 1
+                       //Bucket 1
 
                             if($array[0]["Type"]==$column[5] && (int)$array[0]["bPhone"]==(int)$column[12] && $column[18]=="0"){
                                $layername1=$array[0]["Layer"];
@@ -905,11 +907,11 @@ class Login{
                                $IconMouseover=$array[0]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i8+=1;
-                               $i=$i8;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i1+=1;
+                               $i=$i1;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 
-                       //Marker 2
+                       //Bucket 2
 
                             if($array[1]["Type"]==$column[5] && (int)$array[1]["bPhone"]==(int)$column[12] && $column[18]=="0"){
                                $layername1=$array[1]["Layer"];
@@ -918,25 +920,25 @@ class Login{
                                $IconMouseover=$array[1]["IconMouseover"];                               
                                $HavePhone=true;
                                $total+=1;
-                               $i9+=1;
-                               $i=$i9;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i2+=1;
+                               $i=$i2;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             }                             
-                       //Marker 3
+                       //Bucket 3
                        
-                           if($array[2]["Type"]==$column[5] && (int)$array[2]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                           if($array[2]["Type"]==$column[5] && (int)$array[2]["bPhone"]==(int)$column[12] && $column[18]=="1"  && (int)$column[21] < 2){
                                    $layername1=$array[2]["Layer"];
                                    $markername1=$array[2]["Marker"];
                                    $Icon=$array[2]["Icon"];
                                    $IconMouseover=$array[2]["IconMouseover"];
                                    $HavePhone=false;
                                    $total+=1;
-                                   $i1+=1;
-                                   $i=$i1;
-                                   $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';                                
+                                   $i3+=1;
+                                   $i=$i3;   
+                                   $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';								   
                            }
                            
-                       //Marker 4
+                       //Bucket 4
                                
                             if($array[3]["Type"]==$column[5] && (int)$array[3]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[3]["Layer"];
@@ -945,12 +947,12 @@ class Login{
                                $IconMouseover=$array[3]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i2+=1;
-                               $i=$i2;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i4+=1;
+                               $i=$i4;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             }
                             
-                       //Marker 5
+                       //Bucket 5
                                
                             if($array[4]["Type"]==$column[5] && (int)$array[4]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[4]["Layer"];
@@ -959,26 +961,25 @@ class Login{
                                $IconMouseover=$array[4]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i3+=1;
-                               $i=$i3;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i5+=1;
+                               $i=$i5;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             }   
                             
-                       //Marker 6
-                           if($array[5]["Type"]==$column[5] && (int)$array[5]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                       //Bucket 6
+                           if($array[5]["Type"]==$column[5] && (int)$array[5]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] < 2){
                                    $layername1=$array[5]["Layer"];
                                    $markername1=$array[5]["Marker"];
                                    $Icon=$array[5]["Icon"];
                                    $IconMouseover=$array[5]["IconMouseover"];                                   
                                    $HavePhone=true;
                                    $total+=1;
-                                   $i4+=1;
-                                   $i=$i4;
-                                   $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
-                                
+                                   $i6+=1;
+                                   $i=$i6; 
+                                  $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';								   
                            }
                            
-                       //Marker 7
+                       //Bucket 7
                                
                             if($array[6]["Type"]==$column[5] && (int)$array[6]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[6]["Layer"];
@@ -987,12 +988,12 @@ class Login{
                                $IconMouseover=$array[6]["IconMouseover"];                               
                                $HavePhone=true;
                                $total+=1;
-                               $i5+=1;
-                               $i=$i5;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i7+=1;
+                               $i=$i7;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             }                           
                                                       
-                       //Marker 8
+                       //Bucket 8
                                
                             if($array[7]["Type"]==$column[5] && (int)$array[7]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[7]["Layer"];
@@ -1001,12 +1002,12 @@ class Login{
                                $IconMouseover=$array[7]["IconMouseover"];                               
                                $HavePhone=true;
                                $total+=1;
-                               $i6+=1;
-                               $i=$i6;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i8+=1;
+                               $i=$i8;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 
                             
-                       //Marker 9
+                       //Bucket 9
                                
                             if($array[8]["Type"]==$column[5]){
                                $layername1=$array[8]["Layer"];
@@ -1015,12 +1016,12 @@ class Login{
                                $IconMouseover=$array[8]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i7+=1;
-                               $i=$i7;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i9+=1;
+                               $i=$i9;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             }  
-                            
-                       //Marker 10
+							
+                       //Bucket 10
                                
                             if($array[9]["Type"]==$column[5] && $array[9]["PhoneType"]==$column[7] && (int)$array[9]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[9]["Layer"];
@@ -1031,10 +1032,10 @@ class Login{
                                $total+=1;
                                $i10+=1;
                                $i=$i10;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
-                            }         
-                                                            
-                       //Marker 11
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
+                            }  
+
+                       //Bucket 11
                                
                             if($array[10]["Type"]==$column[5] && $array[10]["PhoneType"]==$column[7] && (int)$array[10]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[10]["Layer"];
@@ -1045,10 +1046,10 @@ class Login{
                                $total+=1;
                                $i11+=1;
                                $i=$i11;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 
 
-                       //Marker 12
+                       //Bucket 12
                                
                             if($array[11]["Type"]==$column[5] && $array[11]["PhoneType"]==$column[7] && (int)$array[11]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[11]["Layer"];
@@ -1059,10 +1060,10 @@ class Login{
                                $total+=1;
                                $i12+=1;
                                $i=$i12;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             }  	
 
-                       //Marker 13
+                       //Bucket 13
                                
                             if($array[12]["Type"]==$column[5] && $array[12]["PhoneType"]==$column[7] && (int)$array[12]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[12]["Layer"];
@@ -1073,10 +1074,10 @@ class Login{
                                $total+=1;
                                $i13+=1;
                                $i=$i13;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 							
                             
-                       //Marker 14
+                       //Bucket 14
                                
                             if($array[13]["Type"]==$column[5] && $array[13]["PhoneType"]==$column[7] && (int)$array[13]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[13]["Layer"];
@@ -1087,10 +1088,10 @@ class Login{
                                $total+=1;
                                $i14+=1;
                                $i=$i14;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 	
 
-                       //Marker 15
+                       //Bucket 15
                                
                             if($array[14]["Type"]==$column[5] && $array[14]["LetterType"]==$column[20] && (int)$array[14]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[14]["Layer"];
@@ -1101,10 +1102,10 @@ class Login{
                                $total+=1;
                                $i15+=1;
                                $i=$i15;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 							
        
-                       //Marker 16
+                       //Bucket 16
                                
                             if($array[15]["Type"]==$column[5] && $array[15]["LetterType"]==$column[20] && (int)$array[15]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[15]["Layer"];
@@ -1115,10 +1116,10 @@ class Login{
                                $total+=1;
                                $i16+=1;
                                $i=$i16;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
-                            }     
-
-                       //Marker 17
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
+                            } 
+							
+                       //Bucket 17
                                
                             if($array[16]["Type"]==$column[5] && $array[16]["LetterType"]==$column[20] && (int)$array[16]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[16]["Layer"];
@@ -1129,10 +1130,10 @@ class Login{
                                $total+=1;
                                $i17+=1;
                                $i=$i17;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 
 
-                       //Marker 18
+                       //Bucket 18
                                
                             if($array[17]["Type"]==$column[5] && $array[17]["LetterType"]==$column[20] && (int)$array[17]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[17]["Layer"];
@@ -1143,10 +1144,10 @@ class Login{
                                $total+=1;
                                $i18+=1;
                                $i=$i18;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 	
 
-                       //Marker 19
+                       //Bucket 19
                                
                             if($array[18]["Type"]==$column[5] && (int)$array[18]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[18]["Layer"];
@@ -1157,10 +1158,10 @@ class Login{
                                $total+=1;
                                $i19+=1;
                                $i=$i19;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
                             } 	
 
-                       //Marker 20
+                       //Bucket 20
                                
                             if($array[19]["Type"]==$column[5] && (int)$array[19]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[19]["Layer"];
@@ -1171,9 +1172,66 @@ class Login{
                                $total+=1;
                                $i20+=1;
                                $i=$i20;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';							   
+                            } 		
+
+					  //Bucket 21
+                               
+                            if($array[20]["Type"]==$column[5] && (int)$array[20]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 1 && (int)$column[21] < 3 ){
+                               $layername1=$array[20]["Layer"];
+                               $markername1=$array[20]["Marker"];
+                               $Icon=$array[20]["Icon"];
+                               $IconMouseover=$array[20]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i21+=1;
+                               $i=$i21;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';								   
+                            } 
+							
+					  //Bucket 22
+                               
+                            if($array[21]["Type"]==$column[5] && (int)$array[21]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 2){
+                               $layername1=$array[21]["Layer"];
+                               $markername1=$array[21]["Marker"];
+                               $Icon=$array[21]["Icon"];
+                               $IconMouseover=$array[21]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i22+=1;
+                               $i=$i22;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';								   
+                            } 	
+
+					  //Bucket 23
+                               
+                            if($array[22]["Type"]==$column[5] && (int)$array[22]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 1 && (int)$column[21] < 3 ){
+                               $layername1=$array[22]["Layer"];
+                               $markername1=$array[22]["Marker"];
+                               $Icon=$array[22]["Icon"];
+                               $IconMouseover=$array[22]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i23+=1;
+                               $i=$i23;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';								   
+                            } 
+							
+					  //Bucket 24
+                               
+                            if($array[23]["Type"]==$column[5] && (int)$array[23]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 2){
+                               $layername1=$array[23]["Layer"];
+                               $markername1=$array[23]["Marker"];
+                               $Icon=$array[23]["Icon"];
+                               $IconMouseover=$array[23]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i24+=1;
+                               $i=$i24;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>House:'.$address_array[0].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';								   
                             } 								
                         
+						
                         if ($HavePhone)
                             {
                                  $this->Phone($column,$layername1,$markername1,$i);                       
@@ -1213,19 +1271,7 @@ class Login{
             
             public function MapB($congregationnumber,$territory,$layername,$markername,$array)
             {
-                
-//              array(array('"Layer"=>"resident_layer_apt ","Marker"=>"marker_resident_apt ","bPhone"=>0,"Type"=>"DNC:HH:NTR"'),
-//                    array('"Layer"=>"resident_layer_home_apt ","Marker"=>"marker_resident_home_apt ","bPhone"=>0,"Type"=>"HH"'),     
-//                    array('"Layer"=>"resident_layer_nt_apt ","Marker"=>"marker_resident_nt_apt ","bPhone"=>0,"Type"=>"NTR"'),
-//                    array('"Layer"=>"phone_layer_apt ","Marker"=>"marker_phone_apt ","bPhone"=>1,"Type"=>"DNC:HH:NTR"'),
-//                    array('"Layer"=>"phone_layer_home_apt ","Marker"=>"marker_phone_home_apt ","bPhone"=>1,"Type"=>"HH"'),
-//                    array('"Layer"=>"phone_layer_nt_apt ","Marker"=>"marker_phone_nt_apt ","bPhone"=>1,"Type"=>"NTR"'),
-//                    array('"Layer"=>"dnc_layer_apt ","Marker"=>"marker_dnc_apt ","bPhone"=>-1,"Type"=>"DNC"'),
-                
-                
-
-//                $sql = "SELECT TerritoryNumber,Latitude,Longitude,FormattedAddress,Territory,Building FROM dbo.fn_MultiHousingTerritory(".$Territory.") ORDER BY Latitude,Longitude,FormattedAddress";
-                //$sql = "SELECT TerritoryNumber,Latitude,Longitude,FormattedAddress,Territory,Building FROM dbo.fn_MultiHousingTerritory(".$Territory.") ORDER BY Latitude,Longitude,FormattedAddress";
+ 
                 $sql="call multihousingterritory('$congregationnumber','$territory',1,0)";
                 //$stmt = sqlsrv_query($this->conn,$sql);
                 $stmt = mysqli_query($this->conn,$sql);
@@ -1255,9 +1301,13 @@ class Login{
 				$i17=0;	
 				$i18=0;		
 				$i19=0;	
-				$i20=0;					
+				$i20=0;	
+				$i21=0;	
+				$i22=0;		
+				$i23=0;	
+				$i24=0;					
                 $total=0;
-                $column = array(18);
+                $column = array(22);
                 $multihome= array(array());
                 $coordxy = array(3);
                 $index=0;
@@ -1289,10 +1339,12 @@ class Login{
 	                   $column[17] = $Territory->Building;     
                        $column[18] = $Territory->bTouched; 
                        $column[19] = $Territory->bLetter;					   
-                       $column[20] = $Territory->LetterType;					   
-                      //AddressGUID,TerritoryNumber,Latitude,Longitude,FormattedAddress,Type,Residents,PhoneType,Language,InitialDate,Notes,ModifiedDate,bPhone,Apartment 
-                       
-                       //Marker 1
+                       $column[20] = $Territory->LetterType;	
+                       $column[21] = $Territory->iSubmit;					   
+
+
+                           
+                       //Bucket 1
 
                             if($array[0]["Type"]==$column[5] && (int)$array[0]["bPhone"]==(int)$column[12] && $column[18]=="0"){
                                $layername1=$array[0]["Layer"];
@@ -1301,11 +1353,11 @@ class Login{
                                $IconMouseover=$array[0]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i8+=1;
-                               $i=$i8;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i1+=1;
+                               $i=$i1;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 
-                       //Marker 2
+                       //Bucket 2
 
                             if($array[1]["Type"]==$column[5] && (int)$array[1]["bPhone"]==(int)$column[12] && $column[18]=="0"){
                                $layername1=$array[1]["Layer"];
@@ -1314,25 +1366,25 @@ class Login{
                                $IconMouseover=$array[1]["IconMouseover"];                               
                                $HavePhone=true;
                                $total+=1;
-                               $i9+=1;
-                               $i=$i9;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i2+=1;
+                               $i=$i2;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             }                             
-                       //Marker 3
+                       //Bucket 3
                        
-                           if($array[2]["Type"]==$column[5] && (int)$array[2]["bPhone"]==(int)$column[12] && $column[18]=="1"){
-                                   $layername1=$array[2]["Layer"];
-                                   $markername1=$array[2]["Marker"];
-                                   $Icon=$array[2]["Icon"];
-                                   $IconMouseover=$array[2]["IconMouseover"];
-                                   $HavePhone=false;
-                                   $total+=1;
-                                   $i1+=1;
-                                   $i=$i1;
-                                   $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';                                
+                           if($array[2]["Type"]==$column[5] && (int)$array[2]["bPhone"]==(int)$column[12] && $column[18]=="1"  && (int)$column[21] < 2){
+                              $layername1=$array[2]["Layer"];
+                              $markername1=$array[2]["Marker"];
+                              $Icon=$array[2]["Icon"];
+                              $IconMouseover=$array[2]["IconMouseover"];
+                              $HavePhone=false;
+                              $total+=1;
+                              $i3+=1;
+                              $i=$i3;  
+                              $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 								   
                            }
                            
-                       //Marker 4
+                       //Bucket 4
                                
                             if($array[3]["Type"]==$column[5] && (int)$array[3]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[3]["Layer"];
@@ -1341,12 +1393,12 @@ class Login{
                                $IconMouseover=$array[3]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i2+=1;
-                               $i=$i2;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i4+=1;
+                               $i=$i4;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             }
                             
-                       //Marker 5
+                       //Bucket 5
                                
                             if($array[4]["Type"]==$column[5] && (int)$array[4]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[4]["Layer"];
@@ -1355,26 +1407,25 @@ class Login{
                                $IconMouseover=$array[4]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i3+=1;
-                               $i=$i3;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i5+=1;
+                               $i=$i5;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             }   
                             
-                       //Marker 6
-                           if($array[5]["Type"]==$column[5] && (int)$array[5]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                       //Bucket 6
+                           if($array[5]["Type"]==$column[5] && (int)$array[5]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] < 2){
                                    $layername1=$array[5]["Layer"];
                                    $markername1=$array[5]["Marker"];
                                    $Icon=$array[5]["Icon"];
                                    $IconMouseover=$array[5]["IconMouseover"];                                   
                                    $HavePhone=true;
                                    $total+=1;
-                                   $i4+=1;
-                                   $i=$i4;
-                                   $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
-                                
+                                   $i6+=1;
+                                   $i=$i6;  
+                                   $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 								   
                            }
                            
-                       //Marker 7
+                       //Bucket 7
                                
                             if($array[6]["Type"]==$column[5] && (int)$array[6]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[6]["Layer"];
@@ -1383,12 +1434,12 @@ class Login{
                                $IconMouseover=$array[6]["IconMouseover"];                               
                                $HavePhone=true;
                                $total+=1;
-                               $i5+=1;
-                               $i=$i5;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i7+=1;
+                               $i=$i7;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             }                           
                                                       
-                       //Marker 8
+                       //Bucket 8
                                
                             if($array[7]["Type"]==$column[5] && (int)$array[7]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[7]["Layer"];
@@ -1397,12 +1448,12 @@ class Login{
                                $IconMouseover=$array[7]["IconMouseover"];                               
                                $HavePhone=true;
                                $total+=1;
-                               $i6+=1;
-                               $i=$i6;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i8+=1;
+                               $i=$i8;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 
                             
-                       //Marker 9
+                       //Bucket 9
                                
                             if($array[8]["Type"]==$column[5]){
                                $layername1=$array[8]["Layer"];
@@ -1411,12 +1462,12 @@ class Login{
                                $IconMouseover=$array[8]["IconMouseover"];                               
                                $HavePhone=false;
                                $total+=1;
-                               $i7+=1;
-                               $i=$i7;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $i9+=1;
+                               $i=$i9;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             }  
 							
-                       //Marker 10
+                       //Bucket 10
                                
                             if($array[9]["Type"]==$column[5] && $array[9]["PhoneType"]==$column[7] && (int)$array[9]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[9]["Layer"];
@@ -1427,10 +1478,10 @@ class Login{
                                $total+=1;
                                $i10+=1;
                                $i=$i10;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             }  
 
-                       //Marker 11
+                       //Bucket 11
                                
                             if($array[10]["Type"]==$column[5] && $array[10]["PhoneType"]==$column[7] && (int)$array[10]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[10]["Layer"];
@@ -1441,10 +1492,10 @@ class Login{
                                $total+=1;
                                $i11+=1;
                                $i=$i11;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 
 
-                       //Marker 12
+                       //Bucket 12
                                
                             if($array[11]["Type"]==$column[5] && $array[11]["PhoneType"]==$column[7] && (int)$array[11]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[11]["Layer"];
@@ -1455,10 +1506,10 @@ class Login{
                                $total+=1;
                                $i12+=1;
                                $i=$i12;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             }  	
 
-                       //Marker 13
+                       //Bucket 13
                                
                             if($array[12]["Type"]==$column[5] && $array[12]["PhoneType"]==$column[7] && (int)$array[12]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[12]["Layer"];
@@ -1469,10 +1520,10 @@ class Login{
                                $total+=1;
                                $i13+=1;
                                $i=$i13;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 							
                             
-                       //Marker 14
+                       //Bucket 14
                                
                             if($array[13]["Type"]==$column[5] && $array[13]["PhoneType"]==$column[7] && (int)$array[13]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[13]["Layer"];
@@ -1483,10 +1534,10 @@ class Login{
                                $total+=1;
                                $i14+=1;
                                $i=$i14;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 	
 
-                       //Marker 15
+                       //Bucket 15
                                
                             if($array[14]["Type"]==$column[5] && $array[14]["LetterType"]==$column[20] && (int)$array[14]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[14]["Layer"];
@@ -1497,10 +1548,10 @@ class Login{
                                $total+=1;
                                $i15+=1;
                                $i=$i15;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 							
        
-                       //Marker 16
+                       //Bucket 16
                                
                             if($array[15]["Type"]==$column[5] && $array[15]["LetterType"]==$column[20] && (int)$array[15]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[15]["Layer"];
@@ -1511,10 +1562,10 @@ class Login{
                                $total+=1;
                                $i16+=1;
                                $i=$i16;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 
 							
-                       //Marker 17
+                       //Bucket 17
                                
                             if($array[16]["Type"]==$column[5] && $array[16]["LetterType"]==$column[20] && (int)$array[16]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[16]["Layer"];
@@ -1525,10 +1576,10 @@ class Login{
                                $total+=1;
                                $i17+=1;
                                $i=$i17;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 
 
-                       //Marker 18
+                       //Bucket 18
                                
                             if($array[17]["Type"]==$column[5] && $array[17]["LetterType"]==$column[20] && (int)$array[17]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[17]["Layer"];
@@ -1539,10 +1590,10 @@ class Login{
                                $total+=1;
                                $i18+=1;
                                $i=$i18;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 	
 
-                       //Marker 19
+                       //Bucket 19
                                
                             if($array[18]["Type"]==$column[5] && (int)$array[18]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[18]["Layer"];
@@ -1553,10 +1604,10 @@ class Login{
                                $total+=1;
                                $i19+=1;
                                $i=$i19;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
                             } 	
 
-                       //Marker 20
+                       //Bucket 20
                                
                             if($array[19]["Type"]==$column[5] && (int)$array[19]["bPhone"]==(int)$column[12] && $column[18]=="1"){
                                $layername1=$array[19]["Layer"];
@@ -1567,10 +1618,66 @@ class Login{
                                $total+=1;
                                $i20+=1;
                                $i=$i20;
-                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +';
-                            } 							
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
+                            } 
+
+					  //Bucket 21
+                               
+                            if($array[20]["Type"]==$column[5] && (int)$array[20]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 1 && (int)$column[21] < 3 ){
+                               $layername1=$array[20]["Layer"];
+                               $markername1=$array[20]["Marker"];
+                               $Icon=$array[20]["Icon"];
+                               $IconMouseover=$array[20]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i21+=1;
+                               $i=$i21;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
+                            } 
+							
+					  //Bucket 22
+                               
+                            if($array[21]["Type"]==$column[5] && (int)$array[21]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 2){
+                               $layername1=$array[21]["Layer"];
+                               $markername1=$array[21]["Marker"];
+                               $Icon=$array[21]["Icon"];
+                               $IconMouseover=$array[21]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i22+=1;
+                               $i=$i22;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
+                            } 	
+
+					  //Bucket 23
+                               
+                            if($array[22]["Type"]==$column[5] && (int)$array[22]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 1 && (int)$column[21] < 3 ){
+                               $layername1=$array[22]["Layer"];
+                               $markername1=$array[22]["Marker"];
+                               $Icon=$array[22]["Icon"];
+                               $IconMouseover=$array[22]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i23+=1;
+                               $i=$i23;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
+                            } 
+							
+					  //Bucket 24
+                               
+                            if($array[23]["Type"]==$column[5] && (int)$array[23]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 2){
+                               $layername1=$array[23]["Layer"];
+                               $markername1=$array[23]["Marker"];
+                               $Icon=$array[23]["Icon"];
+                               $IconMouseover=$array[23]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i24+=1;
+                               $i=$i24;
+                               $this->codeinjector[] = $sngquote.'<tr><td><p><b>Unit:'.$column[13].'</b></p><img id="image'.$markername1.$i.'" style = "cursor:pointer" onclick="openInfowindow('.$escapesngquote.$markername1.$escapesngquote.','.$i.')" src="'.$Icon.'" onmouseover="'.$IconMouseover.'"/></td></tr>'.$sngquote.' +'; 							   
+                            } 								
                             
-                        
+                 
                         if ($HavePhone)
                             {
                                  $this->Phone($column,$layername1,$markername1,$i);                       
@@ -1607,60 +1714,374 @@ class Login{
                 $this->conn->next_result(); 
             }
             
-     
-            public function MapA($Where,$layername,$markername,$HavePhone)
-            {
-//                $sql = "SELECT AddressGUID,TerritoryNumber,Latitude,Longitude,FormattedAddress,Type,Resident,PhoneType,Language,InitialDate,Notes,ModifiedDate,bPhone,Apartment FROM dbo.Territory WHERE ".$Where;
-                $sql = "SELECT AddressGUID,"
-                        . "TerritoryNumber,"
-                        . "Latitude,"
-                        . "Longitude,"
-                        . "FormattedAddress,"
-                        . "Type,"
-                        . "Resident,"
-                        . "PhoneType,"
-                        . "Language,"
-                        . "InitialDate,"
-                        . "Notes,"
-                        . "DateModified,"
-                        . "bPhone,"
-                        . "Unit,"
-                        . "bMulti," 
-                        . "bUnit,"    
-                        . "Phone,"                                                                               
-                        . "Building,"
-                        . "bTouched,"
-                        . "bLetter,"
-                        . "LetterType"
-                        . " FROM ministryapp.territory WHERE ".$Where;
-                
-                                 
-//                $stmt = sqlsrv_query($this->conn,$sql);
+			
+            public function MapA($congregationnumber,$territory,$array)     
+			{
+                $sql="call territory('$congregationnumber','$territory')";
+                //$stmt = sqlsrv_query($this->conn,$sql);
                 $stmt = mysqli_query($this->conn,$sql);
-
+               
 //                if ( !$stmt )  
 //                {  
 //                    echo "Error in statement execution.\n";  
 //                    die( print_r( sqlsrv_errors(), true));  
 //                }  
-
-                $i=0;
+                $i;
+                $i1=0;
+                $i2=0;
+                $i3=0;
+                $i4=0;
+                $i5=0;
+                $i6=0;
+                $i7=0;
+                $i8=0;
+                $i9=0;
+                $i10=0;	
+                $i11=0;	
+                $i12=0;	
+                $i13=0;	
+                $i14=0;	
+                $i15=0;		
+				$i16=0;	
+				$i17=0;	
+				$i18=0;		
+				$i19=0;	
+				$i20=0;	
+				$i21=0;	
+				$i22=0;	
+                $i23=0;
+                $i24=0;				
+                $total=0;
+                $coordxy = array(3);
+                $index=0;
+                $expand=0;
+                $sngquote = "'" ;
+                $escapesngquote = "\'" ;
 //                while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_NUMERIC)) 
-                while( $row = mysqli_fetch_array( $stmt, MYSQLI_NUM))
-                {  
-                   $i=$i+1;
-                   if ($HavePhone)
-                       {
-                            $this->Phone($row,$layername,$markername,$i);                       
-                       }
-                   else
-                       {
-                            $this->Home($row,$layername,$markername,$i);                       
-                       }
+                while( $column = mysqli_fetch_array( $stmt, MYSQLI_NUM))
+                {                                      
+ 
                        
+                       //Bucket 1
 
-                }           
+                            if($array[0]["Type"]==$column[5] && (int)$array[0]["bPhone"]==(int)$column[12] && $column[18]=="0"){
+                               $layername1=$array[0]["Layer"];
+                               $markername1=$array[0]["Marker"];
+                               $Icon=$array[0]["Icon"];
+                               $IconMouseover=$array[0]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i1+=1;
+                               $i=$i1;
+                            } 
+                       //Bucket 2
 
+                            if($array[1]["Type"]==$column[5] && (int)$array[1]["bPhone"]==(int)$column[12] && $column[18]=="0"){
+                               $layername1=$array[1]["Layer"];
+                               $markername1=$array[1]["Marker"];
+                               $Icon=$array[1]["Icon"];
+                               $IconMouseover=$array[1]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i2+=1;
+                               $i=$i2;
+                            }                             
+                       //Bucket 3
+                       
+                           if($array[2]["Type"]==$column[5] && (int)$array[2]["bPhone"]==(int)$column[12] && $column[18]=="1"  && (int)$column[21] < 2){
+                                   $layername1=$array[2]["Layer"];
+                                   $markername1=$array[2]["Marker"];
+                                   $Icon=$array[2]["Icon"];
+                                   $IconMouseover=$array[2]["IconMouseover"];
+                                   $HavePhone=false;
+                                   $total+=1;
+                                   $i3+=1;
+                                   $i=$i3;                               
+                           }
+                           
+                       //Bucket 4
+                               
+                            if($array[3]["Type"]==$column[5] && (int)$array[3]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[3]["Layer"];
+                               $markername1=$array[3]["Marker"];
+                               $Icon=$array[3]["Icon"];
+                               $IconMouseover=$array[3]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i4+=1;
+                               $i=$i4;
+                            }
+                            
+                       //Bucket 5
+                               
+                            if($array[4]["Type"]==$column[5] && (int)$array[4]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[4]["Layer"];
+                               $markername1=$array[4]["Marker"];
+                               $Icon=$array[4]["Icon"];
+                               $IconMouseover=$array[4]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i5+=1;
+                               $i=$i5;
+                            }   
+                            
+                       //Bucket 6
+                           if($array[5]["Type"]==$column[5] && (int)$array[5]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] < 2){
+                                   $layername1=$array[5]["Layer"];
+                                   $markername1=$array[5]["Marker"];
+                                   $Icon=$array[5]["Icon"];
+                                   $IconMouseover=$array[5]["IconMouseover"];                                   
+                                   $HavePhone=true;
+                                   $total+=1;
+                                   $i6+=1;
+                                   $i=$i6;                                
+                           }
+                           
+                       //Bucket 7
+                               
+                            if($array[6]["Type"]==$column[5] && (int)$array[6]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[6]["Layer"];
+                               $markername1=$array[6]["Marker"];
+                               $Icon=$array[6]["Icon"];
+                               $IconMouseover=$array[6]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i7+=1;
+                               $i=$i7;
+                            }                           
+                                                      
+                       //Bucket 8
+                               
+                            if($array[7]["Type"]==$column[5] && (int)$array[7]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[7]["Layer"];
+                               $markername1=$array[7]["Marker"];
+                               $Icon=$array[7]["Icon"];
+                               $IconMouseover=$array[7]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i8+=1;
+                               $i=$i8;
+                            } 
+                            
+                       //Bucket 9
+                               
+                            if($array[8]["Type"]==$column[5]){
+                               $layername1=$array[8]["Layer"];
+                               $markername1=$array[8]["Marker"];
+                               $Icon=$array[8]["Icon"];
+                               $IconMouseover=$array[8]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i9+=1;
+                               $i=$i9;
+                            }  
+							
+                       //Bucket 10
+                               
+                            if($array[9]["Type"]==$column[5] && $array[9]["PhoneType"]==$column[7] && (int)$array[9]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[9]["Layer"];
+                               $markername1=$array[9]["Marker"];
+                               $Icon=$array[9]["Icon"];
+                               $IconMouseover=$array[9]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i10+=1;
+                               $i=$i10;
+                            }  
+
+                       //Bucket 11
+                               
+                            if($array[10]["Type"]==$column[5] && $array[10]["PhoneType"]==$column[7] && (int)$array[10]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[10]["Layer"];
+                               $markername1=$array[10]["Marker"];
+                               $Icon=$array[10]["Icon"];
+                               $IconMouseover=$array[10]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i11+=1;
+                               $i=$i11;
+                            } 
+
+                       //Bucket 12
+                               
+                            if($array[11]["Type"]==$column[5] && $array[11]["PhoneType"]==$column[7] && (int)$array[11]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[11]["Layer"];
+                               $markername1=$array[11]["Marker"];
+                               $Icon=$array[11]["Icon"];
+                               $IconMouseover=$array[11]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i12+=1;
+                               $i=$i12;
+                            }  	
+
+                       //Bucket 13
+                               
+                            if($array[12]["Type"]==$column[5] && $array[12]["PhoneType"]==$column[7] && (int)$array[12]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[12]["Layer"];
+                               $markername1=$array[12]["Marker"];
+                               $Icon=$array[12]["Icon"];
+                               $IconMouseover=$array[12]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i13+=1;
+                               $i=$i13;
+                            } 							
+                            
+                       //Bucket 14
+                               
+                            if($array[13]["Type"]==$column[5] && $array[13]["PhoneType"]==$column[7] && (int)$array[13]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[13]["Layer"];
+                               $markername1=$array[13]["Marker"];
+                               $Icon=$array[13]["Icon"];
+                               $IconMouseover=$array[13]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i14+=1;
+                               $i=$i14;
+                            } 	
+
+                       //Bucket 15
+                               
+                            if($array[14]["Type"]==$column[5] && $array[14]["LetterType"]==$column[20] && (int)$array[14]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[14]["Layer"];
+                               $markername1=$array[14]["Marker"];
+                               $Icon=$array[14]["Icon"];
+                               $IconMouseover=$array[14]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i15+=1;
+                               $i=$i15;
+                            } 							
+       
+                       //Bucket 16
+                               
+                            if($array[15]["Type"]==$column[5] && $array[15]["LetterType"]==$column[20] && (int)$array[15]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[15]["Layer"];
+                               $markername1=$array[15]["Marker"];
+                               $Icon=$array[15]["Icon"];
+                               $IconMouseover=$array[15]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i16+=1;
+                               $i=$i16;
+                            } 
+							
+                       //Bucket 17
+                               
+                            if($array[16]["Type"]==$column[5] && $array[16]["LetterType"]==$column[20] && (int)$array[16]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[16]["Layer"];
+                               $markername1=$array[16]["Marker"];
+                               $Icon=$array[16]["Icon"];
+                               $IconMouseover=$array[16]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i17+=1;
+                               $i=$i17;
+                            } 
+
+                       //Bucket 18
+                               
+                            if($array[17]["Type"]==$column[5] && $array[17]["LetterType"]==$column[20] && (int)$array[17]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[17]["Layer"];
+                               $markername1=$array[17]["Marker"];
+                               $Icon=$array[17]["Icon"];
+                               $IconMouseover=$array[17]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i18+=1;
+                               $i=$i18;
+                            } 	
+
+                       //Bucket 19
+                               
+                            if($array[18]["Type"]==$column[5] && (int)$array[18]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[18]["Layer"];
+                               $markername1=$array[18]["Marker"];
+                               $Icon=$array[18]["Icon"];
+                               $IconMouseover=$array[18]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i19+=1;
+                               $i=$i19;
+                            } 	
+
+                       //Bucket 20
+                               
+                            if($array[19]["Type"]==$column[5] && (int)$array[19]["bPhone"]==(int)$column[12] && $column[18]=="1"){
+                               $layername1=$array[19]["Layer"];
+                               $markername1=$array[19]["Marker"];
+                               $Icon=$array[19]["Icon"];
+                               $IconMouseover=$array[19]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i20+=1;
+                               $i=$i20;
+                            } 
+
+					  //Bucket 21
+                               
+                            if($array[20]["Type"]==$column[5] && (int)$array[20]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 1 && (int)$column[21] < 3 ){
+                               $layername1=$array[20]["Layer"];
+                               $markername1=$array[20]["Marker"];
+                               $Icon=$array[20]["Icon"];
+                               $IconMouseover=$array[20]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i21+=1;
+                               $i=$i21;
+                            } 
+							
+					  //Bucket 22
+                               
+                            if($array[21]["Type"]==$column[5] && (int)$array[21]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 2){
+                               $layername1=$array[21]["Layer"];
+                               $markername1=$array[21]["Marker"];
+                               $Icon=$array[21]["Icon"];
+                               $IconMouseover=$array[21]["IconMouseover"];                               
+                               $HavePhone=false;
+                               $total+=1;
+                               $i22+=1;
+                               $i=$i22;
+                            } 							
+                            
+					  //Bucket 23
+                               
+                            if($array[22]["Type"]==$column[5] && (int)$array[22]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 1 && (int)$column[21] < 3 ){
+                               $layername1=$array[22]["Layer"];
+                               $markername1=$array[22]["Marker"];
+                               $Icon=$array[22]["Icon"];
+                               $IconMouseover=$array[22]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i23+=1;
+                               $i=$i23;							   
+                            } 
+							
+					  //Bucket 24
+                               
+                            if($array[23]["Type"]==$column[5] && (int)$array[23]["bPhone"]==(int)$column[12] && $column[18]=="1" && (int)$column[21] > 2){
+                               $layername1=$array[23]["Layer"];
+                               $markername1=$array[23]["Marker"];
+                               $Icon=$array[23]["Icon"];
+                               $IconMouseover=$array[23]["IconMouseover"];                               
+                               $HavePhone=true;
+                               $total+=1;
+                               $i24+=1;
+                               $i=$i24;							   
+                            } 								
+                        
+                        if ($HavePhone)
+                            {
+                                 $this->Phone($column,$layername1,$markername1,$i);                       
+                            }
+                        else
+                            {
+                                 $this->Home($column,$layername1,$markername1,$i);                       
+                            }
+                }    //end while				
+                mysqli_stmt_free_result($stmt);
+                $this->conn->next_result(); 
             }
          
             private function Notes($notes_)
@@ -1868,7 +2289,8 @@ class Login{
                if($column[13]!="") {
                    echo $sngquote.'<h3><p><b>Unit: '.$column[13].'</b></p></h3>'.$sngquote.' +',PHP_EOL;  
                }
-               echo $sngquote.'<tr><td><input type="hidden" id="InitDate" value="'.$column[9].'"/></td> </tr>'.$sngquote.' +',PHP_EOL;                  
+               echo $sngquote.'<tr><td><input type="hidden" id="InitDate" value="'.$column[9].'"/></td> </tr>'.$sngquote.' +',PHP_EOL;  
+               echo $sngquote.'<tr><td><input type="hidden" id="iSubmit" value="'.$column[21].'"/></td> </tr>'.$sngquote.' +',PHP_EOL; 			   
                echo $sngquote.'<table>'.$sngquote.' +',PHP_EOL;  
                echo $sngquote.'<tr><td><input type="hidden" id="AddressGUID" value="'.$column[0].'"/></td> </tr>'.$sngquote.' +',PHP_EOL;   
                echo $sngquote.'<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>'.$sngquote.' +',PHP_EOL;  
@@ -2041,7 +2463,8 @@ class Login{
             if($column[13]!="") {
                 echo $sngquote.'<h3><p><b>Unit: '.$column[13].'</b></p></h3>'.$sngquote.' +',PHP_EOL;  
             }           
-           echo $sngquote.'<tr><td><input type="hidden" id="InitDate" value="'.$column[9].'"/></td> </tr>'.$sngquote.' +',PHP_EOL;    
+           echo $sngquote.'<tr><td><input type="hidden" id="InitDate" value="'.$column[9].'"/></td> </tr>'.$sngquote.' +',PHP_EOL; 
+           echo $sngquote.'<tr><td><input type="hidden" id="iSubmit" value="'.$column[21].'"/></td> </tr>'.$sngquote.' +',PHP_EOL; 		   
            echo $sngquote.'<table>'.$sngquote.' +',PHP_EOL;    
            echo $sngquote.'<tr><td><input type="hidden" id="AddressGUID" value="'.$column[0].'"/></td> </tr>'.$sngquote.' +',PHP_EOL;   
            echo $sngquote.'<tr><td><input type="text" value="Language:" style="border:none;" readonly></td></tr>'.$sngquote.' +',PHP_EOL;                 
